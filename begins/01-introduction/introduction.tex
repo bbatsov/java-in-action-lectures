@@ -1,0 +1,171 @@
+% $Header: /home/vedranm/bitbucket/beamer/solutions/generic-talks/generic-ornate-15min-45min.en.tex,v 90e850259b8b 2007/01/28 20:48:30 tantau $
+
+\documentclass{beamer}
+
+% This file is a solution template for:
+
+% - Giving a talk on some subject.
+% - The talk is between 15min and 45min long.
+% - Style is ornate.
+
+% Copyright 2010 Drow Ltd.
+% 
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+% 
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+% \usebackgroundtemplate{
+%   \includegraphics[width=\paperwidth,
+%   height=\paperheight]{images/mercatis_background}
+% }
+
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage[english,bulgarian]{babel}
+\usepackage[T2A]{fontenc}
+
+\title[Въведение в Java] % (optional, use only with long paper titles)
+{Въведение в Java}
+
+\subtitle
+{Преглед на историята и възможностите на Java. Представяне на
+  популярни среди за разработка и просто приложения.} % (optional)
+
+\author[Автор]{инж. Божидар ~Бацов}
+
+\institute[Drow Ltd.]{Drow Ltd.}
+
+\date[Java Begins]{26.10.2010 / Въведение в Java}
+
+\subject{Talks}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+%\pgfdeclareimage[height=0.5cm]{mercatis-logo}{images/mercatis_logo}
+%\logo{\pgfuseimage{mercatis-logo}}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+% \beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+% 15 and 30 frames, all told.
+
+\section{Общи приказки}
+
+\subsection[Кои сме ние?]{Кои сме ние?}
+
+\begin{frame}{Екип}
+  \begin{itemize}
+  \item
+    инж. Божидар Бацов - Технически директор на Drow Ltd.
+  \item
+    Владимир Василев - Благ диктатор на init Lab
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Комуникация}
+  \begin{itemize}
+  \item Пощенски списък - http://groups.google.com/group/java-in-action
+  \item Ел. поща
+  \item Jabber/GTalk
+  \item Twitter
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Формат на занятията}
+  \begin{itemize}
+  \item Лекции по 45 мин
+  \item Почивки по 15 мин
+  \item Задачки закачки за домашна работа
+  \item Допълнителни практически занятия
+  \item Работа по учебен проект
+  \end{itemize}
+\end{frame}
+
+\subsection{Second Subsection}
+
+\begin{frame}{Make Titles Informative.}
+\end{frame}
+
+\begin{frame}{Make Titles Informative.}
+\end{frame}
+
+\section*{Summary}
+
+\begin{frame}{Summary}
+
+  % Keep the summary *very short*.
+  \begin{itemize}
+  \item
+    The \alert{first main message} of your talk in one or two lines.
+  \item
+    The \alert{second main message} of your talk in one or two lines.
+  \item
+    Perhaps a \alert{third message}, but not more than that.
+  \end{itemize}
+  
+  % The following outlook is optional.
+  \vskip0pt plus.5fill
+  \begin{itemize}
+  \item
+    Outlook
+    \begin{itemize}
+    \item
+      Something you haven't solved.
+    \item
+      Something else you haven't solved.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+
+
