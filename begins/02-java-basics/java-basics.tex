@@ -1,0 +1,447 @@
+\documentclass{beamer}
+
+% Copyright 2010 Drow Ltd.
+% 
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+% 
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+% \usebackgroundtemplate{
+% \includegraphics[width=\paperwidth,
+% height=\paperheight]{images/mercatis_background}
+% }
+
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage[english,bulgarian]{babel}
+\usepackage[T2A]{fontenc}
+
+\usepackage{listings}
+\lstset{language=Java,captionpos=b,tabsize=2,frame=lines,
+keywordstyle=\color{blue},commentstyle=\color{gray},stringstyle=\color{green},
+numbers=left,numberstyle=\tiny,numbersep=5pt,breaklines=true,
+showstringspaces=false,basicstyle=\footnotesize,emph={label}}
+
+\title[Основи на Java] % (optional, use only with long paper titles)
+{Основи на Java}
+
+\subtitle
+{Структура на Java програма. Поток на изпълнение. Управляващи
+  конструкции. Примитивни типове данни и масиви.} % (optional)
+
+\author[инж. Божидар Бацов]{инж. Божидар ~Бацов}
+
+\institute[Drow Ltd.]{Drow Ltd.}
+
+\date[Java Begins]{26.10.2010 / Въведение в средата за програмиране Java}
+
+\subject{Talks}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+% \pgfdeclareimage[height=0.5cm]{mercatis-logo}{images/mercatis_logo}
+% \logo{\pgfuseimage{mercatis-logo}}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Съдържание}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+% \beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+% \lstset{language=Java}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Съдържание}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+% 15 and 30 frames, all told.
+
+\section{Структура и поток на изпълнение на Java програма}
+
+\subsection{Структура на Java програма}
+
+\begin{frame}{Градивни блокове}
+  \begin{itemize}
+  \item твърдения(statements)
+  \item методи
+  \item полета
+  \item класове
+  \item пакети
+  \item коментари
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Основни положения}  
+  \begin{itemize}
+    \item Целият код на програмата живее в класове
+    \item Входната точка на всяка програма е клас с main метод
+    \item Програмите са чувствителни към малки и големи букви
+    \item Твърденията се терминират с
+    \item Коментарите се игнорират от компилатора
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+ \frametitle{Пример}
+ \begin{lstlisting}
+    public class SimpleClass {
+      public static void main(String[] args) {
+        System.out.println("Hello!");
+      }
+    }
+  \end{lstlisting}
+\end{frame}
+
+\subsection{Поток на изпълнение}
+\begin{frame}{Поток на изпълнение}
+  
+  \begin{itemize}
+    \item Твърденията в една Java програма се изпълняват последователно
+    \item Коментари
+      
+      \begin{itemize}
+        \item C стил /* ... */ - за коментар с произволен размер
+        \item C++ стил // - коментар до края на реда
+        \item javadoc /** ... */ - специален коментар
+      \end{itemize}
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+  \begin{lstlisting}
+    public class ExecutionFlowExample1 {
+      public static void main(String[] args) {
+        System.out.println("Kiril"); /* will be printed first */
+        System.out.println("Bozhidar");
+      }
+    }
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+  \begin{lstlisting}
+    public class ExecutionFlowExample2 {
+      public static void main(String[] args) {
+        System.out.println("Bozhidar");  /* will be printed first */
+        System.out.println("Kiril");
+      }
+    }
+  \end{lstlisting}
+\end{frame}
+
+
+\section{Примитивни типове данни}
+
+
+\begin{frame}{Целочислени типове}
+  \begin{itemize}
+  \item int – 4 байта : -2,147,483,648 до
+    2,147,483, 647
+  \item short – 2 байта : -32,768 до 32,767
+  \item long – 8 байта – суфикс L
+  \item byte – 1 байт : -128 до 127
+  \end{itemize}
+
+  Могат да се използват 8, 10 и 16тини
+  бройни системи
+\end{frame}
+
+
+\begin{frame}{Типове с плаваща запетая}
+  \begin{itemize}
+  \item   float – 4 байта – 6-7 значими знака след
+    десетичната запетая – суфикс F
+    \item double – 8 байта – 15 значими знака
+    след десетичната запетая – суфикс D
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Символен тип}
+  \begin{itemize}
+  \item char
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Булев тип}
+  \begin{itemize}
+  \item boolean - има две дискретни стойности true и false
+  \item 0 и null не се считат за false
+  \item всички логически изрази имат резултат от тип boolean
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Променливи}
+  \begin{itemize}
+  \item Всяка променлива трябва да има
+    зададен тип и име
+
+  \item Името трябва да започва с буква или \_
+    и да съдържа само букви, цифри и \_
+
+  \item Имената на променливите трябва да спазват конвенцията camelCase
+  
+  \item Променливите трябва да бъдат инициализирани преди да бъдат използвани!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+\begin{lstlisting}
+  int i; // declaration
+  i = 5; // initialization
+  int j = 5; // declaration + initialization
+  int k, l = 13;
+  long daysLeftUntilEndOfTheYear;
+  char mostCommonlyUsedCharacter;
+  int students;
+  System.out.println(students); // ERROR - variable not initialized
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Свойства на променливите}
+  \begin{itemize}
+  \item Могат да бъдат декларирани навсякъде(преди да бъдат
+    използвани)
+  \item Променливите имат обхват(scope)
+  \item На променливите(които не са маркирани като final) може да бъде
+    присвоена нова стойност
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Оператори}
+  \begin{itemize}
+  \item + - събиране
+  \item - - изваждане
+  \item * - умножение
+  \item / - делене – целочислено, ако и двете
+    числа са цели числа, иначе с плаваща
+    запетая
+  \item \% - остатък при делене
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+\begin{lstlisting}
+  int i = 5 + 8; // initialize i to 13
+  i = i + 5; // add 5 to i, i becomes 18
+  i += 5; // add 5 to i, i becomes 23
+  int p = i + 8; // initialize to i plus 8, i.e. 31
+  int q = i + p; // initialize to i plus p, i.e. 54
+  int t = q * 7; // initialize to q * 7, i.e. 378
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{Оператори за увеличаване и намаляване с 1}
+  \begin{itemize}
+  \item   Могат да бъдат прилагани само върху
+    променливи от целочислен тип.
+    Променят стойността на променливата.
+
+   \item ++var – увеличава стойността на var с 1
+    преди да бъде ползвана
+
+   \item --var – намалява стойността на var с 1,
+    преди да бъде ползвана
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+\begin{lstlisting}
+  int i = 5;
+  ++i;
+  System.out.println(i); // prints 6
+  System.out.println(++i); // prints 7
+  System.out.println(i); // prints 7
+  System.out.println(--i); // prints 6
+  System.out.println(i); // prints 6
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{Оператори за увеличаване и намаляване с 1}
+  \begin{itemize}
+  \item var++ - увеличава с 1 стойността на
+    променливата, след като стойността е
+    използвана
+  \item var-- - намалява с 1 стойността на
+    променливата, след като стойността е
+    използвана
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+\begin{lstlisting}
+  int i = 5;
+  i++;
+  System.out.println(i); // prints 6
+  System.out.println(i++); // prints 6
+  System.out.println(i); // prints 7
+  System.out.println(i--); // prints 7
+  System.out.println(i); // prints 6
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{Оператори за сравнение}
+  Ползват се върху сравними примитивни
+  типове и връщат булева стойност като резултат.
+  
+  % \begin{itemize}
+%   \item == - проверка за равенство
+%   \item != - проверка за различие
+%   \item <  - по-малко
+%   \item <= - по-малко или равно
+%   \item >  - по-голямо
+%   \item >= - по-голямо или равно
+%   \end{itemize}
+%
+\end{frame}
+
+
+\begin{frame}{Логически оператори}
+  \begin{itemize}
+  \item   Логически израз се изчислява, докато
+    не е сигурна неговата стойност (short
+    circuit)
+  \item \&\& - логическо И
+  \item || - логическо ИЛИ
+  \item ! - логическо отрицание
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Таблица на истинност}
+  
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+\begin{lstlisting}
+  int x = 2;
+  x != 0 && 10 / x > 5; // false
+  !(x > 5) && x != 3; // true
+  x > 5 || x == 8; // false
+  int y = 0;
+  (x <5 || x > 9) && y != 0 && x + y != 0; // false
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{Автоматично преобразуване между примитивни числени типове}
+  
+\end{frame}
+
+
+\begin{frame}{Изрично преобразуване}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+
+\section{Управляващи конструкции}
+
+\section{Масиви}
+
+\section*{Заключение}
+
+\begin{frame}{Заключение}
+
+  % Keep the summary *very short*.
+  \begin{itemize}
+  \item
+    Java \alert{е много повече от език за програмиране}.
+  \item
+    JVM \alert{е целевата среда за изпълнение} на Java приложенията, а
+    не физическата процесорна микроархитектура.
+  \item
+    За пълноценна работа с езикът и платформата Java човек трябва да
+    се запознае с доста инструменти.
+  \end{itemize}
+  
+  % The following outlook is optional.
+  \vskip0pt plus.5fill
+  \begin{itemize}
+  \item
+    Следващият път:
+    \begin{itemize}
+    \item
+      Основния положения в езикът Java
+    \item
+      Повече примери, по-малко общи приказки
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Въпроси}
+  \begin{center}\LARGEТук е момента да зададете вашите въпроси! :-)\end{center}
+\end{frame}
+
+
+\begin{frame}{Край}
+
+  \begin{center}
+    \LARGEБлагодаря Ви за вниманието!
+  \end{center}
+  
+\end{frame}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
