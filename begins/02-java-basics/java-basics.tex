@@ -14,14 +14,12 @@
 
 \mode<presentation>
 {
-  \usetheme{Warsaw}
-  \setbeamercovered{transparent}
+  \usetheme[titleline=true,
+            alternativetitlepage=true,
+            titlepagelogo=images/Java_logo]{Torino}
+  \usecolortheme{nouvelle}
+  \beamertemplatenavigationsymbolsempty
 }
-
-% \usebackgroundtemplate{
-% \includegraphics[width=\paperwidth,
-% height=\paperheight]{images/mercatis_background}
-% }
 
 \usepackage{times}
 \usepackage[utf8]{inputenc}
@@ -29,30 +27,36 @@
 \usepackage[T2A]{fontenc}
 
 \usepackage{listings}
-\lstset{language=Java,captionpos=b,tabsize=2,frame=lines,
-keywordstyle=\color{blue},commentstyle=\color{gray},stringstyle=\color{green},
-numbers=left,numberstyle=\tiny,numbersep=5pt,breaklines=true,
-showstringspaces=false,basicstyle=\footnotesize,emph={label}}
+\lstset{language=Java,
+        captionpos=b,
+        tabsize=4,
+        keywordstyle=\color{blue},
+        commentstyle=\color{gray},
+        stringstyle=\color{green},
+        numbers=left,
+        breaklines=true,
+        showstringspaces=false,
+        basicstyle=\ttfamily,
+        emph={label},
+        frame=shadowbox, 
+        rulesepcolor=\color{blue},
+        columns=fixed}
 
-\title[Основи на Java] % (optional, use only with long paper titles)
-{Основи на Java}
+\title{Основи на Java}
 
 \subtitle
 {Структура на Java програма. Поток на изпълнение. Управляващи
-  конструкции. Примитивни типове данни и масиви.} % (optional)
+  конструкции. Примитивни типове данни и масиви.}
 
 \author[инж. Божидар Бацов]{инж. Божидар ~Бацов}
 
-\institute[Drow Ltd.]{Drow Ltd.}
+\institute{Drow Ltd.}
 
-\date[Java Begins]{26.10.2010 / Въведение в средата за програмиране Java}
+\date{26.10.2010}
 
 \subject{Talks}
 % This is only inserted into the PDF information catalog. Can be left
 % out. 
-
-% \pgfdeclareimage[height=0.5cm]{mercatis-logo}{images/mercatis_logo}
-% \logo{\pgfuseimage{mercatis-logo}}
 
 % Delete this, if you do not want the table of contents to pop up at
 % the beginning of each subsection:
@@ -123,11 +127,11 @@ showstringspaces=false,basicstyle=\footnotesize,emph={label}}
 \begin{frame}[fragile]
  \frametitle{Пример}
  \begin{lstlisting}
-    public class SimpleClass {
-      public static void main(String[] args) {
-        System.out.println("Hello!");
-      }
-    }
+public class SimpleClass {
+  public static void main(String[] args) {
+    System.out.println("Hello!");
+  }
+}
   \end{lstlisting}
 \end{frame}
 
@@ -337,15 +341,15 @@ showstringspaces=false,basicstyle=\footnotesize,emph={label}}
   Ползват се върху сравними примитивни
   типове и връщат булева стойност като резултат.
   
-  % \begin{itemize}
-%   \item == - проверка за равенство
-%   \item != - проверка за различие
-%   \item <  - по-малко
-%   \item <= - по-малко или равно
-%   \item >  - по-голямо
-%   \item >= - по-голямо или равно
-%   \end{itemize}
-%
+  \begin{itemize}
+  \item == - проверка за равенство
+  \item != - проверка за различие
+  \item $<$  - по-малко
+  \item $<$= - по-малко или равно
+  \item $>$  - по-голямо
+  \item $>$= - по-голямо или равно
+  \end{itemize}
+
 \end{frame}
 
 
@@ -384,14 +388,206 @@ showstringspaces=false,basicstyle=\footnotesize,emph={label}}
 \end{frame}
 
 
-\begin{frame}{Изрично преобразуване}
+\begin{frame}[fragile]
+  \frametitle{Изрично преобразуване}
   \begin{itemize}
-  \item 
+  \item   Когато искаме преобразования водещи
+    до загуба на информация
+  \item ( тип-към-който-преобразуваме ) променлива
+  \end{itemize}
+  \begin{lstlisting}
+   double x = 6.79;
+   int i = (int) x; // i == 6
+   long t = 8; int q = (int) t;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}{Блокове}
+  \begin{itemize}
+  \item Позволява да бъдат групирани няколко
+    твърдения
+   \item Дефиницията на блок започва с \{ и
+      завършва с \} - между тях има
+    твърдения
+   \item Имат собствен обхват
+   \item Могат да бъдат влагани един в друг
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Блокове - пример}
+\begin{lstlisting}
+  public static void main(String[] args) {
+   int n;
+   ...
+   {
+     int k;
+    . . . } // k is only defined up to here
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Блокове - пример}
+\begin{lstlisting}
+  public static void main(String[] args) {
+   int n;
+   {
+      int k;
+      int n; // error--can't redefine n in inner
+             // block
+    . . .} }
+
+\end{lstlisting}
+\end{frame}
+
+\section{Управляващи конструкции}
+
+\subsection{Условни конструкции}
+
+\begin{frame}{Условна конструкция if}
+  \begin{itemize}
+  \item Позволява условното изпълнение на код при изпълнено условие
+  \item   if (condition) statement
+  \item  condition – логически израз
+    –
+  \item  statement – твърдение (или множество
+    –
+    твърдения в блок), което да бъде
+    изпълнено, ако условието е вярно
+
   \end{itemize}
 \end{frame}
 
 
-\section{Управляващи конструкции}
+\begin{frame}[fragile]
+  \frametitle{if - пример}
+\begin{lstlisting}
+  if (performance > 5){
+    salary+=500;
+    bonus = 100;
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Условна конструкция if-else}
+  \begin{itemize}
+  \item   if (condition) statement1 else statement2
+    \item condition – логически израз
+    –
+    \item statement1 – твърдение, което да бъде
+    –
+    изпълнено, ако условието е вярно
+    \item statement2 – твърдение, което да бъде
+    –
+    изпълнено, ако условието е невярно
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{if-else - пример}
+\begin{lstlisting}
+  if (performance > 5){
+    salary += 500;
+    bonus = 100;
+} else {
+    bonus = 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{if-else-if-else}
+\begin{lstlisting}
+  If (performance > 5) {
+ salary += 500;
+ bonus = 100;
+} else if (performance > 2) {
+   salary += 100;
+   bonus = 0;
+} else { salary = 0; bonus = 0; } // you're fired
+
+\end{lstlisting}
+\end{frame}
+
+\subsection{Цикли}
+
+\begin{frame}{Цикъл while}
+  \begin{itemize}
+  \item Синтаксис - while (condition) \{statement(s);\}
+    \begin{itemize}
+      \item условие(condition) определя дали ще изпълни тялото на цикъла
+      \item тялото на цикъла се състои от едно или повече твърдения
+    \end{itemize}
+
+  \item Семантика - цикълът while може и ДА НЕ СЕ изпълни нито веднъж
+  \item Поток на изпълнение - след изпълнение на тялото контрола се
+    прехвърля в условието на цикъла
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Цикъл while - пример}
+\begin{lstlisting}
+int money = 20;
+int beersDrank = 0;
+while (money > 5) {
+    money -= 3; // buy beer
+    beersDrank++;
+}
+System.out.print(“We've drunk " +  beersDrank + “ beers.”);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Цикъл do-while}
+  \begin{itemize}
+  \item Синтаксис - do \{statements\} while (condition)
+  \item Семантика - цикълът do-while се изпълнява винаги поне веднъж
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Цикъл do-while - пример}
+\begin{lstlisting}
+int count = 1;
+do {
+    System.out.println("Count is: " + count);
+    count++;
+} while (count <= 11);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Цикъл for}
+  \begin{itemize}
+  \item   for ( initialization; condition; update )  {statement}
+    \item initialization инициализираме променливи
+    \item condition логически израз
+    \item update – изпълнява се, докато
+    условието е вярно, преди statement
+
+    \item statement – изпълнява се, докато
+    условието е вярно, след update
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Цикъл for - пример}
+\begin{lstlisting}
+for (int i = 1; i <= 10; i++) {
+      System.out.println(i);
+}
+// i no longer defined
+int i;
+for (i = 1; i <= 10; i++) {
+      System.out.println(i);
+}
+// i still defined
+\end{lstlisting}
+\end{frame}
+
 
 \section{Масиви}
 

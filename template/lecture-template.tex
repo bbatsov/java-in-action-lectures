@@ -11,17 +11,14 @@
 % package/program, I grant the extra permission to freely copy and
 % modify this file as you see fit and even to delete this copyright
 % notice. 
-
 \mode<presentation>
 {
-  \usetheme{Warsaw}
-  \setbeamercovered{transparent}
+  \usetheme[titleline=true,
+  alternativetitlepage=true,
+  titlepagelogo=images/Java_logo]{Torino}
+  \usecolortheme{nouvelle}
+  \beamertemplatenavigationsymbolsempty
 }
-
-% \usebackgroundtemplate{
-% \includegraphics[width=\paperwidth,
-% height=\paperheight]{images/mercatis_background}
-% }
 
 \usepackage{times}
 \usepackage[utf8]{inputenc}
@@ -29,27 +26,36 @@
 \usepackage[T2A]{fontenc}
 
 \usepackage{listings}
-\lstset{language=Java,captionpos=b,tabsize=2,frame=lines,keywordstyle=\color{blue},commentstyle=\color{gray},stringstyle=\color{green},numbers=left,numberstyle=\tiny,numbersep=5pt,breaklines=true,showstringspaces=false,basicstyle=\footnotesize,emph={label}}
+\lstset{language=Java,
+  captionpos=b,
+  tabsize=4,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  numbers=left,
+  breaklines=true,
+  showstringspaces=false,
+  basicstyle=\ttfamily,
+  emph={label},
+  frame=shadowbox, 
+  rulesepcolor=\color{blue},
+  columns=fixed}
 
-\title[Въведение в средата за програмиране Java] % (optional, use only with long paper titles)
-{Въведение в средата за програмиране Java}
+\title{Основи на Java}
 
 \subtitle
-{Преглед на историята и възможностите на Java. Представяне на
-  популярни среди за разработка и просто приложения.} % (optional)
+{Структура на Java програма. Поток на изпълнение. Управляващи
+  конструкции. Примитивни типове данни и масиви.}
 
-\author[инж. Божидар Бацов]{инж. Божидар ~Бацов}
+\author{инж. Божидар ~Бацов}
 
-\institute[Drow Ltd.]{Drow Ltd.}
+\institute{Drow Ltd.}
 
-\date[Java Begins]{26.10.2010 / Въведение в средата за програмиране Java}
+\date{26.10.2010}
 
 \subject{Talks}
 % This is only inserted into the PDF information catalog. Can be left
 % out. 
-
-% \pgfdeclareimage[height=0.5cm]{mercatis-logo}{images/mercatis_logo}
-% \logo{\pgfuseimage{mercatis-logo}}
 
 % Delete this, if you do not want the table of contents to pop up at
 % the beginning of each subsection:
@@ -59,7 +65,6 @@
     \tableofcontents[currentsection,currentsubsection]
   \end{frame}
 }
-
 
 % If you wish to uncover everything in a step-wise fashion, uncomment
 % the following command: 
