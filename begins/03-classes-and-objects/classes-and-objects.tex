@@ -41,11 +41,10 @@
   rulesepcolor=\color{blue},
   columns=fixed}
 
-\title{Основи на Java}
+\title{Класове и обекти в Java}
 
 \subtitle
-{Структура на Java програма. Поток на изпълнение. Управляващи
-  конструкции. Примитивни типове данни и масиви.}
+{Обектно ориентирано програмиране. Класове. Обекти.}
 
 \author{инж. Божидар ~Бацов}
 
@@ -94,18 +93,62 @@
 % - Talk about 30s to 2min per frame. So there should be between about
 % 15 and 30 frames, all told.
 
-\section{Средата за програмиране Java}
+\section{Обектно ориентирано програмиране}
 
-\subsection{subsection1}
+\subsection{Какво е ООП?}
 
-\begin{frame}{Frame title}
+\begin{frame}{Обектно ориентирано програмиране}
+  \transdissolve
   \begin{itemize}
-  \item
-    item one
-  \item
-    item two
+  \item Какво е ООП?
+  \item Основния понятия в ООП
+    \begin{itemize}
+      \item клас - шаблон
+      \item обект - инстанция на шаблон
+        \begin{itemize}
+          \item състояние(state)
+          \item поведение(behaviour)
+        \end{itemize}
+    \end{itemize}
   \end{itemize}
 \end{frame}
+
+\begin{frame}{Пример - човек}
+  \begin{columns}
+    \column{.5\textwidth}
+    Клас човек
+    \begin{itemize}
+      \item атрибути
+        \begin{itemize}
+          \item име
+          \item възраст 
+          \item адрес
+        \end{itemize}
+      \item поведение
+        \begin{itemize}
+          \item говори
+          \item ходи
+        \end{itemize}
+    \end{itemize}
+
+    \column{.5\textwidth}
+    Човек Божидар
+    \begin{itemize}
+    \item състояние
+      \begin{itemize}
+      \item Божидар
+      \item 33 
+      \item Готам Сити
+      \end{itemize}
+    \item поведение
+      \begin{itemize}
+      \item Кажи "аааа"
+      \item Ходи в бат пещерата
+      \end{itemize}
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
 
 \section*{Заключение}
 

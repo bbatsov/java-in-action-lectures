@@ -48,7 +48,7 @@
 {Структура на Java програма. Поток на изпълнение. Управляващи
   конструкции. Примитивни типове данни и масиви.}
 
-\author[инж. Божидар Бацов]{инж. Божидар ~Бацов}
+\author{инж. Божидар Бацов}
 
 \institute{Drow Ltd.}
 
@@ -102,6 +102,7 @@
 \subsection{Структура на Java програма}
 
 \begin{frame}{Градивни блокове}
+  \transdissolve
   \begin{itemize}
   \item твърдения(statements)
   \item методи
@@ -114,6 +115,7 @@
 
 
 \begin{frame}{Основни положения}  
+  \transdissolve
   \begin{itemize}
     \item Целият код на програмата живее в класове
     \item Входната точка на всяка програма е клас с main метод
@@ -125,19 +127,20 @@
 
 
 \begin{frame}[fragile]
- \frametitle{Пример}
- \begin{lstlisting}
+  \transdissolve
+  \frametitle{Пример}
+\begin{lstlisting}
 public class SimpleClass {
   public static void main(String[] args) {
     System.out.println("Hello!");
   }
 }
-  \end{lstlisting}
+\end{lstlisting}
 \end{frame}
 
 \subsection{Поток на изпълнение}
 \begin{frame}{Поток на изпълнение}
-  
+  \transdissolve  
   \begin{itemize}
     \item Твърденията в една Java програма се изпълняват последователно
     \item Коментари
@@ -154,18 +157,20 @@ public class SimpleClass {
 
 \begin{frame}[fragile]
   \frametitle{Пример}
+  \transdissolve
   \begin{lstlisting}
-    public class ExecutionFlowExample1 {
-      public static void main(String[] args) {
-        System.out.println("Kiril"); /* will be printed first */
-        System.out.println("Bozhidar");
-      }
-    }
+public class ExecutionFlowExample1 {
+  public static void main(String[] args) {
+    System.out.println("Kiril"); /* will be printed first */
+    System.out.println("Bozhidar");
+  }
+}
   \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
+  \transdissolve
   \begin{lstlisting}
     public class ExecutionFlowExample2 {
       public static void main(String[] args) {
@@ -181,6 +186,7 @@ public class SimpleClass {
 
 
 \begin{frame}{Целочислени типове}
+  \transdissolve
   \begin{itemize}
   \item int – 4 байта : -2,147,483,648 до
     2,147,483, 647
@@ -195,6 +201,7 @@ public class SimpleClass {
 
 
 \begin{frame}{Типове с плаваща запетая}
+  \transdissolve
   \begin{itemize}
   \item   float – 4 байта – 6-7 значими знака след
     десетичната запетая – суфикс F
@@ -205,6 +212,7 @@ public class SimpleClass {
 
 
 \begin{frame}{Символен тип}
+  \transdissolve
   \begin{itemize}
   \item char
   \end{itemize}
@@ -212,6 +220,7 @@ public class SimpleClass {
 
 
 \begin{frame}{Булев тип}
+  \transdissolve
   \begin{itemize}
   \item boolean - има две дискретни стойности true и false
   \item 0 и null не се считат за false
@@ -221,6 +230,7 @@ public class SimpleClass {
 
 
 \begin{frame}{Променливи}
+  \transdissolve
   \begin{itemize}
   \item Всяка променлива трябва да има
     зададен тип и име
@@ -236,6 +246,7 @@ public class SimpleClass {
 
 \begin{frame}[fragile]
   \frametitle{Пример}
+  \transdissolve
 \begin{lstlisting}
   int i; // declaration
   i = 5; // initialization
@@ -249,6 +260,7 @@ public class SimpleClass {
 \end{frame}
 
 \begin{frame}{Свойства на променливите}
+  \transdissolve
   \begin{itemize}
   \item Могат да бъдат декларирани навсякъде(преди да бъдат
     използвани)
@@ -259,6 +271,7 @@ public class SimpleClass {
 \end{frame}
 
 \begin{frame}{Оператори}
+  \transdissolve
   \begin{itemize}
   \item + - събиране
   \item - - изваждане
@@ -272,6 +285,7 @@ public class SimpleClass {
 
 \begin{frame}[fragile]
   \frametitle{Пример}
+  \transdissolve
 \begin{lstlisting}
   int i = 5 + 8; // initialize i to 13
   i = i + 5; // add 5 to i, i becomes 18
@@ -284,6 +298,7 @@ public class SimpleClass {
 
 
 \begin{frame}{Оператори за увеличаване и намаляване с 1}
+  \transdissolve
   \begin{itemize}
   \item   Могат да бъдат прилагани само върху
     променливи от целочислен тип.
@@ -300,6 +315,7 @@ public class SimpleClass {
 
 \begin{frame}[fragile]
   \frametitle{Пример}
+  \transdissolve
 \begin{lstlisting}
   int i = 5;
   ++i;
@@ -313,6 +329,7 @@ public class SimpleClass {
 
 
 \begin{frame}{Оператори за увеличаване и намаляване с 1}
+  \transdissolve
   \begin{itemize}
   \item var++ - увеличава с 1 стойността на
     променливата, след като стойността е
@@ -325,6 +342,7 @@ public class SimpleClass {
 
 \begin{frame}[fragile]
   \frametitle{Пример}
+  \transdissolve
 \begin{lstlisting}
   int i = 5;
   i++;
@@ -338,6 +356,7 @@ public class SimpleClass {
 
 
 \begin{frame}{Оператори за сравнение}
+  \transdissolve
   Ползват се върху сравними примитивни
   типове и връщат булева стойност като резултат.
   
@@ -352,8 +371,8 @@ public class SimpleClass {
 
 \end{frame}
 
-
 \begin{frame}{Логически оператори}
+  \transdissolve
   \begin{itemize}
   \item   Логически израз се изчислява, докато
     не е сигурна неговата стойност (short
@@ -367,11 +386,21 @@ public class SimpleClass {
 
 
 \begin{frame}{Таблица на истинност}
-  
+  \transdissolve 
+  \begin{tabular}{c||c|c|c|}
+    & \textbf{header 1} &
+    \textbf{header 2} & \textbf{header 4} \\
+    \hline
+    \hline
+    \textbf{header 4} &cell 1 & cell 2 & cell 3 \\
+    \hline
+    \textbf{header 5} & cell 4 & cell 5 & cell 6 \\
+  \end{tabular} 
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
+  \transdissolve
 \begin{lstlisting}
   int x = 2;
   x != 0 && 10 / x > 5; // false
@@ -384,12 +413,13 @@ public class SimpleClass {
 
 
 \begin{frame}{Автоматично преобразуване между примитивни числени типове}
-  
+  \transdissolve  
 \end{frame}
 
 
 \begin{frame}[fragile]
   \frametitle{Изрично преобразуване}
+  \transdissolve
   \begin{itemize}
   \item   Когато искаме преобразования водещи
     до загуба на информация
@@ -403,6 +433,7 @@ public class SimpleClass {
 \end{frame}
 
 \begin{frame}{Блокове}
+  \transdissolve
   \begin{itemize}
   \item Позволява да бъдат групирани няколко
     твърдения
@@ -415,6 +446,7 @@ public class SimpleClass {
 \end{frame}
 
 \begin{frame}[fragile]
+  \transdissolve
   \frametitle{Блокове - пример}
 \begin{lstlisting}
   public static void main(String[] args) {
@@ -429,6 +461,7 @@ public class SimpleClass {
 
 \begin{frame}[fragile]
   \frametitle{Блокове - пример}
+  \transdissolve
 \begin{lstlisting}
   public static void main(String[] args) {
    int n;
@@ -446,6 +479,7 @@ public class SimpleClass {
 \subsection{Условни конструкции}
 
 \begin{frame}{Условна конструкция if}
+  \transdissolve
   \begin{itemize}
   \item Позволява условното изпълнение на код при изпълнено условие
   \item   if (condition) statement
@@ -462,6 +496,7 @@ public class SimpleClass {
 
 \begin{frame}[fragile]
   \frametitle{if - пример}
+  \transdissolve
 \begin{lstlisting}
   if (performance > 5){
     salary+=500;
@@ -472,6 +507,7 @@ public class SimpleClass {
 \end{frame}
 
 \begin{frame}{Условна конструкция if-else}
+  \transdissolve
   \begin{itemize}
   \item   if (condition) statement1 else statement2
     \item condition – логически израз
@@ -488,6 +524,7 @@ public class SimpleClass {
 
 \begin{frame}[fragile]
   \frametitle{if-else - пример}
+  \transdissolve
 \begin{lstlisting}
   if (performance > 5){
     salary += 500;
@@ -500,6 +537,7 @@ public class SimpleClass {
 
 \begin{frame}[fragile]
   \frametitle{if-else-if-else}
+  \transdissolve
 \begin{lstlisting}
   If (performance > 5) {
  salary += 500;
@@ -513,6 +551,7 @@ public class SimpleClass {
 \end{frame}
 
 \begin{frame}{Множествен избор със switch}
+  \transdissolve
   \begin{itemize}
   \item    Множествен избор - switch
     Switch – множествен избор – може да се
@@ -528,6 +567,7 @@ public class SimpleClass {
 \end{frame}
 
 \begin{frame}[fragile]
+  \transdissolve
   \frametitle{switch - пример}
 \begin{lstlisting}
 int month = 8;
@@ -544,6 +584,7 @@ default: System.out.println("Invalid month."); break;
 
 \begin{frame}[fragile]
   \frametitle{switch - пример}
+  \transdissolve
 \begin{lstlisting}
 int startFrom = 6;
 switch (month) {
@@ -559,6 +600,7 @@ default: System.out.println("Invalid number."); break;
 \subsection{Цикли}
 
 \begin{frame}{Цикъл while}
+  \transdissolve
   \begin{itemize}
   \item Синтаксис - while (condition) \{statement(s);\}
     \begin{itemize}
@@ -574,6 +616,7 @@ default: System.out.println("Invalid number."); break;
 
 \begin{frame}[fragile]
   \frametitle{Цикъл while - пример}
+  \transdissolve
 \begin{lstlisting}
 int money = 20;
 int beersDrank = 0;
@@ -586,6 +629,7 @@ System.out.print("We've drunk " +  beersDrank + " beers.");
 \end{frame}
 
 \begin{frame}{Цикъл do-while}
+  \transdissolve
   \begin{itemize}
   \item Синтаксис - do \{statements\} while (condition)
   \item Семантика - цикълът do-while се изпълнява винаги поне веднъж
@@ -594,6 +638,7 @@ System.out.print("We've drunk " +  beersDrank + " beers.");
 
 \begin{frame}[fragile]
   \frametitle{Цикъл do-while - пример}
+  \transdissolve
 \begin{lstlisting}
 int count = 1;
 do {
@@ -604,6 +649,7 @@ do {
 \end{frame}
 
 \begin{frame}{Цикъл for}
+  \transdissolve
   \begin{itemize}
   \item   for ( initialization; condition; update )  {statement}
     \item initialization инициализираме променливи
@@ -619,6 +665,7 @@ do {
 
 \begin{frame}[fragile]
   \frametitle{Цикъл for - пример}
+  \transdissolve
 \begin{lstlisting}
 for (int i = 1; i <= 10; i++) {
   System.out.println(i);
@@ -634,6 +681,7 @@ for (i = 1; i <= 10; i++) {
 
 \begin{frame}[fragile]
   \frametitle{Прекратяване на цикъл преждевременно}
+  \transdissolve
   \transdissolve
   \begin{block}{break}
     break прекратява текущия цикъл. Може
@@ -651,6 +699,7 @@ System.out.println("closest number : " + i);
 
 \begin{frame}[fragile]
   \frametitle{Преминаване към следващата итерация}
+  \transdissolve
   \transglitter[direction=90]
   \begin{block}{continue}
     преминаване към следваща
@@ -669,6 +718,7 @@ for(int i = startValue; i<1000; i++){
 
 
 \begin{frame}{Масиви}
+  \transdissolve
   \begin{block}{Масив}
     съдържа елементи от даден
     тип. Може да бъде многоизмерен
@@ -681,6 +731,7 @@ for(int i = startValue; i<1000; i++){
 
 \begin{frame}[fragile]
   \frametitle{Масив - пример}
+  \transdissolve
 \begin{lstlisting}
   String[] names = { "Pesho", "Gosho", "Ivan" };
 for(int i=0; i<names.length; i++){
@@ -691,6 +742,7 @@ for(int i=0; i<names.length; i++){
 
 \begin{frame}[fragile]
   \frametitle{Масив - пример}
+  \transdissolve
 \begin{lstlisting}
   int[] numbers = { 1, 8, 10, 33 };
 long sum = 0;
@@ -702,6 +754,7 @@ System.out.println("Sum : " + sum);
 \end{frame}
 
 \begin{frame}{Цикъл for-each}
+  \transdissolve
   \begin{itemize}
   \item             For-each цикъл
     for (array-type variable : array) statement
@@ -719,6 +772,7 @@ System.out.println("Sum : " + sum);
 
 \begin{frame}[fragile]
   \frametitle{Цикъл for-each - пример}
+  \transdissolve
 \begin{lstlisting}
   
 \end{lstlisting}
@@ -726,14 +780,14 @@ System.out.println("Sum : " + sum);
 
 
 \begin{frame}{Упражнение}
-  
+  \transdissolve  
 \end{frame}
 
 
 \section*{Заключение}
 
 \begin{frame}{Заключение}
-
+  \transdissolve
   % Keep the summary *very short*.
   \begin{itemize}
   \item
@@ -762,12 +816,15 @@ System.out.println("Sum : " + sum);
 
 
 \begin{frame}{Въпроси}
-  \begin{center}\LARGEТук е момента да зададете вашите въпроси! :-)\end{center}
+  \transdissolve
+  \begin{center}
+    \LARGEТук е момента да зададете вашите въпроси! :-)
+  \end{center}
 \end{frame}
 
 
 \begin{frame}{Край}
-
+  \transdissolve
   \begin{center}
     \LARGEБлагодаря Ви за вниманието!
   \end{center}
