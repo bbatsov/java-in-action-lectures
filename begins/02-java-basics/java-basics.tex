@@ -21,7 +21,7 @@
   \beamertemplatenavigationsymbolsempty
 }
 
-\usepackage{times}
+\usepackage{helvet}
 \usepackage[utf8]{inputenc}
 \usepackage[english,bulgarian]{babel}
 \usepackage[T2A]{fontenc}
@@ -512,6 +512,50 @@ public class SimpleClass {
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}{Множествен избор със switch}
+  \begin{itemize}
+  \item    Множествен избор - switch
+    Switch – множествен избор – може да се
+    използва с byte, short, char, int
+
+    switch (variable) {
+      case VALUE : statements;
+      case VALUE : statements;
+      default : statements;
+    }
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{switch - пример}
+\begin{lstlisting}
+int month = 8;
+switch (month) {
+case 1: System.out.println("January");  break;
+...
+case 12:
+System.out.println("December"); break;
+default: System.out.println("Invalid month."); break;
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{switch - пример}
+\begin{lstlisting}
+int startFrom = 6;
+switch (month) {
+case 1: System.out.println(1);
+...
+case 6: System.out.println(6);
+case 10: System.out.println(10); break;
+default: System.out.println("Invalid number."); break;
+}
+\end{lstlisting}
+\end{frame}
+
 \subsection{Цикли}
 
 \begin{frame}{Цикъл while}
@@ -537,7 +581,7 @@ while (money > 5) {
     money -= 3; // buy beer
     beersDrank++;
 }
-System.out.print(“We've drunk " +  beersDrank + “ beers.”);
+System.out.print("We've drunk " +  beersDrank + " beers.");
 \end{lstlisting}
 \end{frame}
 
@@ -577,19 +621,114 @@ do {
   \frametitle{Цикъл for - пример}
 \begin{lstlisting}
 for (int i = 1; i <= 10; i++) {
-      System.out.println(i);
+  System.out.println(i);
 }
 // i no longer defined
 int i;
 for (i = 1; i <= 10; i++) {
-      System.out.println(i);
+  System.out.println(i);
 }
 // i still defined
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Прекратяване на цикъл преждевременно}
+  \transdissolve
+  \begin{block}{break}
+    break прекратява текущия цикъл. Може
+    да се ползва в for, while, do-while и
+    switch.
+  \end{block}
+\begin{lstlisting}
+int i;
+for( i = startNumber; I < startNumber + 5; i++){
+  if (I % 5 == 0) break; 
+}
+System.out.println("closest number : " + i);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Преминаване към следващата итерация}
+  \transglitter[direction=90]
+  \begin{block}{continue}
+    преминаване към следваща
+    итерация в цикъл. Може да се
+    използва в for, while, do-while цикли
+  \end{block}
+\begin{lstlisting}
+int numbersNotDivideableByThree = 0;
+for(int i = startValue; i<1000; i++){
+     if(i%3==0) continue;
+     numbersNotDivideableByThree++; }
+\end{lstlisting}
+\end{frame}
 
 \section{Масиви}
+
+
+\begin{frame}{Масиви}
+  \begin{block}{Масив}
+    съдържа елементи от даден
+    тип. Може да бъде многоизмерен
+    (матрица). Достъп по индекс,
+    индексацията започва от 0 (НУЛА).
+    Чрез .length взимаме дължината на
+    масива.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Масив - пример}
+\begin{lstlisting}
+  String[] names = { "Pesho", "Gosho", "Ivan" };
+for(int i=0; i<names.length; i++){
+  System.out.println("Name : " + names[i]);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Масив - пример}
+\begin{lstlisting}
+  int[] numbers = { 1, 8, 10, 33 };
+long sum = 0;
+for(int i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+}
+System.out.println("Sum : " + sum);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Цикъл for-each}
+  \begin{itemize}
+  \item             For-each цикъл
+    for (array-type variable : array) statement
+
+    \item Array-type – тип на променливата
+    –variable, трябва да съвпада с типа на
+    елементите в масива
+    \item Variable – променлива, съдържаща
+    текущия елемент от масива
+    \item Array – масив, от който да бъдат
+    взимани елементи
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Цикъл for-each - пример}
+\begin{lstlisting}
+  
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{Упражнение}
+  
+\end{frame}
+
 
 \section*{Заключение}
 
