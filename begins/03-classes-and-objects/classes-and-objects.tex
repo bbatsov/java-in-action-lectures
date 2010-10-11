@@ -149,6 +149,462 @@
   \end{columns}
 \end{frame}
 
+\begin{frame}{Основни понятия при класовете}
+\transdissolve
+\begin{itemize}
+\item Атрибути - реализирано чрез полета(instance fields)
+\item Поведение - реализирано чрез методи(instance methods)
+\item Капсулиране на състоянието - достъпно само чрез методи
+\item Класово състояние/поведение - статични полета и методи
+\item Наследяване
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Основни понятия при обектите}
+  \transdissolve
+  \begin{itemize}
+  \item Състояние - стойности за атрибутите
+  \item Поведение - операции над състоянието
+  \item Идентичност - каква информация определя два обекта като
+    еднакви 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Отношения между класовете}
+  \transdissolve
+  \begin{itemize}
+  \item Зависимост(coupling, dependency, uses-a) - класове използвани от класа
+  \item Агрегация(has-a) -  индикира че един обект съдържа други обекти
+  \item Наследяване(is-a) - индикира че един e  тип подтип(по-специализиран тип) на друг тип
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{UML}
+  \transdissolve
+  \begin{itemize}
+  \item   Unified modeling language
+
+  \item  Показва зависимости между класовете(и
+    много други неща) във вид на диаграми
+  \item IntelliJ IDEA и  NetBeans има вградена поддръжка на UML
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Създаване на обекти}
+  \transdissolve
+  \begin{itemize}
+  \item   Конструктор – специален метод, който
+    инициализира състоянието на обект
+
+   \item  Конструктора има същото име като
+    името на класа
+    \item Обръщения към конструктора трябва да
+    се предшествани от ключовата дума
+    \textbf{new}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Създаване на обекти - пример}
+  \transdissolve
+\begin{lstlisting}
+Date currentDate; //not initialized
+currentDate = new Date(); //create a new date object
+System.out.println(currentDate.toString());
+anotherDate = currentDate; // a second referrence to the first date
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Променливи от референтен тип}
+  \transdissolve
+  \begin{itemize}
+  \item   Променливите НЕ са обекти
+  \item  Променливите НЕ съдържат обект
+  \item  Променливите съдържат само
+    препратка(референция, адрес) на обект
+  \item  Няколко променливи могат да сочат към
+    един обект
+  \item  Променливите не са инициализирани с
+    null по подразбиране
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Класове от стандартната библиотека}
+  \transdissolve
+  \begin{itemize}
+  \item java.util.Date -  представя дата
+  \item java.util.Random - генератор на случайни числа
+  \item java.util.Scanner - вход от поток
+  \item java.lang.System - агрегатор на системни
+    операции
+  \item java.util.GregorianCalendar -  представя дата по
+    грегорианския(нашия) календар
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Класът String}
+  \transdissolve
+  \begin{itemize}
+  \item Представя низ от символи, кодирани в
+    Unicode-16
+    \item Непроменими инстанции
+    \item специален опростен синтаксис
+    \begin{itemize}
+    \item Създаване на обект
+    \lstinline$String someString = "string";$
+    \item Конкатениране(сливане) на низове    
+    \lstinline$String sum = "first " + "second";$
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Разработка на класа Person}
+  \transdissolve
+  \begin{itemize}
+  \item Полета - име, фамилия, адрес, дата на раждане
+  \item Конструктoри
+  \item Методи - аксесори/мутатори, кажи нещо
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Работа с няколко сорс файла}
+  \transdissolve
+  \begin{itemize}
+  \item   Java компилатора разбира
+    зависимостите между класовете
+  \item  Ако клас А зависи(използва) от клас Б –
+    командата:
+    javac A.java
+    ще компилира и класа Б, ако не е вече
+    компилиран
+   \item  Вградена функционалност тип \textbf{make}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Изследване на класа Person}
+  \transdissolve
+  \begin{itemize}
+  \item    Всички полета са маркирани с
+    модификатора за достъп “private”
+
+   \item Private ограничава достъпа до полетата
+    само до рамките на класа, в който те са
+    дефинирани
+
+   \item Осигурява се отлична капсулация на
+    данните и достъпа до тях се контролира
+    надеждно чрез методи
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Изследване на класа Person}
+  \transdissolve
+  \begin{itemize}
+  \item   Всички методи са маркирани с
+    модификатора за достъп public
+  \item  Public маркира програмен елемент като
+    достъпен за ВСИЧКИ класове
+
+  \item  Почти никога не е добра идея полета да
+    бъдат маркирани като public – това
+    нарушава капсулацията на данните –
+    основен принцип на ООП
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Представяне на обект като низ}
+  \transdissolve
+  \begin{itemize}
+  \item Полезна техника за търсене на грешки
+  \item Метод toString()
+  \item Генериране на метода toString() в IntelliJ IDEA
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Конструктор}
+  \transdissolve
+  \begin{itemize}
+  \item има същото име като класа
+  \item Не връща резултат
+  \item  Клас може да има повече от един
+    конструктор
+  \item  Конструктора може да приема различен
+    брой аргументи
+  \item  Конструктора може да бъде извикан
+    само с ключовата дума \textbf{new}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Параметри на конструкторите}
+  \transdissolve
+  \begin{itemize}
+  \item Преки/Директни 
+    стойността им се
+    използва директно за инициализиране
+    на поле
+  \item Непреки – 
+    стойността им се
+    използва като база за изчисляването на
+    стойността, която да се зададе на поле
+    \item Препоръчително е конструкторът да няма повече от 4 параметъра
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Предимства на енкапсулацията}
+  \transdissolve
+  \begin{itemize}
+  \item   Валидиране на данни
+  \item  Защитаване на данни от промени
+  \item  Гъвкавост -  възможно е да бъде
+    променена вътрешна имплементация
+    без промени на публичното API
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Допълнение за private}
+  \transdissolve
+    private членовете от всеки обект на
+    класа са достъпни в неговите методи.
+\begin{lstlisting}
+  class Person {
+    public int compare(Person another) {
+        if (this.name.equals(another.name)) ...
+    }
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{Добрият стил диктува...}
+  \transdissolve
+  ... Само методите, които ще бъдат
+  използвани от клиентски код да бъдат
+  декларирани публични –
+  допълнителните(utility) методи е
+  желателно да бъдат private
+
+\end{frame}
+
+\begin{frame}{Модификатора final}
+  \transdissolve
+  \begin{itemize}
+  \item Приложен към примитивен тип -  има
+    смисъл на константа
+  \item  Приложен към обект -  има смисъл на
+    константна референция, самия обект
+    може да бъде променен
+  \item  Приложен към клас -  ненаследим клас
+  \item  Приложен към метод -  метод, който не
+    може да бъде overridden
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Статични(класови) полета и методи}
+  \transdissolve
+  \begin{itemize}
+  \item   Асоциирани са съм самия клас, а не
+    обектите инстанцирани от него
+  \item  Достъпни са както посредством класа,
+    така и посредство обектите от него
+  \item  Статични полета често се използват за
+    съхранение на константи
+  \item  Статични методи често се използват за
+    реализация на фабрични методи
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Параметри на методите}
+  \transdissolve
+  \begin{itemize}
+  \item Винаги се предават по стойност(by value)
+    \begin{itemize}
+      \item При примитивните типове се предава самата стойност на
+        аргумента
+      \item При референтните типове се предава препратка(адрес) към
+        обекта. Самата препратка е непроменима, но обектът указан от
+        нея е.
+    \end{itemize}
+
+  \item Прототип на метод - името и параметрите на метода, но не и
+    връщаната му стойност
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Конструиране на обекти}
+  \transdissolve
+  \begin{itemize}
+  \item Обекти обикновено се създават посредством конструктор
+  \item Конструктор по подразбиране
+  \item Всички полета се инициализират със стойност по подразбиране
+    \begin{itemize}
+      \item 0 за числени типове
+      \item null за референтни типове
+      \item false за булеви полета
+    \end{itemize}
+  \item Може да имате повече от един конструктор
+  \item Може да извиквате един конструктор от друг
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Презареждане на методи}
+  \transdissolve
+  \begin{itemize}
+  \item Може да дефинирате няколко метода с едно и също име в даден
+    клас стига сигнатурата им да е различна
+  \item Компилаторът използва сигнатурата, за да определи правилният
+    метод, който да бъде извикан
+  \item Сигнатура(прототип)
+    \begin{itemize}
+      \item формални параметри
+      \item име на метода
+      \item НЕ включва типа на връщаната от метода стойност
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Съвети за работа с конструктори}
+  \transdissolve
+  \begin{itemize}
+  \item Именуване на параметрите
+  \item Навързване на конструктори
+  \item Конструктори с повече от 4-5 параметъра могат да бъдат
+    заменени с шаблона за дизайн Builder
+  \item Конструкторите могат да бъдат заменени със статични
+    методи-фабрика, които вътрешно използват private конструктори
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Пакети в Java}
+  \transdissolve
+  \begin{itemize}
+  \item позволяват групиране на свързани класове
+  \item предотвратяват конфликти в имената на класове - приблизителен
+    еквивалент на namespaces в C++/Java
+  \item съществува строга връзка между имената нивата в имената на
+    пакетите съответстват на директории във файловата система
+  \item желателно е да са уникални - конвенцията диктува да започват
+    обърнат наопаки домейнът на вашата организация
+  \item запазени имена на пакети - java.*, javax.*
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Импортиране на класове и пакети}
+  \transdissolve
+  \begin{itemize}
+  \item Всеки клас има достъп до всички класове в неговия пакет без
+    допълнителни импорти
+  \item Всеки клас има достъп до всички публични класове, които са
+    импортирани или използвани с напълно квалифицирани имена
+  \item Всички класове от един пакет могат да бъдат импортирани с
+    wildcard import, но това не е препоръчително
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Статични импорти}
+  \transdissolve
+  \begin{itemize}
+  \item Импортиране само на определени статични елементи от даден клас
+    - полета или методи
+  \item Подходяща техника за работа със статични класове като
+    java.util.Math
+  \item Могат да нарушат четимостта на програмата, ако се използват безразборно
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Особености на пакетите}
+  \transdissolve
+  \begin{itemize}
+  \item Всяка част от името на пакета е отделена от другите с точка и
+    съответства на поддиректория в директорията с кода
+    \begin{itemize}
+      \item пакет - bg.drow.spellbook
+      \item директория bg\\drow\\spellbook
+    \end{itemize}
+  \item Не съществува йерархична организация на пакетите
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Пакетиране на Java код}
+  \transdissolve
+  \begin{itemize}
+  \item jar архив - bytecode + мета информация, компресирани със zip
+  \item Добавяне на jar архиви в клас пътя на виртуалната машина
+  \item Изпълнение на код пакетиран в jar архив
+    java -jar somejar.jar MainClass
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Класпът в Java(classpath)}
+  \transdissolve
+  \begin{itemize}
+  \item Указва местата, където виртуалната машина търси класове, при
+    изпълнението на дадена програма
+  \item може да се задава като параметър от командния ред или като
+    настройка на средата
+  \item Източник на много проблеми
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Пример}
+  \transdissolve
+  В UNIX(Linux, Solaris, BSD)
+  java -cp .:dir2:dir3 MyClass
+  export CLASSPATH=.:dir2:dir3
+
+
+  В Windows:
+  Java -cp .;dir2;dir3; MyClass
+  set CLASSPATH=.;dir2;dir3
+\end{frame}
+
+\begin{frame}{Документиране на класове с javadoc}
+  \transdissolve
+  \begin{itemize}
+  \item Разглеждане на javadoc документация
+  \item Документира се само публичния интерфейс на едно API
+  \item Стандартни javadoc анотации
+  \item Работа с инструмента javadoc
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Работа с javadoc}
+  \transdissolve
+  \begin{itemize}
+  \item   javadoc -d docdir package – създава html
+    документация за пакета package в
+    директорията docdir
+  \item  javadoc -d docdir package1, package2 –
+    създава документация за няколко пакета
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Седем прости правила за създаване на добри класове}
+  \transdissolve
+  \begin{enumerate}
+    \item Правете всички полета private
+    \item Инициализирайте изрично всички полета
+    \item Не използвайте много примитивни полета
+    \item Не слагайте get/set методи, ако нямате нужда от тях
+    \item Дефинирайте класовете по стандартен начин
+    \item Раздробявайте класовете с много отговорности на по-малки
+    \item Избирайте смислени име за класовете, полетата и методите
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Упражнение}
+  \transdissolve
+  
+\end{frame}
+
 
 \section*{Заключение}
 
@@ -157,13 +613,12 @@
   % Keep the summary *very short*.
   \begin{itemize}
   \item
-    Java \alert{е много повече от език за програмиране}.
+    Класовете са шаблоните, по които изграждаме обекти.
   \item
-    JVM \alert{е целевата среда за изпълнение} на Java приложенията, а
-    не физическата процесорна микроархитектура.
+    Обектите са градивните блокове на типичната Java програма.
   \item
-    За пълноценна работа с езикът и платформата Java човек трябва да
-    се запознае с доста инструменти.
+    Проектирането на класове е критичен процес, при който трябва да
+    бъдат съблюдавани утвърдените практики.
   \end{itemize}
   
   % The following outlook is optional.
@@ -173,9 +628,9 @@
     Следващият път:
     \begin{itemize}
     \item
-      Основния положения в езикът Java
+      Наследяване
     \item
-      Повече примери, по-малко общи приказки
+      Полиморфизъм
     \end{itemize}
   \end{itemize}
 \end{frame}
