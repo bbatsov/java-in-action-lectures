@@ -114,7 +114,254 @@
 \end{frame}
 
 
+\begin{frame}{Диаграма}
+  \transdissolve
+  
+\end{frame}
+
+\begin{frame}{От общото към частното}
+  \transdissolve
+  \begin{itemize}
+  \item наследяване == разширяване
+  \item суперклас(клас родител/базов клас)
+  \item подклас(клас наследник)
+  \item отношението между подклас и суперклас е е(is-a)
+    \begin{itemize}
+      \item Програмистът е човек.
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Наследяване - синтаксис}
+  \transdissolve
+\begin{lstlisting}
+class SubClass extends SuperClass {
+  // fields
+  ...
+  // constructors
+  ...
+  // methods
+  ...
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Ключови моменти при наследяването}
+  \transdissolve
+  \begin{itemize}
+  \item Конструкторът на подкласа извиква конструктора на суперкласа
+  \item private елементите не са достъпни директно в подкласовете
+  \item Ключовата дума \textbf{super} позволява обръщение към метод от
+    суперкласа
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Йерархия на наследяването}
+  \transdissolve
+  \begin{itemize}
+  \item Единична йерархия на наследяване - един подклас може да има
+    само един суперклас
+  \item Избягват се много от проблемите на C++
+  \item Интерфейсите предлагат "`емулация" на множествено наследяване
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Диаграма}
+  \transdissolve
+  
+\end{frame}
+
 \section{Полиморфизъм}
+
+
+\begin{frame}[fragile]
+  \frametitle{Полиморфизъм}
+  \transdissolve
+  \begin{block}{Полиморфизъм}
+    Техника на програмиране, която се основава на заместване на
+    декларициите от тип подклас с деклации от суперклас и фактът, че
+    по време на изпълнение на програмата средата за изпълнение ще
+    изпълнява правилните методи на базата на истинския тип на
+    обектите. Полиморфизмът е тясно свързан с късното свързване на
+    методите(late binding).
+  \end{block}
+  \begin{lstlisting}
+    Programmer p = new Programmer();
+    Employee e = new Programmer();
+  \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}{Предимства на полиморфизма}
+  \transdissolve
+  \begin{itemize}
+  \item Ниска свързаност(loose coupling)
+  \item Гъвкавост - нови класове могат да бъдат добавяни през
+    прекомпилиране на кода
+  \item Простота - придържаме ме се към по-прост интерфейс
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Търсене на метод}
+  \transdissolve
+  \begin{itemize}
+  \item Търсене от компилатора(ранно/статично свързване)
+  \item Търсене от виртуалната машина(късно/динамично свързване)
+  \item Таблица на методите
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Късно свързване}
+  \transdissolve
+  \begin{itemize}
+  \item Виртуалната машина знае истинския тип на всеки един обект
+  \item Виртуалната машина изпълнява методите на базата на истинския
+    тип
+  \item Необходимост за реализиране на полиморфизъм
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Забраняване на наследяването и късното свързване}
+  \transdissolve
+  \begin{itemize}
+  \item final class - неразширяем клас
+  \item final method - метод, който не може да бъде динамично свързан
+  \item Във final class всички методи са имплицитно final
+  \item final като оптимизационна и защитна техника
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Абстрактни класове}
+  \transdissolve
+  \begin{itemize}
+  \item Създадени да бъдат разширявани
+  \item Не могат да бъдат инстанцирани
+  \item Обикновено са на върха на йерархията на наследяването
+  \item Съдържат един или повече методи без имплементация(абстрактни методи)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Абстрактни класове - пример}
+  \transdissolve
+\begin{lstlisting}
+abstract class SomeClass {
+     abstract void doSomething();
+}
+SomeClass sc = new SomeClass(); // no
+  
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Преобразуване на обекти}
+  \transdissolve
+  \begin{itemize}
+  \item Всеки обект от подклас и е обект от суперкласа
+  \item Обратното не е вярно
+  \end{itemize}
+\begin{lstlisting}
+Programmer p = new Programmer();
+Employee e = p;
+e = new Employee();
+p = e;
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Преобразуване на обекти}
+  \transdissolve
+  \begin{itemize}
+  \item Референция от суперклас може да бъде конвертирана до
+    референция от подклас изрично
+    \begin{lstlisting}
+      Employee e = new Programmer();
+      Programmer p = (Programmer) e;
+    \end{lstlisting}
+
+  \item Изричното преобразуване е опасна операция, която може да
+    доведе го грешки по време на изпълнение на програмата
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Преобразуване на обекти}
+  \transdissolve
+  \begin{itemize}
+  \item Сигурно преобразуване с instanceof
+    \begin{lstlisting}
+if (e instanceof Programmer) {
+  p = (Programmer) e;
+}
+    \end{lstlisting}
+
+  \item Невъзможните преобразувания се улавят от компилатора
+    \begin{lstlisting}
+      Date d = (Date) e;
+    \end{lstlisting}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Върховния суперклас Object}
+  \transdissolve
+  \begin{itemize}
+  \item Начало на класовата йерархия в Java
+  \item Всеки клас имплицитно наследява Object
+  \item Съдържа в себе си методи, които имат смисъл за всички обекти
+    \begin{itemize}
+      \item clone
+      \item equals
+      \item hashCode
+      \item toString
+    \end{itemize}
+  \item Всяка референция може да бъде преобразувана до тип Object
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Сравняване на обекти}
+  \transdissolve
+  \begin{itemize}
+  \item == сравнява референции - сравнение за идентичност
+  \item метода equals()
+  \item Дефиниране на подходящ метод equals()
+  \item връзка между equals и hashCode
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Модификатор за достъп protected}
+  \transdissolve
+  \begin{itemize}
+  \item Еквивалент на default достъп + директен достъп в подкласовете
+  \item Употребата му се счита за лош стил
+  \item protected и default е желателно да бъдат избягвани
+  \item четири нива на достъп
+    \begin{itemize}
+      \item private
+      \item public
+      \item default(package)
+      \item protected
+    \end{itemize}
+  \item три модификатора за достъп
+    \begin{itemize}
+      \item private
+      \item public
+      \item protected
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Упражнение}
+  \transdissolve
+  
+\end{frame}
+
 
 \section*{Заключение}
 
