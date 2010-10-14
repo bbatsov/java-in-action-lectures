@@ -329,6 +329,17 @@ if (e instanceof Programmer) {
   \item == сравнява референции - сравнение за идентичност
   \item метода equals()
   \item Дефиниране на подходящ метод equals()
+    \begin{itemize}
+      \item проверка за сравнение с null
+      \item проверка за сравнение със същия обект
+      \item проверка за сравнение с различен тип
+      \item сравняване на двата обекта по полета
+      \begin{itemize}
+        \item рекурсивно сравняване на полета от референтни типове с equals
+      \end{itemize}
+
+    \end{itemize}
+
   \item връзка между equals и hashCode
   \end{itemize}
 \end{frame}
