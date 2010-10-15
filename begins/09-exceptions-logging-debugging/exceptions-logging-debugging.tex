@@ -1,0 +1,513 @@
+\documentclass{beamer}
+
+% Copyright 2010 Drow Ltd.
+% 
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+% 
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+\mode<presentation>
+{
+  \usetheme[titleline=true,
+  alternativetitlepage=true,
+  titlepagelogo=images/Java_logo]{Torino}
+  \usecolortheme{nouvelle}
+  \beamertemplatenavigationsymbolsempty
+}
+
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage[english,bulgarian]{babel}
+\usepackage[T2A]{fontenc}
+
+\usepackage{listings}
+\lstset{language=Java,
+  captionpos=b,
+  tabsize=4,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  numbers=left,
+  breaklines=true,
+  showstringspaces=false,
+  basicstyle=\ttfamily,
+  emph={label},
+  frame=shadowbox, 
+  rulesepcolor=\color{blue},
+  columns=fixed}
+
+\title{Изключения, проверки и журнали в Java. Дебъгване.}
+
+\subtitle
+{Обработка на изключения, проверка на валидността на програма, следене
+на работата на програмата посредством журнал. Търсене и отстраняване
+на грешки.}
+
+\author{инж. Божидар ~Бацов}
+
+\institute{Drow Ltd.}
+
+\date{26.10.2010}
+
+\subject{Talks}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Съдържание}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+% \beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Съдържание}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+% 15 and 30 frames, all told.
+
+\section{Изключения}
+
+\subsection{Грешки}
+
+\begin{frame}{Грешки в приложенията}
+  \begin{itemize}
+  \item Програмни грешки
+    \begin{itemize}
+      \item възникват по вина на програмиста
+    \end{itemize}
+  \item Потребителски грешки
+      \begin{itemize}
+        \item възникват по вина на потребителя
+        \item неподходящи входни данни
+        \item неправилна конфигурация
+      \end{itemize}
+  \item Системни грешки
+  \begin{itemize}
+    \item липсва на оперативна памет
+    \item липса на файлови дескриптори
+  \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Класически подход за следене за грешки}
+  \transdissolve
+  \begin{itemize}
+  \item Връщане на специални стойности
+    \begin{itemize}
+      \item -1
+      \item null
+    \end{itemize}
+  \item Проблеми на подхода
+    \begin{itemize}
+      \item върнатите стойности могат лесно да бъдат игнорирани
+      \item връщането на null създава риск за възникване на
+        NullPointerException
+      \item не винаги има подходящи специални стойности
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Изключение}
+  \transdissolve
+  \begin{itemize}
+  \item Специален обект, който сигнализира за възникването на някакво
+    неочаквано събитие
+  \item Капсулира в себе си причина, съобщение за грешка, stack trace
+  \item Съществува цяла инфраструктура за обработка на изключения
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Йерархия на изключенията}
+  \transdissolve
+  \includegraphics[height=150px,width=300px]{images/throwableHierarchy}
+\end{frame}
+
+\begin{frame}{Основни класове в йерархията}
+  \transdissolve
+  \begin{itemize}
+  \item Throwable
+    \begin{itemize}
+    \item всички изключения го разширяват
+    \end{itemize}
+  \item Error
+    \begin{itemize}
+      \item базов клас за изключения свързани с виртуалната машина
+      \item не трябва да го разширявате
+    \end{itemize}
+  \item RuntimeException
+    \begin{itemize}
+      \item базов клас за изключения свързани с програмни грешки
+    \end{itemize}
+  \item Exception
+    \item базов клас за всички останали изключения
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Видове изключения}
+  \transdissolve
+  \begin{itemize}
+  \item Проверени(checked)
+    \begin{itemize}
+      \item обработката им се проверява автоматично от компилатора
+      \item обекти от подкласове на Exception
+      \item Често срещани проверени изключения
+        \begin{itemize}
+          \item IOException
+          \item FileNotFoundException
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Непроверени(unchecked)
+    \begin{itemize}
+      \item възникват от програмни грешки
+      \item възникват от грешки във виртуалната машина
+      \item обекти от подклас на RuntimeException
+      \item Често срещани непроверени изключения
+        \begin{itemize}
+          \item NullPointerException
+          \item InvalidArgumentException
+          \item InvalidStateException
+          \item OutOfMemoryError
+          \item ArithmethicException
+        \end{itemize}
+
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Дефиниране на изключения}
+  \transdissolve
+  \begin{itemize}
+  \item Предпочитайте изключенията от стандартната библиотека
+  \item Предпочитайте вече дефинирани изключения в рамките на
+    приложението ви
+  \item Използвайте за базови класове само Exception и
+    RuntimeException
+  \item В никакъв случай не наследявайте директно Throwable или Error
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+  \transdissolve
+\begin{lstlisting}
+class MyException extends Exception {
+  public MyException() {};
+
+  public MyException(String message) {
+    super(message);    
+  }
+  
+  public MyException(String message, Throwable cause) {
+    super(message, cause);  
+  }
+}    
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Работа с изключения}
+  \transdissolve
+  \begin{itemize}
+  \item Изключенията се сигнализират с ключовата дума throw
+    \begin{itemize}
+      \item \lstinline$throw new SomeException()$
+    \end{itemize}
+  \item Изключенията се прихващата в try блок
+  \item Изключенията могат да бъдат предадени към извикващия метод
+    посредством throws директивата
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+  \transdissolve
+\begin{lstlisting}
+public void someMethod() throws SomeException {
+  try {
+    // code that may throw
+    // some exception
+    ... 
+  }
+  catch (SomeException e) {
+    // handle the exception
+    ...
+  } finally {
+    // do some cleanup
+    ...
+  }
+}
+  
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Работа с изключения}
+  \transdissolve
+  \begin{itemize}
+  \item Има смисъл да се прихващат само изключения, за които може да
+    бъде направено нещо
+  \item Има смисъл да се пропагират само проверени изключения
+  \item Код във finally блок се изпълнява винаги 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Stack trace}
+  \transdissolve
+  \begin{itemize}
+  \item Информация за реда на извиквания на методи
+  \item Съдържа се във всяко изключение
+  \item Изключително полезен при дебъгване за определяне на мястото,
+    на което е възникнал даден проблем
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Опаковане на изключения}
+  \transdissolve
+  \begin{itemize}
+  \item Едно изключение може да е причинено от друго
+  \item Причината(cause) се задава в конструктора на новото изключение
+  \item Често се използва за опакова на проверени изключения в непроверени
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Добри практики}
+  \transdissolve
+  \begin{itemize}
+  \item Предпочитай стандартните изключения
+  \item Използвайте ги само, когато наистина се нуждаете от тях
+  \item Не ги потискайте
+  \item Избягвайте прекалената употреба на проверени изключения
+  \end{itemize}
+\end{frame}
+
+\section{Проверки}
+
+\begin{frame}{Проверки(Assertions)}
+  \transdissolve
+  \begin{itemize}
+  \item Използват се за потвърждаване на коректността на стойности в
+    определени моменти от програмата
+  \item Извършват се с ключовата дума assert
+  \item Проверките се активират на ниво виртуална машина с флага -еа
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Работа с проверки}
+  \transdissolve
+  \begin{itemize}
+  \item При пропадане на проверка програмата завършва с AssertionError
+  \item Използват се само във фазата на разработка
+  \item В режим на експлоатация(production deployment) се изключват на
+    ниво виртуална машина
+  \item Употреба
+    \begin{itemize}
+      \item \lstinline$assert condition$;
+      \item \lstinline$assert condition : expression$;
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+  \transdissolve
+\begin{lstlisting}
+  
+\end{lstlisting}
+\end{frame}
+
+
+\section{Журнали}
+
+\begin{frame}{Програмен журнал}
+\transdissolve
+\begin{itemize}
+\item Информативни съобщения, чрез които можем да анализираме работата
+  на дадено приложение
+\item Категории журнални съобщения
+\begin{itemize}
+  \item debug
+  \item info
+  \item warning
+  \item error
+\end{itemize}
+\item Извеждане на конзола
+\item Съхранение във файл
+\begin{itemize}
+  \item ротация на журналните съобщения
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Журналния библиотеки в Java}
+  \transdissolve
+  \begin{itemize}
+  \item Java Logging
+  \item Log4J
+  \item Logback
+  \item SimpleLog
+  \item Фасадни библиотеки
+    \item Commons Logging
+    \item SLF4J
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Работа с журнални библиотеки}
+  \transdissolve
+  \begin{itemize}
+  \item Обикновено се конфигурират с конфигурационен файл или
+    програматично
+  \item Стандартни опции
+    \begin{itemize}
+      \item описателност(verbosity)
+      \item дестинация(конзола, файл)
+      \item формат на съобщенията
+      \item ротация/архивиране
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Добри практики при водене на журнал}
+  \transdissolve
+  \begin{itemize}
+  \item Всеки клас, който прави нещо смислено трябва да има
+    Logger(private static final)
+  \item Журналните съобщения не трябва да са криптични, а ясни и
+    описателни
+  \item Дръжте конфигурацията си в конфигурационни файлове, а не в
+    кода
+  \item Предпочитайте фасадни библиотеки
+  \end{itemize}
+\end{frame}
+
+
+\section{Дебъгване}
+
+\begin{frame}{Дебъгване тип "`старата школа"}
+  \transdissolve
+  \begin{itemize}
+  \item println до дупка
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Дебъгване с дебъгер}
+  \transdissolve
+  \begin{itemize}
+  \item Най-мощната техника за търсене и отстраняване на проблеми
+  \item Дебъгерът ви дава възможност да:
+    \begin{itemize}
+      \item спрете изпълнение на програмата в даден момент
+      \item прегледате стойностите на полета, локални променливи
+      \item да изпълнявате програмата твърдение по твърдение
+      \item да изпълнявате произволни твърдения в контекста на
+        текущата програма 
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Работа с дебъгер}
+  \transdissolve
+  \begin{itemize}
+  \item Интегриран в повечето среди за разработка
+  \item Поставяне на точки на прекъсване(line break, method break,
+    etc)
+  \item Стартиране на приложението в debug режим
+  \item Програмата спира(прави пауза) на първата срещната точка за
+    прекъсване
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Добри практики при работа с дебъгер}
+  \transdissolve
+  \begin{itemize}
+  \item Използвайте stack trace-a, за да определените местата за точки
+    на прекъсване
+  \item Развийте навик да преглеждате състоянието на всички по-важни
+    стойности
+  \item Избягвайте употребата на method точки за прекъсване
+  \end{itemize}
+\end{frame}
+
+
+\section*{Заключение}
+
+\begin{frame}{Заключение}
+  \transdissolve
+  % Keep the summary *very short*.
+  \begin{itemize}
+  \item
+    Ползвайте изключения за обработка на изключителни събития.
+  \item
+    Използването на проверки и журнал води до по-устойчив на грешки софтуер.
+  \item
+    Грешките са част от програмирането и в борбата с тях дебъгерът е
+    най-добрият ви приятел.
+  \end{itemize}
+  
+  % The following outlook is optional.
+  \vskip0pt plus.5fill
+  \begin{itemize}
+  \item
+    Следващият път:
+    \begin{itemize}
+    \item Генерично програмиране
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Въпроси}
+  \transdissolve
+  \begin{center}
+    \LARGEТук е момента да зададете вашите въпроси! :-)
+  \end{center}
+\end{frame}
+
+\begin{frame}{Край}
+  \transdissolve
+  \begin{center}
+    \LARGEБлагодаря Ви за вниманието!
+  \end{center}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
