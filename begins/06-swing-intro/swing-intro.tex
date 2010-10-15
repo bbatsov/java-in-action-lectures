@@ -284,11 +284,121 @@ panel.add(new JButton("Button1"));
 
 \begin{frame}{Обработка на събития}
   \transdissolve
+  \begin{block}{Слушател за събитие(Action Listener)}
+    Инстанция на клас, който реализира Listener интерфейс.
+  \end{block}
+  \begin{block}{Източник на събитие(Event Source)}
+    Обект(компонент), към който могат да бъдат прикачани слушатели, на
+    които да бъдат предавани събития
+  \end{block}
+  \begin{block}{Събития в Swing}
+    Събитията обикновено възникват в резултат от взаимодействието
+    между приложението и потребителят - натискане на бутон, загуба на
+    фокус, минимизира на прозорец и т.н.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Връзка между източник и слушател}
+  \transdissolve
   \begin{itemize}
-  \item Action Listener
+  \item Източникът генерира събития
+  \item Слушателят се регистрира(абонира) за тези събития
+  \item Един източник може да има много слушатели
+  \item Един слушател може да е регистриран към много източници
+  \item Слушателят реагира на базата на полученото съобщение
+  \item Шаблон за дизайн Наблюдател(Observer)
   \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Източник слушател диаграма}
+  \transdissolve
+  
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример}
+  \transdissolve
+\begin{lstlisting}
+frame.addWindowListener(new WindowListener() { // listener
+  public void windowOpened(WindowEvent e) {
+    System.out.println("Window opened"); 
+  }
+  
+  public void windowClosed(WindowEvent e) {
+    System.out.println("Window closed"); 
+  }
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Адаптерни класове}
+  \transdissolve
+  \begin{itemize}
+  \item Някои Listener интерфейси съдържат много методи
+  \item Обикновено повечето от тях не ни интересуват
+  \item Интерфейсът задължава да бъдат реализирани всичките му класове
+  \item Адаптерните класове предлагат празна имплементация на всички
+    интерфейсни методи
+  \item Подходящи винаги, когато да реализираме само част от методите
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Йерархия на събитията в Swing}
+  \transdissolve
+  
+\end{frame}
+
+\begin{frame}{Основни събития}
+  \transdissolve
+  \begin{itemize}
+  \item ActionEvent
+  \item AdjustmentEvent
+  \item ItemEvent
+  \item KeyEvent
+  \item MouseEvent
+  \item MouseWheelEvent
+  \item FocusEvent
+  \item WindowEvent
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Основни Listener интерфейси}
+  \transdissolve
+  \begin{columns}
+    \column{.5\textwidth}
+    \begin{itemize}
+      \item ActionListener
+      \item AdjustmentListener
+      \item FocusListener
+      \item ItemListener
+      \item KeyListener
+      \item MouseListener
+    \end{itemize}
+    \column{.5\textwidth}
+    \begin{itemize}
+      \item MouseMotionListener
+      \item MouseWheelListener
+      \item WindowListener
+      \item WindowFocusListener
+      \item WindowStateListener
+    \end{itemize}
+
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Адаптерни класове}
+  \transdissolve
+  \begin{itemize}
+  \item FocusAdapter
+  \item KeyAdapter
+  \item MouseAdapter
+  \item MouseMotionAdapter
+  \item WindowAdapter
+  \end{itemize}
+\end{frame}
 
 \section*{Заключение}
 
