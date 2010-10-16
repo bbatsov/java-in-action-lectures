@@ -1,0 +1,277 @@
+\documentclass{beamer}
+
+% Copyright 2010 Drow Ltd.
+% 
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+% 
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+\mode<presentation>
+{
+  \usetheme[titleline=true,
+  alternativetitlepage=true,
+  titlepagelogo=images/Java_logo]{Torino}
+  \usecolortheme{nouvelle}
+  \beamertemplatenavigationsymbolsempty
+}
+
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage[english,bulgarian]{babel}
+\usepackage[T2A]{fontenc}
+
+\usepackage{listings}
+\lstset{language=Java,
+  captionpos=b,
+  tabsize=4,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  numbers=left,
+  breaklines=true,
+  showstringspaces=false,
+  basicstyle=\ttfamily,
+  emph={label},
+  frame=shadowbox, 
+  rulesepcolor=\color{blue},
+  columns=fixed}
+
+\title{Паралелно програмиране}
+
+\author{инж. Божидар ~Бацов}
+
+\institute{Drow Ltd.}
+
+\date{26.10.2010}
+
+\subject{Talks}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+% \beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Съдържание}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+% 15 and 30 frames, all told.
+
+\section{Хардуер и софтуер}
+
+\subsection{Хардуер}
+
+\begin{frame}{Хардуерната еволюция}
+  \begin{itemize}
+  \item Войната на GHz приключи
+  \item Повече ядра срещу по-високи тактови честоти
+  \item Паралелни компютри
+    \begin{itemize}
+      \item Мултикомпютър
+      \item Мултипроцесор
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Един процесор, много приложения}
+  \transdissolve
+  \begin{itemize}
+  \item Един процесор в даден момент може да изпълнява само едно
+    приложение(много грубо казано)
+  \item Но на еднопроцесорен компютър работят едно временно
+    \begin{itemize}
+      \item браузър
+      \item текстов редактор
+      \item пощенски клиент
+      \item музикален плеър 
+      \item офис пакет
+      \item терминален емулатор
+      \item офис пакет
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Малко теория на операционните системи}
+  \transdissolve
+  \begin{itemize}
+  \item Диспечър(scheduler)
+    \begin{itemize}
+      \item разпределя ресурсите на операционна система между
+        програмите, която тя изпълнява
+      \item по определен алгоритъм предоставя на всяка програма кванти
+        процесорно време, през които те работят
+      \item един процес се изпълнява, всички други спят
+      \item създава илюзия за паралелизъм
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Аспекти на едно приложение}
+  \transdissolve
+  \begin{itemize}
+  \item Приоритет
+    \begin{itemize}
+      \item процесите с по-голям процес получават от диспечъра повече
+        процесорно време
+    \end{itemize}
+
+  \item Комбинация от процесорно време и входно изходни операции
+
+  \item За истински паралелизъм са необходими повече от един
+    процесор(или процесор с повече от едно ядро или технология като HT
+    на Intel)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Единици за програмно изпълнение}
+  \transdissolve
+  \begin{block}{Процеси}
+     – няколко независими процеса,
+     които се синхронизират посредством
+    съобщения, които обменят по определен
+    комуникационен канал
+  \end{block}
+  \begin{block}{Нишки}
+    – потоци на изпълнение, които се
+    изпълняват в общо адресно
+    пространство и се синхронизират
+    посредством променливите, които
+    споделят
+  \end{block}
+\end{frame}
+
+\begin{frame}{Нишки в Java}
+  \transdissolve
+  \begin{itemize}
+  \item класът Thread
+    \begin{itemize}
+      \item обектна капсулация на нишка
+      \item притежава полезни методи като start()
+    \end{itemize}
+  \item интерфейсът Runnable
+    \begin{itemize}
+      \item шаблон за създаване на изпълними в нишка обекти
+    \end{itemize}
+  \item приложение на нишки
+    \begin{itemize}
+      \item времеемки операции
+      \item операции, които се изпълняват във фона на приложението
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Синхронизация на нишки}
+  \transdissolve
+  \begin{itemize}
+  \item Синхронизационни обекти
+    \begin{itemize}
+      \item семафори
+      \item locks
+      \item mutexes
+    \end{itemize}
+    \item Ключовата дума на synchronized
+      \begin{itemize}
+        \item синхронизирани методи
+        \item синхронизирани блокове
+      \end{itemize}
+
+    \item deadlocks
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Executors framework}
+  \transdissolve
+  \begin{itemize}
+  \item Въведена в Java 5
+  \item Живее в пакета java.util.concurrent
+  \item Предлага по-високо ниво на абстракция от нишките - задачи
+  \item Thread pools
+  \item Scheduled execution
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Нишки в Swing}
+  \transdissolve
+  \begin{itemize}
+  \item Event dispatch thread
+  \item SwingWorker
+  \end{itemize}
+\end{frame}
+
+
+\section*{Заключение}
+
+\begin{frame}{Заключение}
+  \transdissolve
+  % Keep the summary *very short*.
+  \begin{itemize}
+  \item
+    Java \alert{е много повече от език за програмиране}.
+  \item
+    JVM \alert{е целевата среда за изпълнение} на Java приложенията, а
+    не физическата процесорна микроархитектура.
+  \item
+    За пълноценна работа с езикът и платформата Java човек трябва да
+    се запознае с доста инструменти.
+  \end{itemize}
+  
+  % The following outlook is optional.
+  \vskip0pt plus.5fill
+  \begin{itemize}
+  \item
+    Следващият път:
+    \begin{itemize}
+    \item
+      Основния положения в езикът Java
+    \item
+      Повече примери, по-малко общи приказки
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Въпроси}
+  \transdissolve
+  \begin{center}
+    \LARGEТук е момента да зададете вашите въпроси! :-)
+  \end{center}
+\end{frame}
+
+\begin{frame}{Край}
+  \transdissolve
+  \begin{center}
+    \LARGEБлагодаря Ви за вниманието!
+  \end{center}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
