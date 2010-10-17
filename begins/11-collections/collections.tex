@@ -90,18 +90,201 @@
 % - Talk about 30s to 2min per frame. So there should be between about
 % 15 and 30 frames, all told.
 
-\section{Средата за програмиране Java}
+\section{Въведение в колекциите}
 
-\subsection{subsection1}
-
-\begin{frame}{Frame title}
+\begin{frame}{Въведение в колекциите}
+  \begin{block}{Колекции(контейнери)}
+    Обект, който групира няколко елемента. Колекциите се използват за
+    съхраняване, извличане, манипулиране и комуникиране на свързани
+    данни. Обикновено представляват данни, които формират естествена група.
+  \end{block}
   \begin{itemize}
   \item
-    item one
-  \item
-    item two
+    Стари колекции - преди Java 1.2
+    \begin{itemize}
+      \item Vector
+      \item Hashtable
+      \item array
+    \end{itemize}
+  \item Collections Framework
   \end{itemize}
 \end{frame}
+
+\begin{frame}{Collections Framework}
+  \transdissolve
+  \begin{itemize}
+  \item  Унифицирана архитектура за представяне и манипулирани на
+    колекции    
+   \item Въведена в Java 1.2
+  \item Подобна на STL в C++
+  \item Включва
+    \begin{itemize}
+    \item интерфейси
+    \item конкретни реализации
+    \item алгоритми
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Предимства на Collections Framework}
+  \transdissolve
+  \begin{itemize}
+  \item Намалява програмните усилия
+  \item Увеличава скоростта на и качеството на програмите
+  \item Позволява взаимодействие между различни API
+  \item Намалява усилията да се учат нови API
+  \item Намалява нуждата от проектиране на нови API
+  \item Поощрява преизползването на код
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Интерфейси}
+  \transdissolve
+  \includegraphics[height=120px,width=320px]{images/colls-coreInterfaces.png}
+\end{frame}
+
+\begin{frame}{Интерфейси}
+\transdissolve
+\begin{itemize}
+\item всички интерфейси са генерични
+\item Collection
+\begin{itemize}
+  \item корен на йерархията
+  \item съдържа всички най-общи операции
+\end{itemize}
+\item Set
+\begin{itemize}
+  \item набор от елементи без повторения
+\end{itemize}
+\item List
+\begin{itemize}
+  \item подредена колекция от елементи
+  \item може да съдържа елементи
+  \item замества vector
+\end{itemize}
+\item Queue
+\item Map 
+\begin{itemize}
+  \item обект, който асоциира ключове със стойности
+  \item замества hashtable
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Имплементации}
+  \transdissolve
+  \begin{itemize}
+  \item Стандартни имплементации
+  \item Специални имплементации
+  \item Паралелни имплементации
+  \item Имплементации обвивки
+  \item Имплементации за удобство
+  \item Абстрактни имплементации
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Стандартни имплементации}
+  \transdissolve
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    Interfaces & \multicolumn{5}{|c|}{Implementations}  \\
+    \hline
+    \hline
+    & Hash & Resizable & Tree & Linked & Hash table + \\
+    & table & array & & list & Linked List \\
+    \hline
+    Set & HashSet & & TreeSet & & LinkedHashSet \\
+    \hline
+    List & & ArrayList & & LinkedList \\
+    \hline
+    Queue & & & & & \\
+    \hline
+    Map & HashMap & & TreeMap & & LinkedHashMap \\
+    \hline
+  \end{tabular}
+
+\end{frame}
+
+\begin{frame}{Особености на стандартните имплементации}
+\transdissolve
+\begin{itemize}
+\item реализират всички операции в съответния интерфейс
+\item позволяват null елементи и ключове
+\item не са thread safe
+\item всички имат fail-fast итератори
+\item всички са Serializable
+\item всички имат публичен clone() метод
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Имплементации обвивки}
+  \transdissolve
+  \begin{itemize}
+  \item Синхронизирани обвивки
+  \item Непроменими обвивки
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Обзор на имплементациите}
+  \transdissolve
+  \begin{itemize}
+  \item Най-използвани
+    \begin{itemize}
+      \item List - ArrayList
+      \item Set - HashSet
+      \item Map - HashMap
+      \item Queue - LinkedList   
+    \end{itemize}
+    \item Алтернативни имплементации трябва да се ползват само, когато
+      е необходимо
+    \item Класът Collections предоставя статични методи за създаване
+      на обвити колекции
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Алгоритми}
+  \transdissolve
+  \begin{itemize}
+  \item Всички са събрани в класа Collections
+  \item Повечето работят върху List, а не Collection
+  \item Основни алгоритми
+    \begin{itemize}
+      \item сортиране
+      \item разбъркване
+      \item обръщане
+      \item копиране
+      \item размяна на елементи
+      \item добавяне на всички елементи
+      \item търсене
+      \item композиция
+      \item намиране на екстремуми
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Създаване на собствена колекция}
+  \transdissolve
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Съвместимост с други API}
+  \transdissolve
+  \begin{itemize}
+  \item Съвместимост
+    \begin{itemize}
+      \item upward
+      \item backward
+    \end{itemize}
+    \item API дизайн
+  \end{itemize}
+\end{frame}
+
 
 \section*{Заключение}
 
