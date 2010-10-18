@@ -63,15 +63,12 @@
   \tableofcontents[pausesections]
 \end{frame}
 
-\section{Средата за програмиране Java}
-
-\subsection[Кои сме ние?]{Кои сме ние?}
+\section{За курса}
 
 \begin{frame}{Екип}
   \transdissolve
   \begin{itemize}
-  \item
-    инж. Божидар Бацов
+  \item инж. Божидар Бацов
     \begin{itemize}
     \item Технически директор на Drow Ltd.
     \item Професионален софтуерен инженер
@@ -81,40 +78,48 @@
     \item Бездарен китарист, пенсиониран gamer, кинокритик на свободна
       практика
     \end{itemize}
-  \item
-    Владимир Василев
+  \item Владимир Василев
     \begin{itemize}
       \item Благ диктатор на init Lab
       \item Професионален софтуерен инженер
       \item Професионален кейтърър
       \item Радетел за свободен софтуер, свободни технологии
     \end{itemize}
-
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Комуникация}
   \transdissolve
   \begin{itemize}
-  \item Пощенски списък - http://groups.google.com/group/java-in-action
-  \item Ел. поща
+  \item Пощенски списък 
+    \begin{itemize}
+    \item http://groups.google.com/group/java-in-action
+    \item http://groups.google.com/group/init-lab
+    \end{itemize}
+  \item Електронна поща
+    \begin{itemize}
+      \item bozhidar.batsov@gmail.com
+      \item vlood.vassilev@gmail.com
+    \end{itemize}
   \item Jabber/GTalk
   \item Twitter
+    \begin{itemize}
+      \item bbatsov
+      \item initLabber
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Формат на занятията}
   \transdissolve
   \begin{itemize}
-  \item Лекции по 45 мин
-  \item Почивки по 15 мин
-  \item Задачки закачки за домашна работа
+  \item Лекции по 45 минути
+  \item Почивки по 15 минути
+  \item Задачки-закачки за домашна работа
   \item Допълнителни практически занятия
   \item Работа по учебен проект
   \end{itemize}
 \end{frame}
-
-\subsection{Програмирането преди ерата на Java}
 
 \begin{frame}{Програмирането}
   \transdissolve
@@ -139,10 +144,11 @@
       \item Нетърпеливост
       \item Хюбрис(огромна гордост)
     \end{itemize}
-
   \end{itemize}
 \end{frame}
 
+\section{Средата за програмиране Java}
+\subsection{Програмирането преди ерата на Java}
 
 \begin{frame}{Програмирането през 1995}
   \transdissolve
@@ -190,6 +196,7 @@
   \end{tabular}
 \end{frame}
 
+\subsection{Предимства на Java}
 \begin{frame}{Предимствата на Java}
   \transdissolve
   \begin{itemize}
@@ -209,11 +216,15 @@
   \transdissolve  
   \begin{itemize}
     \item Базиран на C++
-    \item Изчистен синтаксис – без указатели,
-    презареждане на оператори, хедър
-    файлове, структури, unions и т.н.
-    \item Автоматично събиране на боклука –
-    \item Gargabe collection
+    \item Изчистен синтаксис – 
+      \begin{itemize}
+        \item няма указатели
+        \item няма презареждане на оператори
+        \item няма хедър файлове
+        \item няма структури - има само класове
+        \item няма unions
+      \end{itemize}
+    \item Автоматично събиране на боклука(Garbage collection)
   \end{itemize}
 \end{frame}
 
@@ -228,15 +239,14 @@
 \begin{frame}{Мрежова поддръжка и паралелизъм}
   \transdissolve
   \begin{itemize}
-    \item Мрежова поддръжка
+  \item Мрежова поддръжка
   \begin{itemize}
-  \item   Богата библиотека за работа с различни
-    мрежови протоколи – TCP/IP, HTTP, FTP
-
+  \item Богата библиотека за работа с различни
+    мрежови протоколи(TCP/IP, HTTP, FTP)
   \end{itemize}
   \item Паралелизъм
     \begin{itemize}
-    \item  Вградена поддръжка за мултипроцесори
+    \item Вградена поддръжка за мултипроцесори
     \item Просто и гъвкаво API за работа с нишки
     \end{itemize}
   \end{itemize}
@@ -246,10 +256,13 @@
   \transdissolve
   \begin{itemize}
     \item Липсва на указатели и асоциираните с
-    тях проблеми – преливане на стека,
-    достъп до невалиден указател и т.н.
+    тях проблеми
+    \begin{itemize}
+      \item преливане на стека
+      \item достъп до невалиден указател
+    \end{itemize}
 
-    \item Няма опасност от течове на памет –
+    \item Няма опасност от течове на памет - 
     garbage collector-а се грижи за това
   \end{itemize}
 \end{frame}
@@ -270,9 +283,12 @@
 \begin{frame}{Преносимост}
   \transdissolve
   \begin{itemize}
-  \item Стандартизирани типове – гарантирано
-  е че byte е 1 байта, short е 2 байта, int –
-  4, и т.н.
+  \item Стандартизирани типове
+    \begin{itemize}
+      \item byte = 1 byte
+      \item short = 2 bytes
+      \item int = 4 bytes
+    \end{itemize}
   \item Вградена поддръжка на различни
   файлови системи
   \end{itemize}
@@ -339,15 +355,15 @@
 \begin{frame}{Еволюцията на Java}
   \transdissolve
   \begin{itemize}
-  \item 1996 – Java 1.0 - началото
-  \item 1997 – Java 1.1 – inner classes
-  \item 1998 – Java 2 1.2 – разширено API
-  \item 2000 – Java 1.3 – разширено API
-  \item 2004 – Java 1.4 - asserts
-  \item 2004 – Java 5.0 – generics, autoboxing...
-  \item 2006 – Java 6 – разширено API
-  \item 2011   Java 7 invoke dynamic, project coin
-  \item 2013   Java 8 closures, project jigsaw
+  \item 1996 - Java 1.0 - началото
+  \item 1997 - Java 1.1 - вътрешни класове
+  \item 1998 - Java 2 1.2 - Swing, Collections Framework
+  \item 2000 - Java 1.3 - разширено API
+  \item 2004 - Java 1.4 - asserts
+  \item 2004 - Java 5.0 -  generics, autoboxing...
+  \item 2006 - Java 6 - разширено API
+  \item 2011 - Java 7 - invoke dynamic, project coin
+  \item 2013 - Java 8 - closures, project jigsaw
   \end{itemize}
 \end{frame}
 
@@ -381,8 +397,7 @@
   \includegraphics[height=200px, width=320px]{images/JavaPlatform.png}
 \end{frame}
 
-
-\begin{frame}{Java платформи}
+\begin{frame}{Java издания}
   \transdissolve
   \begin{itemize}
     \item Java Runtime Environment(JRE)
@@ -395,20 +410,26 @@
 \begin{frame}{Java имплементации}
   \transdissolve
   \begin{itemize}
-  \item Различни дистрибутори – Sun, IBM,
-  Oracle
+  \item Различни дистрибутори
+    \begin{itemize}
+      \item Sun(Oracle) - Sun(Oracle) HotSpot VM, OpenJDK
+      \item IBM - IBM J9
+      \item BEA Systems(Oracle) - JRockit
+      \item GNU - Classpath
+      \item Apache - Harmony
+    \end{itemize}
 
-  \item Референтна имплементация – Sun
-  HotSpot
-
-  \item Текуща версия – JDK 6 SE 1.6.0\_16
-  \item Изтегляне от http://java.sun.com
+  \item Референтна имплементация
+    \begin{itemize}
+      \item Oracle HotSpot VM
+      \item Текуща версия - JDK 6 SE 1.6.0\_21
+      \item Изтегляне от http://java.sun.com
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \section{Инсталиране на Java и първи стъпки}
-
-
+\subsection{Инсталиране на JDK}
 \begin{frame}{Инсталиране на Oracle JDK/OpenJDK}
   \transdissolve  
   \begin{itemize}
@@ -418,25 +439,22 @@
     \item Добавяне на изходния код и
       документацията на Java
   \end{itemize}
-
 \end{frame}
 
-
+\subsection{Преглед на инструментите включени в JDK}
 \begin{frame}{Основни инструменти}
   \transdissolve  
   \begin{itemize}
-    \item java стартира JVM
-    \item javac Java Compiler
-    \item jar инструмент за работа с jar архиви
-    \item javaws стартира Java Web Start
+    \item \textbf{java} - стартира JVM
+    \item \textbf{javac} - Java Compiler
+    \item \textbf{jar} - инструмент за работа с jar архиви
+    \item \textbf{javaws} - стартира Java Web Start
     приложение
-    \item jvisualvm един не конзолен, но много
+    \item \textbf{jvisualvm} - един не конзолен, но много
     полезен инструмент за следене статуса
     на JVM
   \end{itemize}
-
 \end{frame}
-
 
 \begin{frame}{Hey, Java!}
   \transdissolve  
@@ -444,21 +462,32 @@
     \item Създаваме файл HeyJava.java
     \item Създаваме в него прост клас HeyJava
     \item Запазваме файла
-    \item Компилираме – javac HeyJava.java
-    \item Стартираме – java HeyJava
+    \item Компилираме
+      \begin{itemize}
+        \item javac HeyJava.java
+      \end{itemize}
+    \item Стартираме
+      \begin{itemize}
+      \item java HeyJava
+      \end{itemize}
   \end{itemize}
-
 \end{frame}
 
-
+\subsection{Интегрирани среди за разработка}
 \begin{frame}{Интегрирани среди за разработка}
   \transdissolve  
   \begin{itemize}
     \item Интелигентен редактор
     \item Анализ на кода
-    \item Интеграция с външния системи – build
-    система, issue tracker, version control
-    system и т.н.
+    \item Интеграция с външния системи
+      \begin{itemize}
+        \item инструмент за изграждане(build tool)
+        \item система за докладване на грешки(issue tracker)
+        \item система за управление на версиите(version control
+          system)
+        \item интеграционнен сървър
+        \item други
+      \end{itemize}
     \item Интегриран дебъгер
     \item Лесно рефакториране на кода
   \end{itemize}
@@ -482,8 +511,8 @@
   \begin{itemize}
     \item www.eclipse.org
     \item Най-използваната среда за разработка
-    \item Голяма общост, безброй разширения
-    \item По-скоро платоформа върху, която да се
+    \item Голяма общност, безброй разширения
+    \item По-скоро платформа, върху която да се
     изгражда софтуер, отколкото Java IDE
     \item Тромова система за работа с
     разширения, ниско качество на много
@@ -507,24 +536,29 @@
   \transdissolve  
 \end{frame}
 
+\section{GitHub}
 \begin{frame}{GitHub}
   \transdissolve
   \begin{itemize}
     \item Отворена общност за хостване на
     проекти с отворен код
-    \item Предлагани услуги – source control
-    management, wiki, issue tracker, mailing
-    list, chat
+    \item Предлагани услуги
+      \begin{itemize}
+        \item source control management
+        \item issue tracking
+        \item wiki
+      \end{itemize}
     \item GitHub проект на курса - tbd
   \end{itemize}
 \end{frame}
 
+\section{Упражнение}
 \begin{frame}{Упражение}
   \transdissolve  
   \begin{itemize}
     \item Инсталирайте си JDK
-    \item Конфигурирайте пътя за инпълнение
-    \item Инсталирайте NetBeans IDE 6.7.1
+    \item Конфигурирайте пътя за изпълнение
+    \item Инсталирайте IntellliJ IDEA Community Edition 9.0
     \item Пуснете си примерите от днешната
     лекция
   \end{itemize}
@@ -575,5 +609,3 @@
 \end{frame}
 
 \end{document}
-
-
