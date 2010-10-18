@@ -63,12 +63,11 @@
   \tableofcontents[pausesections]
 \end{frame}
 
-
 \section{Обектно ориентирано програмиране}
 
 \subsection{Какво е ООП?}
 
-\begin{frame}{Обектно ориентирано програмиране}
+\begin{frame}{Обектно ориентирано програмиране(ООП)}
   \transdissolve
   \begin{itemize}
   \item Какво е ООП?
@@ -145,7 +144,7 @@
   \transdissolve
   \begin{itemize}
   \item Зависимост(coupling, dependency, uses-a) - класове използвани от класа
-  \item Агрегация(has-a) -  индикира че един обект съдържа други обекти
+  \item Агрегация(has-a) - индикира че един обект съдържа други обекти
   \item Наследяване(is-a) - индикира че един e  тип подтип(по-специализиран тип) на друг тип
   \end{itemize}
 \end{frame}
@@ -153,22 +152,19 @@
 \begin{frame}{UML}
   \transdissolve
   \begin{itemize}
-  \item   Unified modeling language
-
-  \item  Показва зависимости между класовете(и
+  \item Unified modeling language
+  \item Показва зависимости между класовете(и
     много други неща) във вид на диаграми
-  \item IntelliJ IDEA и  NetBeans има вградена поддръжка на UML
-
+  \item IntelliJ IDEA и NetBeans има вградена поддръжка на UML
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Създаване на обекти}
   \transdissolve
   \begin{itemize}
-  \item   Конструктор – специален метод, който
+  \item Конструктор -  специален метод, който
     инициализира състоянието на обект
-
-   \item  Конструктора има същото име като
+   \item Конструктора има същото име като
     името на класа
     \item Обръщения към конструктора трябва да
     се предшествани от ключовата дума
@@ -190,13 +186,13 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}{Променливи от референтен тип}
   \transdissolve
   \begin{itemize}
-  \item   Променливите НЕ са обекти
-  \item  Променливите НЕ съдържат обект
-  \item  Променливите съдържат само
+  \item Променливите НЕ са обекти
+  \item Променливите НЕ съдържат обект
+  \item Променливите съдържат само
     препратка(референция, адрес) на обект
-  \item  Няколко променливи могат да сочат към
+  \item Няколко променливи могат да сочат към
     един обект
-  \item  Променливите не са инициализирани с
+  \item Променливите не са инициализирани с
     null по подразбиране
   \end{itemize}
 \end{frame}
@@ -211,7 +207,6 @@ anotherDate = currentDate; // a second referrence to the first date
     операции
   \item java.util.GregorianCalendar -  представя дата по
     грегорианския(нашия) календар
-
   \end{itemize}
 \end{frame}
 
@@ -228,7 +223,6 @@ anotherDate = currentDate; // a second referrence to the first date
     \item Конкатениране(сливане) на низове    
     \lstinline$String sum = "first " + "second";$
     \end{itemize}
-
   \end{itemize}
 \end{frame}
 
@@ -244,43 +238,39 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}{Работа с няколко сорс файла}
   \transdissolve
   \begin{itemize}
-  \item   Java компилатора разбира
+  \item Java компилатора разбира
     зависимостите между класовете
-  \item  Ако клас А зависи(използва) от клас Б –
+  \item Ако клас А зависи(използва) от клас Б –
     командата:
     javac A.java
     ще компилира и класа Б, ако не е вече
     компилиран
-   \item  Вградена функционалност тип \textbf{make}
+   \item Вградена функционалност тип \textbf{make}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Изследване на класа Person}
   \transdissolve
   \begin{itemize}
-  \item    Всички полета са маркирани с
+  \item Всички полета са маркирани с
     модификатора за достъп “private”
-
-   \item Private ограничава достъпа до полетата
+   \item private ограничава достъпа до полетата
     само до рамките на класа, в който те са
     дефинирани
-
    \item Осигурява се отлична капсулация на
     данните и достъпа до тях се контролира
     надеждно чрез методи
-
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Изследване на класа Person}
   \transdissolve
   \begin{itemize}
-  \item   Всички методи са маркирани с
+  \item Всички методи са маркирани с
     модификатора за достъп public
-  \item  Public маркира програмен елемент като
+  \item Public маркира програмен елемент като
     достъпен за ВСИЧКИ класове
-
-  \item  Почти никога не е добра идея полета да
+  \item Почти никога не е добра идея полета да
     бъдат маркирани като public – това
     нарушава капсулацията на данните –
     основен принцип на ООП
@@ -301,11 +291,11 @@ anotherDate = currentDate; // a second referrence to the first date
   \begin{itemize}
   \item има същото име като класа
   \item Не връща резултат
-  \item  Клас може да има повече от един
+  \item Клас може да има повече от един
     конструктор
-  \item  Конструктора може да приема различен
+  \item Конструктора може да приема различен
     брой аргументи
-  \item  Конструктора може да бъде извикан
+  \item Конструктора може да бъде извикан
     само с ключовата дума \textbf{new}
   \end{itemize}
 \end{frame}
@@ -321,19 +311,18 @@ anotherDate = currentDate; // a second referrence to the first date
     стойността им се
     използва като база за изчисляването на
     стойността, която да се зададе на поле
-    \item Препоръчително е конструкторът да няма повече от 4 параметъра
+  \item Препоръчително е конструкторът да няма повече от 4 параметъра
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Предимства на енкапсулацията}
   \transdissolve
   \begin{itemize}
-  \item   Валидиране на данни
-  \item  Защитаване на данни от промени
-  \item  Гъвкавост -  възможно е да бъде
+  \item Валидиране на данни
+  \item Защитаване на данни от промени
+  \item Гъвкавост - възможно е да бъде
     променена вътрешна имплементация
     без промени на публичното API
-
   \end{itemize}
 \end{frame}
 
@@ -343,13 +332,13 @@ anotherDate = currentDate; // a second referrence to the first date
     private членовете от всеки обект на
     класа са достъпни в неговите методи.
 \begin{lstlisting}
-  class Person {
-    public int compare(Person another) {
-        if (this.name.equals(another.name)) ...
-    }
+class Person {
+  public int compare(Person another) {
+    if (this.name.equals(another.name)) ...
+  }
+}
 \end{lstlisting}
 \end{frame}
-
 
 \begin{frame}{Добрият стил диктува...}
   \transdissolve
@@ -358,7 +347,6 @@ anotherDate = currentDate; // a second referrence to the first date
   декларирани публични –
   допълнителните(utility) методи е
   желателно да бъдат private
-
 \end{frame}
 
 \begin{frame}{Модификатора final}
@@ -366,11 +354,11 @@ anotherDate = currentDate; // a second referrence to the first date
   \begin{itemize}
   \item Приложен към примитивен тип -  има
     смисъл на константа
-  \item  Приложен към обект -  има смисъл на
+  \item Приложен към обект -  има смисъл на
     константна референция, самия обект
     може да бъде променен
-  \item  Приложен към клас -  ненаследим клас
-  \item  Приложен към метод -  метод, който не
+  \item Приложен към клас -  ненаследим клас
+  \item Приложен към метод -  метод, който не
     може да бъде overridden
   \end{itemize}
 \end{frame}
@@ -378,15 +366,14 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}{Статични(класови) полета и методи}
   \transdissolve
   \begin{itemize}
-  \item   Асоциирани са съм самия клас, а не
+  \item Асоциирани са съм самия клас, а не
     обектите инстанцирани от него
-  \item  Достъпни са както посредством класа,
+  \item Достъпни са както посредством класа,
     така и посредство обектите от него
-  \item  Статични полета често се използват за
+  \item Статични полета често се използват за
     съхранение на константи
-  \item  Статични методи често се използват за
+  \item Статични методи често се използват за
     реализация на фабрични методи
-
   \end{itemize}
 \end{frame}
 
@@ -401,12 +388,10 @@ anotherDate = currentDate; // a second referrence to the first date
         обекта. Самата препратка е непроменима, но обектът указан от
         нея е.
     \end{itemize}
-
   \item Прототип на метод - името и параметрите на метода, но не и
     връщаната му стойност
   \end{itemize}
 \end{frame}
-
 \begin{frame}{Конструиране на обекти}
   \transdissolve
   \begin{itemize}
@@ -495,7 +480,7 @@ anotherDate = currentDate; // a second referrence to the first date
     съответства на поддиректория в директорията с кода
     \begin{itemize}
       \item пакет - bg.drow.spellbook
-      \item директория bg\\drow\\spellbook
+      \item директория bg/drow/spellbook
     \end{itemize}
   \item Не съществува йерархична организация на пакетите
   \end{itemize}
@@ -522,13 +507,11 @@ anotherDate = currentDate; // a second referrence to the first date
   \end{itemize}
 \end{frame}
 
-
 \begin{frame}{Пример}
   \transdissolve
   В UNIX(Linux, Solaris, BSD)
   java -cp .:dir2:dir3 MyClass
   export CLASSPATH=.:dir2:dir3
-
 
   В Windows:
   Java -cp .;dir2;dir3; MyClass
@@ -548,12 +531,10 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}{Работа с javadoc}
   \transdissolve
   \begin{itemize}
-  \item   javadoc -d docdir package – създава html
+  \item javadoc -d docdir package - създава html
     документация за пакета package в
     директорията docdir
-  \item  javadoc -d docdir package1, package2 –
-    създава документация за няколко пакета
-
+  \item javadoc -d docdir package1, package2 - създава документация за няколко пакета
   \end{itemize}
 \end{frame}
 
@@ -570,12 +551,10 @@ anotherDate = currentDate; // a second referrence to the first date
   \end{enumerate}
 \end{frame}
 
-
 \begin{frame}{Упражнение}
   \transdissolve
   
 \end{frame}
-
 
 \section*{Заключение}
 

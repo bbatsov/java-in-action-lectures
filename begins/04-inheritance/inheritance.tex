@@ -86,7 +86,6 @@
   \end{itemize}
 \end{frame}
 
-
 \begin{frame}{Диаграма}
   \transdissolve
   
@@ -148,7 +147,6 @@ class SubClass extends SuperClass {
 \end{frame}
 
 \section{Полиморфизъм}
-
 
 \begin{frame}[fragile]
   \frametitle{Полиморфизъм}
@@ -242,7 +240,6 @@ Employee e = p;
 e = new Employee();
 p = e;
 \end{lstlisting}
-
 \end{frame}
 
 \begin{frame}[fragile]
@@ -255,7 +252,6 @@ p = e;
       Employee e = new Programmer();
       Programmer p = (Programmer) e;
     \end{lstlisting}
-
   \item Изричното преобразуване е опасна операция, която може да
     доведе го грешки по време на изпълнение на програмата
   \end{itemize}
@@ -271,12 +267,10 @@ if (e instanceof Programmer) {
   p = (Programmer) e;
 }
     \end{lstlisting}
-
   \item Невъзможните преобразувания се улавят от компилатора
     \begin{lstlisting}
       Date d = (Date) e;
     \end{lstlisting}
-
   \end{itemize}
 \end{frame}
 
@@ -310,9 +304,7 @@ if (e instanceof Programmer) {
       \begin{itemize}
         \item рекурсивно сравняване на полета от референтни типове с equals
       \end{itemize}
-
     \end{itemize}
-
   \item връзка между equals и hashCode
   \end{itemize}
 \end{frame}
@@ -336,16 +328,13 @@ if (e instanceof Programmer) {
       \item public
       \item protected
     \end{itemize}
-
   \end{itemize}
 \end{frame}
-
 
 \begin{frame}{Упражнение}
   \transdissolve
   
 \end{frame}
-
 
 \section*{Заключение}
 
