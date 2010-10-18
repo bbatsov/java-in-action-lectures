@@ -11,7 +11,6 @@
 % package/program, I grant the extra permission to freely copy and
 % modify this file as you see fit and even to delete this copyright
 % notice. 
-
 \mode<presentation>
 {
   \usetheme[titleline=true,
@@ -80,7 +79,6 @@
   \end{itemize}
 \end{frame}
 
-
 \begin{frame}{Основни положения}  
   \transdissolve
   \begin{itemize}
@@ -91,7 +89,6 @@
     \item Коментарите се игнорират от компилатора
   \end{itemize}
 \end{frame}
-
 
 \begin{frame}[fragile]
   \transdissolve
@@ -111,24 +108,22 @@ public class SimpleClass {
   \begin{itemize}
     \item Твърденията в една Java програма се изпълняват последователно
     \item Коментари
-      
       \begin{itemize}
         \item C стил /* ... */ - за коментар с произволен размер
         \item C++ стил // - коментар до края на реда
         \item javadoc /** ... */ - специален коментар
       \end{itemize}
-
   \end{itemize}
-
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Пример}
+  \frametitle{Пример - поток на изпълнение}
   \transdissolve
   \begin{lstlisting}
 public class ExecutionFlowExample1 {
   public static void main(String[] args) {
-    System.out.println("Kiril"); /* will be printed first */
+    // will be printed first
+    System.out.println("Kiril");
     System.out.println("Bozhidar");
   }
 }
@@ -136,47 +131,71 @@ public class ExecutionFlowExample1 {
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Пример}
+  \frametitle{Пример - поток на изпълнение}
   \transdissolve
   \begin{lstlisting}
-    public class ExecutionFlowExample2 {
-      public static void main(String[] args) {
-        System.out.println("Bozhidar");  /* will be printed first */
-        System.out.println("Kiril");
-      }
-    }
+public class ExecutionFlowExample2 {
+  public static void main(String[] args) {
+    // will be printed first
+    System.out.println("Bozhidar");
+    System.out.println("Kiril");
+  }
+}
   \end{lstlisting}
 \end{frame}
 
-
 \section{Примитивни типове данни}
-
-
+\subsection{Целочислени типове}
 \begin{frame}{Целочислени типове}
   \transdissolve
   \begin{itemize}
-  \item int – 4 байта : -2,147,483,648 до
-    2,147,483, 647
-  \item short – 2 байта : -32,768 до 32,767
-  \item long – 8 байта – суфикс L
-  \item byte – 1 байт : -128 до 127
+  \item int
+    \begin{itemize}
+      \item размер - 4 байта
+      \item граници - от -2,147,483,648 до
+        2,147,483, 647
+    \end{itemize}
+  \item short
+    \begin{itemize}
+    \item размер - 2 байта
+    \item граници - от -32,768 до 32,767
+    \end{itemize}
+  \item long
+    \begin{itemize}
+    \item суфикс - L
+    \item размер - 8 байта
+    \item граници
+    \end{itemize}
+  \item byte
+    \begin{itemize}
+    \item размер - 1 байт
+    \item граници - от -128 до 127
+    \end{itemize}
   \end{itemize}
-
   Могат да се използват 8, 10 и 16тини
   бройни системи
 \end{frame}
 
-
+\subsection{Типове с плаваща запетая}
 \begin{frame}{Типове с плаваща запетая}
   \transdissolve
   \begin{itemize}
-  \item   float – 4 байта – 6-7 значими знака след
-    десетичната запетая – суфикс F
-    \item double – 8 байта – 15 значими знака
-    след десетичната запетая – суфикс D
+  \item float
+    \begin{itemize}
+    \item суфикс - F
+    \item размер - 4 байта
+    \item граници
+    \item значими знаци след запетаята - 6-7
+    \end{itemize}
+    \item double
+      \begin{itemize}
+      \item суфикс - L
+      \item размер - 15 байта
+      \item граници
+      \item значими знаци след запетаята - 15
+      \end{itemize}
   \end{itemize}
 \end{frame}
-
 
 \begin{frame}{Символен тип}
   \transdissolve
@@ -184,7 +203,6 @@ public class ExecutionFlowExample1 {
   \item char
   \end{itemize}
 \end{frame}
-
 
 \begin{frame}{Булев тип}
   \transdissolve
@@ -194,7 +212,6 @@ public class ExecutionFlowExample1 {
   \item всички логически изрази имат резултат от тип boolean
   \end{itemize}
 \end{frame}
-
 
 \begin{frame}{Променливи}
   \transdissolve
@@ -263,20 +280,18 @@ public class ExecutionFlowExample1 {
 \end{lstlisting}
 \end{frame}
 
-
 \begin{frame}{Оператори за увеличаване и намаляване с 1}
   \transdissolve
   \begin{itemize}
-  \item   Могат да бъдат прилагани само върху
+  \item Могат да бъдат прилагани само върху
     променливи от целочислен тип.
     Променят стойността на променливата.
 
-   \item ++var – увеличава стойността на var с 1
+   \item ++var - увеличава стойността на var с 1
     преди да бъде ползвана
 
-   \item --var – намалява стойността на var с 1,
+   \item --var - намалява стойността на var с 1,
     преди да бъде ползвана
-
   \end{itemize}
 \end{frame}
 
@@ -293,7 +308,6 @@ public class ExecutionFlowExample1 {
   System.out.println(i); // prints 6
 \end{lstlisting}
 \end{frame}
-
 
 \begin{frame}{Оператори за увеличаване и намаляване с 1}
   \transdissolve
@@ -321,7 +335,6 @@ public class ExecutionFlowExample1 {
 \end{lstlisting}
 \end{frame}
 
-
 \begin{frame}{Оператори за сравнение}
   \transdissolve
   Ползват се върху сравними примитивни
@@ -335,7 +348,6 @@ public class ExecutionFlowExample1 {
   \item $>$  - по-голямо
   \item $>$= - по-голямо или равно
   \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Логически оператори}
@@ -347,21 +359,23 @@ public class ExecutionFlowExample1 {
   \item \&\& - логическо И
   \item || - логическо ИЛИ
   \item ! - логическо отрицание
-
   \end{itemize}
 \end{frame}
 
-
 \begin{frame}{Таблица на истинност}
   \transdissolve 
-  \begin{tabular}{c||c|c|c|}
-    & \textbf{header 1} &
-    \textbf{header 2} & \textbf{header 4} \\
+  \begin{tabular}{|c|c|c|c|c|c|}
     \hline
+    P & Q & P and Q & P or Q & P xor Q & not P \\
     \hline
-    \textbf{header 4} &cell 1 & cell 2 & cell 3 \\
+    0 & 0 & 0 & 0 & 0 & 1 \\
     \hline
-    \textbf{header 5} & cell 4 & cell 5 & cell 6 \\
+    0 & 1 & 0 & 1 & 1 & 1 \\
+    \hline
+    1 & 0 & 0 & 1 & 1 & 0 \\
+    \hline
+    1 & 1 & 1 & 1 & 0 & 0 \\
+    \hline
   \end{tabular} 
 \end{frame}
 
@@ -369,26 +383,24 @@ public class ExecutionFlowExample1 {
   \frametitle{Пример}
   \transdissolve
 \begin{lstlisting}
-  int x = 2;
-  x != 0 && 10 / x > 5; // false
-  !(x > 5) && x != 3; // true
-  x > 5 || x == 8; // false
-  int y = 0;
-  (x <5 || x > 9) && y != 0 && x + y != 0; // false
+int x = 2;
+x != 0 && 10 / x > 5; // false
+!(x > 5) && x != 3; // true
+x > 5 || x == 8; // false
+int y = 0;
+(x <5 || x > 9) && y != 0 && x + y != 0; // false
 \end{lstlisting}
 \end{frame}
-
 
 \begin{frame}{Автоматично преобразуване между примитивни числени типове}
   \transdissolve  
 \end{frame}
 
-
 \begin{frame}[fragile]
   \frametitle{Изрично преобразуване}
   \transdissolve
   \begin{itemize}
-  \item   Когато искаме преобразования водещи
+  \item Когато искаме преобразования водещи
     до загуба на информация
   \item ( тип-към-който-преобразуваме ) променлива
   \end{itemize}
@@ -416,12 +428,13 @@ public class ExecutionFlowExample1 {
   \transdissolve
   \frametitle{Блокове - пример}
 \begin{lstlisting}
-  public static void main(String[] args) {
+public static void main(String[] args) {
    int n;
    ...
    {
      int k;
-    . . . } // k is only defined up to here
+     ... 
+   } // k is only defined up to here
 }
 \end{lstlisting}
 \end{frame}
@@ -430,62 +443,52 @@ public class ExecutionFlowExample1 {
   \frametitle{Блокове - пример}
   \transdissolve
 \begin{lstlisting}
-  public static void main(String[] args) {
-   int n;
-   {
-      int k;
-      int n; // error--can't redefine n in inner
-             // block
-    . . .} }
-
+public static void main(String[] args) {
+  int n;
+  {
+    int k;
+    int n; // error--can't redefine n in inner
+           // block
+    ...
+   } 
+}
 \end{lstlisting}
 \end{frame}
 
 \section{Управляващи конструкции}
-
 \subsection{Условни конструкции}
 
 \begin{frame}{Условна конструкция if}
   \transdissolve
   \begin{itemize}
   \item Позволява условното изпълнение на код при изпълнено условие
-  \item   if (condition) statement
-  \item  condition – логически израз
-    –
-  \item  statement – твърдение (или множество
-    –
-    твърдения в блок), което да бъде
+  \item if (условие) твърдение(блок от твърдения)
+  \item условие(condition) - логически израз
+  \item твърдение - действие, което да бъде
     изпълнено, ако условието е вярно
-
   \end{itemize}
 \end{frame}
-
 
 \begin{frame}[fragile]
   \frametitle{if - пример}
   \transdissolve
 \begin{lstlisting}
-  if (performance > 5){
-    salary+=500;
-    bonus = 100;
+if (performance > 5) {
+  salary+=500;
+  bonus = 100;
 }
-
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}{Условна конструкция if-else}
   \transdissolve
   \begin{itemize}
-  \item   if (condition) statement1 else statement2
-    \item condition – логически израз
-    –
-    \item statement1 – твърдение, което да бъде
-    –
-    изпълнено, ако условието е вярно
-    \item statement2 – твърдение, което да бъде
-    –
+  \item if (condition) statement1 else statement2
+  \item condition - логически израз
+  \item statement1 - твърдение, което да бъде
+      изпълнено, ако условието е вярно
+  \item statement2 - твърдение, което да бъде
     изпълнено, ако условието е невярно
-
   \end{itemize}
 \end{frame}
 
@@ -493,7 +496,7 @@ public class ExecutionFlowExample1 {
   \frametitle{if-else - пример}
   \transdissolve
 \begin{lstlisting}
-  if (performance > 5){
+if (performance > 5) {
     salary += 500;
     bonus = 100;
 } else {
@@ -506,31 +509,31 @@ public class ExecutionFlowExample1 {
   \frametitle{if-else-if-else}
   \transdissolve
 \begin{lstlisting}
-  If (performance > 5) {
+if (performance > 5) {
  salary += 500;
  bonus = 100;
 } else if (performance > 2) {
-   salary += 100;
-   bonus = 0;
+ salary += 100;
+ bonus = 0;
 } else { salary = 0; bonus = 0; } // you're fired
-
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{Множествен избор със switch}
+\begin{frame}[fragile]
+  \frametitle{Множествен избор със switch}
   \transdissolve
   \begin{itemize}
-  \item    Множествен избор - switch
-    Switch – множествен избор – може да се
+  \item Множествен избор - switch
+  \item може да се
     използва с byte, short, char, int
-
-    switch (variable) {
-      case VALUE : statements;
-      case VALUE : statements;
-      default : statements;
-    }
-
   \end{itemize}
+  \begin{lstlisting}
+switch (variable) {
+  case VALUE : statements;
+  case VALUE : statements;
+  default : statements;
+}
+  \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -545,7 +548,6 @@ case 12:
 System.out.println("December"); break;
 default: System.out.println("Invalid month."); break;
 }
-
 \end{lstlisting}
 \end{frame}
 
@@ -618,15 +620,13 @@ do {
 \begin{frame}{Цикъл for}
   \transdissolve
   \begin{itemize}
-  \item   for ( initialization; condition; update )  {statement}
-    \item initialization инициализираме променливи
-    \item condition логически израз
-    \item update – изпълнява се, докато
+  \item for ( initialization; condition; update )  {statement}
+  \item initialization инициализираме променливи
+  \item condition логически израз
+  \item update – изпълнява се, докато
     условието е вярно, преди statement
-
-    \item statement – изпълнява се, докато
+  \item statement – изпълнява се, докато
     условието е вярно, след update
-
   \end{itemize}
 \end{frame}
 
@@ -683,7 +683,6 @@ for(int i = startValue; i<1000; i++){
 
 \section{Масиви}
 
-
 \begin{frame}{Масиви}
   \transdissolve
   \begin{block}{Масив}
@@ -700,8 +699,9 @@ for(int i = startValue; i<1000; i++){
   \frametitle{Масив - пример}
   \transdissolve
 \begin{lstlisting}
-  String[] names = { "Pesho", "Gosho", "Ivan" };
-for(int i=0; i<names.length; i++){
+String[] names = { "Pesho", "Gosho", "Ivan" };
+
+for (int i=0; i<names.length; i++) {
   System.out.println("Name : " + names[i]);
 }
 \end{lstlisting}
@@ -711,11 +711,13 @@ for(int i=0; i<names.length; i++){
   \frametitle{Масив - пример}
   \transdissolve
 \begin{lstlisting}
-  int[] numbers = { 1, 8, 10, 33 };
+int[] numbers = { 1, 8, 10, 33 };
 long sum = 0;
-for(int i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
+
+for (int i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
 }
+
 System.out.println("Sum : " + sum);
 \end{lstlisting}
 \end{frame}
@@ -723,7 +725,7 @@ System.out.println("Sum : " + sum);
 \begin{frame}{Цикъл for-each}
   \transdissolve
   \begin{itemize}
-  \item             For-each цикъл
+  \item For-each цикъл
     for (array-type variable : array) statement
 
     \item Array-type – тип на променливата
@@ -745,11 +747,9 @@ System.out.println("Sum : " + sum);
 \end{lstlisting}
 \end{frame}
 
-
 \begin{frame}{Упражнение}
   \transdissolve  
 \end{frame}
-
 
 \section*{Заключение}
 
@@ -758,13 +758,12 @@ System.out.println("Sum : " + sum);
   % Keep the summary *very short*.
   \begin{itemize}
   \item
-    Java \alert{е много повече от език за програмиране}.
+    Примитивните типове от данни са в основата на много Java приложения.
   \item
-    JVM \alert{е целевата среда за изпълнение} на Java приложенията, а
-    не физическата процесорна микроархитектура.
+    Управляващите конструкции ви позволяват да манипулирате потокът на
+    изпълнение на една Java програма.
   \item
-    За пълноценна работа с езикът и платформата Java човек трябва да
-    се запознае с доста инструменти.
+    Масивите предоставят начин за групиране на свързани елементи.
   \end{itemize}
   
   % The following outlook is optional.
@@ -774,9 +773,9 @@ System.out.println("Sum : " + sum);
     Следващият път:
     \begin{itemize}
     \item
-      Основния положения в езикът Java
+      Основи на ООП
     \item
-      Повече примери, по-малко общи приказки
+      Обекти и класове в Java
     \end{itemize}
   \end{itemize}
 \end{frame}
