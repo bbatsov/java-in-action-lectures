@@ -41,7 +41,7 @@
   rulesepcolor=\color{blue},
   columns=fixed}
 
-\title{Въведение в средата за програмиране Java}
+\title{Въведение в платформата за програмиране Java}
 
 \author{инж. Божидар Бацов}
 
@@ -52,6 +52,14 @@
 \subject{Talks}
 % This is only inserted into the PDF information catalog. Can be left
 % out. 
+
+% show toc at the beginning of each section
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Съдържание}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
 
 \begin{document}
 
@@ -78,6 +86,7 @@
     \item Бездарен китарист, пенсиониран gamer, кинокритик на свободна
       практика
     \end{itemize}
+    \pause
   \item Владимир Василев
     \begin{itemize}
       \item Благ диктатор на init Lab
@@ -96,17 +105,21 @@
     \item http://groups.google.com/group/java-in-action
     \item http://groups.google.com/group/init-lab
     \end{itemize}
+    \pause
   \item Електронна поща
     \begin{itemize}
       \item bozhidar.batsov@gmail.com
       \item vlood.vassilev@gmail.com
     \end{itemize}
+    \pause
   \item Jabber/GTalk
+    \pause
   \item Twitter
     \begin{itemize}
       \item bbatsov
       \item initLabber
     \end{itemize}
+    \pause
   \item Facebook група Java in Action
   \end{itemize}
 \end{frame}
@@ -125,40 +138,40 @@
 \begin{frame}{Програмирането}
   \transdissolve
   \begin{itemize}
-  \item Забавление
-  \item Предизвикателство за ума
-  \item Начин на живот
-  \item Професия
-  \item Черна магия
-  \item Алгоритми + структури от данни
+  \item Забавление \pause
+  \item Предизвикателство за ума \pause
+  \item Начин на живот \pause
+  \item Професия \pause
+  \item Черна магия \pause
+  \item Алгоритми + структури от данни \pause
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Програмистите}
   \transdissolve
   \begin{itemize}
-  \item Сити и Джедаи
-  \item Артисти и занаятчии
-  \item Качества на добрия програмист
+  \item Сити(С програмисти) и Джедаи(Java програмисти) \pause
+  \item Артисти и занаятчии \pause
+  \item Качества на добрия програмист \pause
     \begin{itemize}
-      \item Мързеливост
-      \item Нетърпеливост
+      \item Мързеливост \pause
+      \item Нетърпеливост \pause
       \item Хюбрис(огромна гордост)
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\section{Средата за програмиране Java}
+\section{Платформата за програмиране Java}
 \subsection{Програмирането преди ерата на Java}
 
 \begin{frame}{Програмирането през 1995}
   \transdissolve
   \begin{itemize}
+    \item C
+    \item C++
     \item Lisp
     \item Pascal
-    \item C
     \item Smalltalk
-    \item C++
   \end{itemize}
 \end{frame}
 
@@ -201,14 +214,14 @@
 \begin{frame}{Предимствата на Java}
   \transdissolve
   \begin{itemize}
-  \item Простота
-  \item Обектно-ориентиран
-  \item Архитектурна независимост
-  \item Портативност
-  \item Вградена мрежова поддръжка
-  \item Надеждност
-  \item Сигурност
-  \item Паралелизъм
+  \item Простота \pause
+  \item Обектно-ориентирано програмиране \pause
+  \item Архитектурна независимост \pause
+  \item Портативност \pause
+  \item Вградена мрежова поддръжка \pause
+  \item Надеждност \pause
+  \item Сигурност \pause
+  \item Паралелизъм \pause
   \item Динамика
   \end{itemize}
 \end{frame}
@@ -216,24 +229,25 @@
 \begin{frame}{Простота}
   \transdissolve  
   \begin{itemize}
-    \item Базиран на C++
-    \item Изчистен синтаксис – 
+    \item Базиран на C++ \pause
+    \item Изчистен синтаксис \pause
       \begin{itemize}
-        \item няма указатели
-        \item няма презареждане на оператори
-        \item няма хедър файлове
-        \item няма структури - има само класове
+        \item няма указатели \pause
+        \item няма презареждане на оператори \pause
+        \item няма хедър(.h) файлове \pause
+        \item няма структури(struct) - има само класове \pause
         \item няма unions
       \end{itemize}
+      \pause
     \item Автоматично събиране на боклука(Garbage collection)
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Обектно ориентиран}
+\begin{frame}{Обектно-ориентирано програмиране}
   \transdissolve
   \begin{itemize}
-  \item Проектиран с ОО наум от самото начало
-  \item Осъвършенстван ОО модел от С++
+  \item Проектиран с ООП наум от самото начало \pause
+  \item Усъвършенстван обектен модел от С++
   \end{itemize}
 \end{frame}
 
@@ -245,6 +259,7 @@
   \item Богата библиотека за работа с различни
     мрежови протоколи(TCP/IP, HTTP, FTP)
   \end{itemize}
+  \pause
   \item Паралелизъм
     \begin{itemize}
     \item Вградена поддръжка за мултипроцесори
@@ -261,10 +276,10 @@
     \begin{itemize}
       \item преливане на стека
       \item достъп до невалиден указател
-    \end{itemize}
-
-    \item Няма опасност от течове на памет - 
-    garbage collector-а се грижи за това
+    \end{itemize} 
+    \pause
+    \item Няма опасност от течове на памет - боклукчията 
+    (garbage collector) се грижи за това
   \end{itemize}
 \end{frame}
 
@@ -272,10 +287,10 @@
   \transdissolve  
   \begin{itemize}
    \item Невъзможно е да прелее стека на
-    изпълнение(runtime stack)
+    изпълнение(runtime stack) \pause
    \item Невъзможно е да се наруши паметта
     извън собственото адресно
-    пространство
+    пространство \pause
    \item Невъзможно е да се пишат/четат
     файлове без права
   \end{itemize}
@@ -290,6 +305,7 @@
       \item short = 2 bytes
       \item int = 4 bytes
     \end{itemize}
+    \pause
   \item Вградена поддръжка на различни
   файлови системи
   \end{itemize}
@@ -299,7 +315,7 @@
   \transdissolve
   \begin{itemize}
   \item Производителност близка до тази на
-  приложения писани на C/C++
+  приложения писани на C/C++ \pause
   \item Възможност за постигане на висока
   оптимизация на бинарния код по време
   на изпълнение
@@ -309,11 +325,11 @@
 \begin{frame}{Раждането на Java}
   \transdissolve
   \begin{itemize}
-    \item Проектът Green и James Gosling
-    \item Езикът Oak
-    \item Изборът на името Java
-    \item Аплетите началото на Java
-    \item Възходът на Java
+    \item Проектът Green и James Gosling \pause
+    \item Езикът Oak \pause
+    \item Изборът на името Java \pause
+    \item Аплетите или началото на Java \pause
+    \item Възходът на Java \pause
     \item Триумфът на Java
   \end{itemize}
 \end{frame}
@@ -355,28 +371,40 @@
 
 \begin{frame}{Еволюцията на Java}
   \transdissolve
-  \begin{itemize}
-  \item 1996 - Java 1.0 - началото
-  \item 1997 - Java 1.1 - вътрешни класове
-  \item 1998 - Java 2 1.2 - Swing, Collections Framework
-  \item 2000 - Java 1.3 - разширено API
-  \item 2004 - Java 1.4 - asserts
-  \item 2004 - Java 5.0 -  generics, autoboxing...
-  \item 2006 - Java 6 - разширено API
-  \item 2011 - Java 7 - invoke dynamic, project coin
-  \item 2013 - Java 8 - closures, project jigsaw
-  \end{itemize}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{Версия} & \textbf{Година} & \textbf{Нововъведения в езика}
+    & \textbf{Брой класове} \\
+    & & & \textbf{и интерфейси} \\
+    \hline
+    1.0 & 1996 & Самият език & 211 \\
+    \hline
+    1.1 & 1997 & Вътрешни класове & 477 \\
+    \hline
+    1.2 & 1998 & Няма & 1524 \\
+    \hline
+    1.3 & 2000 & Няма & 1840 \\
+    \hline
+    1.4 & 2004 & Assertions & 2723 \\
+    \hline
+    5.0 & 2004 & Генерични класове, foreach, & 3279 \\ 
+    & & varargs, autoboxing, metadata, & \\ 
+    & & enumerations, static import & \\
+    \hline
+    6 & 2006 & Няма & 3777 \\
+    \hline
+  \end{tabular}
 \end{frame}
 
 \begin{frame}{Java и конкуренцията}
   \transdissolve
   \begin{itemize}
-    \item Java срещу .NET и C\#
-    \item Java срещу C/C++
-    \item Java срещу JavaScript
-    \item Java срещу Ruby/Python
-    \item Java срещу Groovy
-    \item Java срещу Scala
+    \item Java срещу .NET и C\# \pause
+    \item Java срещу C/C++ \pause
+    \item Java срещу JavaScript \pause
+    \item Java срещу Ruby/Python \pause
+    \item Java срещу Groovy \pause
+    \item Java срещу Scala \pause
     \item Java срещу Clojure
   \end{itemize}
 \end{frame}
@@ -386,9 +414,10 @@
 \begin{frame}{Повече от език за програмиране}
   \transdissolve
   \begin{itemize}
-    \item Език за програмиране
-    \item Среда за изпълнение на програми / Виртуална машина (JVM)
-    \item Пакет от инструменти за разработка на приложения (Java Dev Kit)
+    \item Език за програмиране \pause
+    \item Среда за изпълнение на програми / Виртуална машина (JVM) \pause
+    \item Пакет от инструменти за разработка на приложения (Java Dev
+      Kit) \pause
   \end{itemize}
 
 \end{frame}
@@ -401,10 +430,10 @@
 \begin{frame}{Java издания}
   \transdissolve
   \begin{itemize}
-    \item Java Runtime Environment(JRE)
-    \item Java Development Kit(JDK) SE == JRE + dev tools
-    \item Java Enterprise Edition(Java EE)
-    \item Java Micro Edition(Java ME)
+    \item Java Runtime Environment(JRE) \pause
+    \item Java Development Kit(JDK) SE == JRE + dev tools \pause
+    \item Java Enterprise Edition(Java EE) \pause
+    \item Java Micro Edition(Java ME) \pause
   \end{itemize}
 \end{frame}
 
@@ -419,11 +448,11 @@
       \item GNU - Classpath
       \item Apache - Harmony
     \end{itemize}
-
+    \pause
   \item Референтна имплементация
     \begin{itemize}
       \item Oracle HotSpot VM
-      \item Текуща версия - JDK 6 SE 1.6.0\_21
+      \item Текуща версия - JDK 6 SE 1.6.0\_22
       \item Изтегляне от http://java.sun.com
     \end{itemize}
   \end{itemize}
@@ -451,10 +480,21 @@
     \item \textbf{jar} - инструмент за работа с jar архиви
     \item \textbf{javaws} - стартира Java Web Start
     приложение
-    \item \textbf{jvisualvm} - един не конзолен, но много
-    полезен инструмент за следене статуса
-    на JVM
+    \item \textbf{jvisualvm} - много
+    полезен графичен инструмент за следене на работата на JVM
   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Hey, Java!}
+  \transdissolve
+\begin{lstlisting}
+public class HeyJava {
+    public static void main(String[] args) {
+        System.out.println("Hey, Java!");
+    }
+}
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}{Hey, Java!}
@@ -497,7 +537,7 @@
 \begin{frame}{IntelliJ IDEA}
   \transdissolve
   \begin{itemize}
-    \item www.jetbrains.com/idea
+    \item Уеб сайт - www.jetbrains.com/idea
     \item Най-интелигентната среда за
     разработка на Java
     \item Консумира доста системни ресурси
@@ -510,7 +550,7 @@
 \begin{frame}{Eclipse}
   \transdissolve
   \begin{itemize}
-    \item www.eclipse.org
+    \item Уеб сайт - www.eclipse.org
     \item Най-използваната среда за разработка
     \item Голяма общност, безброй разширения
     \item По-скоро платформа, върху която да се
@@ -524,17 +564,53 @@
 \begin{frame}{NetBeans}
   \transdissolve  
   \begin{itemize}
-    \item www.netbeans.org
+    \item Уеб сайт - www.netbeans.org
     \item “Официалната” среда за разработка на
     Java приложения
     \item Лесен за използване, голяма общност
+    \item Платформа за изграждане на приложения(NetBeans RCP)
     \item Най-добрата поддръжка на някои Sun-
     centric технологии
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Demo}
-  \transdissolve  
+\begin{frame}[fragile]
+  \frametitle{Swing пример}
+  \transdissolve
+\begin{lstlisting}[basicstyle=\tiny]
+import javax.swing.*;
+import java.awt.event.*;
+
+public class HeySwing {
+  public static void main(String[] args) {
+    final JFrame frame = new JFrame();
+    frame.setTitle("Java Rules!");
+    frame.setSize(200, 200);
+
+    JButton button = new JButton("Press me");
+    button.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(final ActionEvent e) {
+        JOptionPane.showMessageDialog(frame, "Swing power!");
+      }
+    });
+
+    frame.add(button);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    frame.setVisible(true);
+    }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Демонстрация на IntelliJ IDEA}
+  \transdissolve
+  \begin{itemize}
+    \item Създаване на Java проект
+    \item Създаване на просто Java приложение
+    \item Стартиране на приложението
+  \end{itemize}
 \end{frame}
 
 \section{GitHub}
@@ -559,7 +635,7 @@
 \begin{frame}{GitHub}
   \transdissolve
   \begin{itemize}
-    \item Отворена общност за хостване на
+    \item Отворена общност за съхранение(hosting) на
     проекти с отворен код
     \item Предлагани услуги
       \begin{itemize}
@@ -576,7 +652,6 @@
         \item Упражнения -
           http://github.com/bbatsov/java-in-action-exercises
       \end{itemize}
-
   \end{itemize}
 \end{frame}
 
@@ -604,7 +679,7 @@
     JVM \alert{е целевата среда за изпълнение} на Java приложенията, а
     не физическата процесорна микроархитектура.
   \item
-    За пълноценна работа с езикът и платформата Java човек трябва да
+    За пълноценна работа с езика и платформата Java човек трябва да
     се запознае с доста инструменти.
   \end{itemize}
   
@@ -615,7 +690,7 @@
     Следващият път:
     \begin{itemize}
     \item
-      Основния положения в езикът Java
+      Основния положения в езика Java
     \item
       Повече примери, по-малко общи приказки
     \end{itemize}
