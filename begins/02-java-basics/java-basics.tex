@@ -93,7 +93,7 @@ public class SimpleClass {
 \begin{frame}{Основни положения}  
   \transdissolve
   \begin{itemize}
-  \item Частите(блоковете) на програмата се заграждат в {}
+  \item Частите(блоковете) на програмата се заграждат в \{\}
   \item Програмната логика е организирана като последователност от твърдения
   \item Твърденията се терминират с ;
   \item Твърденията в една Java програма се изпълняват последователно
@@ -108,7 +108,8 @@ public class SimpleClass {
     \item Игнорират се от компилатора
     \item Видове
       \begin{itemize}
-        \item C стил /* ... */ - за коментар с произволен размер
+        \item C стил /* ... */ - за коментар с произволен
+          размер(многоредов коментар)
         \item C++ стил // - коментар до края на реда
         \item javadoc /** ... */ - специален коментар
       \end{itemize}
@@ -148,7 +149,7 @@ public class ExecutionFlowExample2 {
 \begin{frame}{Типове в Java}
   
   \begin{itemize}
-  \item Java е силно типизиран език(strongly typed)
+  \item Java е силно типизиран език(strongly typed/statically typed)
   \item Всяка променлива, която дефинирате трябва да има тип
   \item Видове
     \begin{itemize}
@@ -216,10 +217,10 @@ public class ExecutionFlowExample2 {
   \transdissolve
   \begin{itemize}
   \item Java има вградена поддръжка на Unicode 16
-  \item char представя един символ в Unicode 16 кодировка
+  \item char типът представя един символ в Unicode 16 кодировка
   \item char константите трябва да бъдат оградени с ''(единични
     кавички)
-  \item Използването на char трябва да се избягва - обикновено
+  \item Използването на char е желателно да се избягва - обикновено
     всъщност се нуждаете от низ(String) от един символ
   \end{itemize}
 \end{frame}
@@ -257,7 +258,8 @@ public class ExecutionFlowExample2 {
   long daysLeftUntilEndOfTheYear;
   char mostCommonlyUsedCharacter;
   int students;
-  System.out.println(students); // ERROR - variable not initialized
+  // ERROR - variable not initialized
+  System.out.println(students);
 \end{lstlisting}
 \end{frame}
 
@@ -267,6 +269,8 @@ public class ExecutionFlowExample2 {
   \item Могат да бъдат декларирани навсякъде(преди да бъдат
     използвани)
   \item Променливите имат обхват(scope)
+  \item Препоръчително е да бъдат дефинирани точно преди да бъде
+    използвани, за да се намали обхватът им
   \item На променливите(които не са маркирани като final) може да бъде
     присвоена нова стойност
   \end{itemize}
@@ -337,12 +341,12 @@ public class Constants
   \frametitle{Пример}
   \transdissolve
 \begin{lstlisting}
-  int i = 5 + 8; // initialize i to 13
-  i = i + 5; // add 5 to i, i becomes 18
-  i += 5; // add 5 to i, i becomes 23
-  int p = i + 8; // initialize to i plus 8, i.e. 31
-  int q = i + p; // initialize to i plus p, i.e. 54
-  int t = q * 7; // initialize to q * 7, i.e. 378
+int i = 5 + 8; // initialize i to 13
+i = i + 5; // add 5 to i, i becomes 18
+i += 5; // add 5 to i, i becomes 23
+int p = i + 8; // initialize to i plus 8, i.e. 31
+int q = i + p; // initialize to i plus p, i.e. 54
+int t = q * 7; // initialize to q * 7, i.e. 378
 \end{lstlisting}
 \end{frame}
 
@@ -365,13 +369,13 @@ public class Constants
   \frametitle{Пример}
   \transdissolve
 \begin{lstlisting}
-  int i = 5;
-  ++i;
-  System.out.println(i); // prints 6
-  System.out.println(++i); // prints 7
-  System.out.println(i); // prints 7
-  System.out.println(--i); // prints 6
-  System.out.println(i); // prints 6
+int i = 5;
+++i;
+System.out.println(i);   // prints 6
+System.out.println(++i); // prints 7
+System.out.println(i);   // prints 7
+System.out.println(--i); // prints 6
+System.out.println(i);   // prints 6
 \end{lstlisting}
 \end{frame}
 
@@ -391,13 +395,13 @@ public class Constants
   \frametitle{Пример}
   \transdissolve
 \begin{lstlisting}
-  int i = 5;
-  i++;
-  System.out.println(i); // prints 6
-  System.out.println(i++); // prints 6
-  System.out.println(i); // prints 7
-  System.out.println(i--); // prints 7
-  System.out.println(i); // prints 6
+int i = 5;
+i++;
+System.out.println(i);   // prints 6
+System.out.println(i++); // prints 6
+System.out.println(i);   // prints 7
+System.out.println(i--); // prints 7
+System.out.println(i);   // prints 6
 \end{lstlisting}
 \end{frame}
 
@@ -419,7 +423,7 @@ public class Constants
 \begin{frame}{Логически оператори}
   \transdissolve
   \begin{itemize}
-  \item   Логически израз се изчислява, докато
+  \item   Логически израз се изчислява само, докато
     не е сигурна неговата стойност (short
     circuit)
   \item \&\& - логическо И
@@ -480,14 +484,14 @@ int y = 0;
   \frametitle{Изрично преобразуване}
   \transdissolve
   \begin{itemize}
-  \item Когато искаме преобразования водещи
+  \item Когато искаме преобразувания водещи
     до загуба на информация
   \item ( тип-към-който-преобразуваме ) променлива
   \end{itemize}
   \begin{lstlisting}
-   double x = 6.79;
-   int i = (int) x; // i == 6
-   long t = 8; int q = (int) t;
+double x = 6.79;
+int i = (int) x; // i == 6
+long t = 8; int q = (int) t;
   \end{lstlisting}
 \end{frame}
 
@@ -533,6 +537,7 @@ int y = 0;
 \begin{frame}{Изброени типове}
   \transdissolve
   \begin{itemize}
+  \item enum {CONS1, CONS2, CONS3...}
   \item Въведени в Java 5
   \item Състоят се от краен брой константи
   \item Пълноправни класове 
@@ -564,6 +569,16 @@ int y = 0;
 
 \begin{frame}[fragile]
   \frametitle{Пример - работа с низове}
+public class StringTest {
+  public static void main(String[] args) {
+    String hey = "hey hey hey ";
+    String s = "some" + "string";
+
+    System.out.println(s.substring(4));
+    System.out.println(s.toUpperCase());
+    System.out.println(hey + s);
+  }
+}
   \transdissolve
 \begin{lstlisting}
   
@@ -594,7 +609,18 @@ int y = 0;
   \frametitle{Пример - изграждане на низ}
   \transdissolve
 \begin{lstlisting}
-  
+public class StringBuilderTest {
+  public static void main(String[] args) {
+    StringBuilder sb = new StringBuilder();
+
+    sb.append("Hello, ");
+    sb.append("Java! ");
+    sb.append("You rock, ");
+    sb.append("Bozhidar rules!");
+
+    System.out.println(sb.toString());
+  }
+}  
 \end{lstlisting}
 \end{frame}
 
@@ -608,6 +634,15 @@ int y = 0;
   \item Въвеждане на пароли с класа Console
   \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример - конзолен вход и изход}
+  \transdissolve
+\begin{lstlisting}
+  
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}{Форматиране на изход}
   \transdissolve
@@ -659,16 +694,25 @@ int y = 0;
   \frametitle{Пример - форматиране на изход}
   \transdissolve
 \begin{lstlisting}
-  
+public class FormatTest {
+  public static void main(String[] args) {
+    System.out.printf("%s has %d beers.%n", "Vasko", 20);
+
+    System.out.printf("Today is %tc %n", new Date());
+
+    System.out.printf("%10.2f%n", 333.444);
+
+    System.out.println(String.format("%5d", 20));
+  }
+}  
 \end{lstlisting}
 \end{frame}
-
 
 \begin{frame}{Файлов вход и изход}
   \transdissolve
   \begin{itemize}
-  \item Четене на текстови файлове със Scanner
-  \item Запис във файл с PrintWriter
+  \item Четене на текстови файлове със java.util.Scanner
+  \item Запис във файл с java.io.PrintWriter
   \end{itemize}
 \end{frame}
 
@@ -695,7 +739,16 @@ int y = 0;
   \frametitle{Големи числа - пример}
   \transdissolve
 \begin{lstlisting}
-  
+public class BigIntegerTest {
+  public static void main(String[] args) {
+    BigInteger someNum = BigInteger.valueOf(100);
+
+    someNum = someNum.add(BigInteger.valueOf(50));
+
+    // now this will be one particularly long number
+    System.out.println("150 to the power of 150 is: " + someNum.pow(150));
+  }
+}  
 \end{lstlisting}
 \end{frame}
 
@@ -705,8 +758,8 @@ int y = 0;
   \begin{itemize}
   \item Позволява да бъдат групирани няколко
     твърдения
-   \item Дефиницията на блок започва с { и
-      завършва с } - между тях има
+   \item Дефиницията на блок започва с \{ и
+      завършва с \} - между тях има
     твърдения
    \item Имат собствен обхват
    \item Могат да бъдат влагани един в друг
@@ -718,12 +771,12 @@ int y = 0;
   \frametitle{Блокове - пример}
 \begin{lstlisting}
 public static void main(String[] args) {
-   int n;
-   ...
-   {
-     int k;
-     ... 
-   } // k is only defined up to here
+  int n;
+  ...
+  {
+    int k;
+    ... 
+  } // k is only defined up to here
 }
 \end{lstlisting}
 \end{frame}
@@ -739,7 +792,7 @@ public static void main(String[] args) {
     int n; // error--can't redefine n in inner
            // block
     ...
-   } 
+  } 
 }
 \end{lstlisting}
 \end{frame}
@@ -799,12 +852,16 @@ if (performance > 5) {
   \transdissolve
 \begin{lstlisting}
 if (performance > 5) {
- salary += 500;
- bonus = 100;
+  salary += 500;
+  bonus = 100;
 } else if (performance > 2) {
- salary += 100;
- bonus = 0;
-} else { salary = 0; bonus = 0; } // you're fired
+  salary += 100;
+  bonus = 0;
+} else { 
+  // you're fired
+  salary = 0; 
+  bonus = 0; 
+}
 \end{lstlisting}
 \end{frame}
 
@@ -831,11 +888,13 @@ switch (variable) {
 \begin{lstlisting}
 int month = 8;
 switch (month) {
-case 1: System.out.println("January");  break;
-...
+case 1: 
+  System.out.println("January"); break;
+  ...
 case 12:
-System.out.println("December"); break;
-default: System.out.println("Invalid month."); break;
+  System.out.println("December"); break;
+default: 
+  System.out.println("Invalid month."); break;
 }
 \end{lstlisting}
 \end{frame}
@@ -940,14 +999,14 @@ for (i = 1; i <= 10; i++) {
   \transdissolve
   \transdissolve
   \begin{block}{break}
-    break прекратява текущия цикъл. Може
+    break прекратява текущия цикъл(или блок). Може
     да се ползва в for, while, do-while и
     switch.
   \end{block}
 \begin{lstlisting}
 int i;
-for( i = startNumber; I < startNumber + 5; i++){
-  if (I % 5 == 0) break; 
+for (i = startNumber; i < startNumber + 5; i++) {
+  if (i % 5 == 0) break; 
 }
 System.out.println("closest number : " + i);
 \end{lstlisting}
@@ -964,9 +1023,10 @@ System.out.println("closest number : " + i);
   \end{block}
 \begin{lstlisting}
 int numbersNotDivideableByThree = 0;
-for(int i = startValue; i<1000; i++){
-     if(i%3==0) continue;
-     numbersNotDivideableByThree++; }
+for (int i = startValue; i < 1000; i++) {
+     if (i % 3 == 0) continue;
+     numbersNotDivideableByThree++; 
+}
 \end{lstlisting}
 \end{frame}
 
@@ -974,14 +1034,15 @@ for(int i = startValue; i<1000; i++){
 
 \begin{frame}{Масиви}
   \transdissolve
-  \begin{block}{Масив}
-    съдържа елементи от даден
-    тип. Може да бъде многоизмерен
-    (матрица). Достъп по индекс,
-    индексацията започва от 0 (НУЛА).
-    Чрез .length взимаме дължината на
-    масива.
-  \end{block}
+  \begin{itemize}
+    \item съдържа набор от елементи от даден тип
+    \item достъпът до елементи се осъществява по индекс
+    \item индексите са започват от 0(Нула)
+    \item arr.length ни дава дължината на един масив
+    \item масивите имат предефинирана дължина и тя не може да бъде променена
+    \item може да има повече от едно измерение
+  \end{itemize}
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -1015,7 +1076,7 @@ System.out.println("Sum : " + sum);
   \transdissolve
   \begin{itemize}
   \item For-each цикъл
-    for (array-type variable : array) statement
+    \item for (array-type variable : array) statement
 
     \item Array-type – тип на променливата
     –variable, трябва да съвпада с типа на
@@ -1032,7 +1093,13 @@ System.out.println("Sum : " + sum);
   \frametitle{Цикъл for-each - пример}
   \transdissolve
 \begin{lstlisting}
-  
+public class ForEachLoopTest {
+  public static void main(String[] args) {
+    for (String name : new String[]{"Bozhidar", "Ivan", "Ana", "Iva", "Andrey"}) {
+      System.out.printf("%s is a really cool name!%n", name);
+    }
+  }
+}  
 \end{lstlisting}
 \end{frame}
 
