@@ -503,9 +503,9 @@ int y = 0;
   \hline
   + -   & Left to right \\
   \hline
-  << >> >>> & Left to right \\
+  $<$ $>$$>$ $>$$>$$>$ & Left to right \\
   \hline
-  < <= > >= instanceof & Left to right \\
+  $<$ $<$= $>$ $>$= instanceof & Left to right \\
   \hline
   == != & Left to right \\
   \hline
@@ -521,7 +521,7 @@ int y = 0;
   \hline
   ?:                                  &   Right to left \\
   \hline
-  = += -= *= /= \%= \&= |= xor= <<= >>= >>>= & Right to left \\
+  = += -= *= /= \%= \&= |= xor= $<$$<$= $>$$>$= $>$$>$$>$= & Right to left \\
   \hline
 \end{tabular}
 
@@ -558,6 +558,15 @@ int y = 0;
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Пример - работа с низове}
+  \transdissolve
+\begin{lstlisting}
+  
+\end{lstlisting}
+\end{frame}
+
+
 \begin{frame}{Работа с онлайн документация на Java}
   \transdissolve
   \begin{itemize}
@@ -578,6 +587,15 @@ int y = 0;
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Пример - изграждане на низ}
+  \transdissolve
+\begin{lstlisting}
+  
+\end{lstlisting}
+\end{frame}
+
+
 \begin{frame}{Конзолен вход и изход}
   \transdissolve
   \begin{itemize}
@@ -592,9 +610,56 @@ int y = 0;
   \transdissolve
   \begin{itemize}
   \item printf - класиката си е класика
+    \begin{itemize}
+      \item функция за форматиране на конзолен изход
+      \item System.out.printf("Hello, \%s. Next year, you'll be \%d", name, age);
+    \end{itemize}
   \item String.format() - създаване на форматиран низ
+    \begin{itemize}
+      \item Притежава същата семантика като printf
+    \end{itemize}
+
   \end{itemize}
 \end{frame}
+
+\begin{frame}{Преобразувания на printf}
+  \transdissolve
+  \begin{tabular}{|c|c|c|}
+    \hline
+    Символ  & Тип                &          Пример \\
+    \hline
+    d & Десетично цяло число &                         159 \\
+    \hline
+    x & Шестнадесетнично цяло число &                 9f \\
+    \hline
+    o & Осмично цяло число  &                      237 \\
+    \hline
+    f & Число с плащава запетая &             15.9 \\
+    \hline
+    e & Експоненциално представяне на ЧСП &           1.59e+01 \\
+    \hline
+    s & Низ &                                                Hello \\
+    \hline
+    c & Символ &                                                 H \\
+    \hline
+    b &  boolean                 &                        true \\
+    \hline
+    tx & Дата и време &  \\
+    \hline
+    n & The platform-dependent line separator & \\
+    \hline
+  \end{tabular}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример - форматиране на изход}
+  \transdissolve
+\begin{lstlisting}
+  
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}{Файлов вход и изход}
   \transdissolve
@@ -602,6 +667,14 @@ int y = 0;
   \item Четене на текстови файлове със Scanner
   \item Запис във файл с PrintWriter
   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример - файлов вход и изход}
+  \transdissolve
+\begin{lstlisting}
+  
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}{Големи числа}
