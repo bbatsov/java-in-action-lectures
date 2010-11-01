@@ -271,7 +271,6 @@ public class ExecutionFlowExample2 {
   \end{itemize}
 \end{frame}
 
-
 \begin{frame}{Константи}
   \begin{itemize}
   \item За дефиниране на константи се използва ключовата дума final
@@ -317,7 +316,6 @@ public class Constants
 }
 \end{lstlisting}
 \end{frame}
-
 
 \begin{frame}{Оператори}
   \transdissolve
@@ -492,9 +490,41 @@ int y = 0;
 
 \begin{frame}{Приоритет и асоциативност на операторите}
   \transdissolve
-  \begin{itemize}
-  \item 
-  \end{itemize}
+\small
+\begin{tabular}{|c|c|}
+  \hline
+  Оператори & Асоциативност \\
+  \hline
+  [] . () (method call) & Left to right \\
+  \hline
+  ! ~ ++ -- + (unary) (unary) () (cast) new & Right to left \\
+  \hline
+  * / \% & Left to right \\
+  \hline
+  + -   & Left to right \\
+  \hline
+  << >> >>> & Left to right \\
+  \hline
+  < <= > >= instanceof & Left to right \\
+  \hline
+  == != & Left to right \\
+  \hline
+  \& & Left to right \\
+  \hline
+  xor & Left to right \\
+  \hline
+  |                                      & Left to right \\
+  \hline
+  \&\&                                   &  Left to right \\
+  \hline
+  ||                                   &  Left to right \\
+  \hline
+  ?:                                  &   Right to left \\
+  \hline
+  = += -= *= /= \%= \&= |= xor= <<= >>= >>>= & Right to left \\
+  \hline
+\end{tabular}
+
 \end{frame}
 
 \begin{frame}{Изброени типове}
@@ -541,29 +571,56 @@ int y = 0;
 \begin{frame}{Изграждане на низове}
   \transdissolve
   \begin{itemize}
-  \item 
+  \item Изграждането на нови низове чрез конкатенация е уникално лоша
+    идея
+  \item StringBuilder(въведен в Java 5) е клас специално създаден за тази цел
+  \item StringBuffer е thread-safe еквивалент на StringBuilder
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Конзолен вход и изход}
   \transdissolve
   \begin{itemize}
-  \item 
+  \item Входен поток System.in
+  \item Прочитане на редове, низове и числа с класа Scanner
+  \item Извеждане на изход
+  \item Въвеждане на пароли с класа Console
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Форматиране на изход}
   \transdissolve
   \begin{itemize}
-  \item 
+  \item printf - класиката си е класика
+  \item String.format() - създаване на форматиран низ
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Файлов вход и изход}
   \transdissolve
   \begin{itemize}
-  \item 
+  \item Четене на текстови файлове със Scanner
+  \item Запис във файл с PrintWriter
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Големи числа}
+  \transdissolve
+  \begin{itemize}
+  \item Примитивните числени типове не са подходящи за всички изчисления
+  \item java.math.BigInteger - реализира целичислен тип с неорганичен размер
+  \item java.math.BigDecimal - реализира реален тип с неограничена прецизност
+  \item Проблем на тези типове е производителността и невъзможността
+    да се използват оператори с тях
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Големи числа - пример}
+  \transdissolve
+\begin{lstlisting}
+  
+\end{lstlisting}
 \end{frame}
 
 
@@ -572,8 +629,8 @@ int y = 0;
   \begin{itemize}
   \item Позволява да бъдат групирани няколко
     твърдения
-   \item Дефиницията на блок започва с \{ и
-      завършва с \} - между тях има
+   \item Дефиницията на блок започва с { и
+      завършва с } - между тях има
     твърдения
    \item Имат собствен обхват
    \item Могат да бъдат влагани един в друг
