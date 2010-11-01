@@ -63,36 +63,11 @@
   \tableofcontents[pausesections]
 \end{frame}
 
-\section{Структура и поток на изпълнение на Java програма}
-
-\subsection{Структура на Java програма}
-
-\begin{frame}{Градивни блокове}
-  \transdissolve
-  \begin{itemize}
-  \item твърдения(statements)
-  \item методи
-  \item полета
-  \item класове
-  \item пакети
-  \item коментари
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Основни положения}  
-  \transdissolve
-  \begin{itemize}
-    \item Целият код на програмата живее в класове
-    \item Входната точка на всяка програма е клас с main метод
-    \item Програмите са чувствителни към малки и големи букви
-    \item Твърденията се терминират с
-    \item Коментарите се игнорират от компилатора
-  \end{itemize}
-\end{frame}
+\section{Структура и на Java програма}
 
 \begin{frame}[fragile]
   \transdissolve
-  \frametitle{Пример}
+  \frametitle{Проста Java програма}
 \begin{lstlisting}
 public class SimpleClass {
   public static void main(String[] args) {
@@ -102,12 +77,36 @@ public class SimpleClass {
 \end{lstlisting}
 \end{frame}
 
-\subsection{Поток на изпълнение}
-\begin{frame}{Поток на изпълнение}
+\begin{frame}{Основни положения}  
+  \transdissolve
+  \begin{itemize}
+  \item Целият код на програмата живее в класове
+  \item Входната точка на всяка програма е клас с main метод
+  \item Програмите са чувствителни към малки и големи букви
+  \item Имената на класовете трябва да започват с буква и да следват
+    CamelCase конвенцията
+  \item Имената на публичните класове трябва да съвпадат с тези на
+    .java сорс файлове, в които са дефинирани
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Основни положения}  
+  \transdissolve
+  \begin{itemize}
+  \item Частите(блоковете) на програмата се заграждат в {}
+  \item Програмната логика е организирана като последователност от твърдения
+  \item Твърденията се терминират с ;
+  \item Твърденията в една Java програма се изпълняват последователно
+  \item обект.метод(параметър, ...) - извикване на метод върху обект
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Коментари}
   \transdissolve  
   \begin{itemize}
-    \item Твърденията в една Java програма се изпълняват последователно
-    \item Коментари
+    \item Използват се за подобряване на четимостта на кода
+    \item Игнорират се от компилатора
+    \item Видове
       \begin{itemize}
         \item C стил /* ... */ - за коментар с произволен размер
         \item C++ стил // - коментар до края на реда
@@ -145,31 +144,47 @@ public class ExecutionFlowExample2 {
 \end{frame}
 
 \section{Примитивни типове данни}
+
+
+\begin{frame}{Типове в Java}
+  
+  \begin{itemize}
+  \item Java е силно типизиран език(strongly typed)
+  \item Всяка променлива, която дефинирате трябва да има тип
+  \item Видове
+    \begin{itemize}
+      \item Примитивни - числени типове, символен тип, булев тип
+      \item Референтни - масиви, инстанции на класове(обекти)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
 \subsection{Целочислени типове}
 \begin{frame}{Целочислени типове}
   \transdissolve
   \begin{itemize}
-  \item int
+  \item byte
     \begin{itemize}
-      \item размер - 4 байта
-      \item граници - от -2,147,483,648 до
-        2,147,483, 647
+    \item размер - 1 байт
+    \item граници - от -128 до 127
     \end{itemize}
   \item short
     \begin{itemize}
     \item размер - 2 байта
     \item граници - от -32,768 до 32,767
     \end{itemize}
+  \item int
+    \begin{itemize}
+      \item размер - 4 байта
+      \item граници - от -2,147,483,648 до
+        2,147,483, 647
+    \end{itemize}
   \item long
     \begin{itemize}
     \item суфикс - L
     \item размер - 8 байта
     \item граници
-    \end{itemize}
-  \item byte
-    \begin{itemize}
-    \item размер - 1 байт
-    \item граници - от -128 до 127
     \end{itemize}
   \end{itemize}
   Могат да се използват 8, 10 и 16тини
@@ -200,7 +215,12 @@ public class ExecutionFlowExample2 {
 \begin{frame}{Символен тип}
   \transdissolve
   \begin{itemize}
-  \item char
+  \item Java има вградена поддръжка на Unicode 16
+  \item char представя един символ в Unicode 16 кодировка
+  \item char константите трябва да бъдат оградени с ''(единични
+    кавички)
+  \item Използването на char трябва да се избягва - обикновено
+    всъщност се нуждаете от низ(String) от един символ
   \end{itemize}
 \end{frame}
 
@@ -218,12 +238,9 @@ public class ExecutionFlowExample2 {
   \begin{itemize}
   \item Всяка променлива трябва да има
     зададен тип и име
-
   \item Името трябва да започва с буква или \_
     и да съдържа само букви, цифри и \_
-
   \item Имената на променливите трябва да спазват конвенцията camelCase
-  
   \item Променливите трябва да бъдат инициализирани преди да бъдат използвани!
   \end{itemize}
 \end{frame}
@@ -253,6 +270,54 @@ public class ExecutionFlowExample2 {
     присвоена нова стойност
   \end{itemize}
 \end{frame}
+
+
+\begin{frame}{Константи}
+  \begin{itemize}
+  \item За дефиниране на константи се използва ключовата дума final
+  \item Имената на константи се изписват по конвенцията CONSTANT\_NAME
+  \item Обикновено константите се дефинират на ниво клас, извън всички
+    методи
+  \item Константите са наистина константи само за примитивни типове и
+    за непроменими(immutable) референтни типове
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример - константи}
+  \transdissolve
+\begin{lstlisting}
+public class Constants
+{
+   public static void main(String[] args)
+   {
+      final double PI = 3.14;
+      double radius = 10.5;
+
+      System.out.println("Circumference of the circle: " + 2 * PI * radius);
+   }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Пример - константи}
+  \transdissolve
+\begin{lstlisting}
+public class Constants
+{
+   public static final double PI = 3.14;
+
+   public static void main(String[] args)
+   {
+      double radius = 10.5;
+
+      System.out.println("Circumference of the circle: " + 2 * PI * radius);
+   }
+}
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}{Оператори}
   \transdissolve
@@ -392,8 +457,22 @@ int y = 0;
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}{{Автоматично преобразуване между примитивни числени типове}}
+  \transdissolve
+  \includegraphics[height=150px, width=300px]{images/conversions.jpg}
+\end{frame}
+
 \begin{frame}{Автоматично преобразуване между примитивни числени типове}
-  \transdissolve  
+  \transdissolve
+  \begin{itemize}
+    \item Ако единият операнд е от тип double, другият бива
+      преобразуван до double.
+    \item В противен случай, ако единият операнд е от тип float,
+      другият бива преобразуван до float.
+    \item В противен случай, ако единият операнд е от тип long,
+      другият бива преобразуван до long.
+    \item В противен случай двата операнда биват преобразувани до int.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -410,6 +489,83 @@ int y = 0;
    long t = 8; int q = (int) t;
   \end{lstlisting}
 \end{frame}
+
+\begin{frame}{Приоритет и асоциативност на операторите}
+  \transdissolve
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Изброени типове}
+  \transdissolve
+  \begin{itemize}
+  \item Въведени в Java 5
+  \item Състоят се от краен брой константи
+  \item Пълноправни класове 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Низове}
+  \transdissolve
+  \begin{itemize}
+  \item Инстанции на java.lang.String
+  \item Последователност от Unicode 16 символи
+  \item непроменими(immutable)
+  \item споделяни от компилатора
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Операции върху низове}
+  \transdissolve
+  \begin{itemize}
+  \item Контатенация - низ1 + низ2
+  \item Подниз - низ.substring(началенИндекс, бройСимволи)
+  \item Сравняване - низ.equals(низ2)
+  \item Сравняване с игнориране на размера на буквите -
+    низ.equalsIgnoreCase(низ2)
+  \item Проверка за идентичност - низ1 == низ2
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Работа с онлайн документация на Java}
+  \transdissolve
+  \begin{itemize}
+  \item Интернет документация -
+    http://download.oracle.com/javase/6/docs/api/
+  \item Локална инсталация
+  \item Достъп до документацията от IDE
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Изграждане на низове}
+  \transdissolve
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Конзолен вход и изход}
+  \transdissolve
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Форматиране на изход}
+  \transdissolve
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Файлов вход и изход}
+  \transdissolve
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
 
 \begin{frame}{Блокове}
   \transdissolve
