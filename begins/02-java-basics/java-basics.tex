@@ -53,6 +53,13 @@
 % This is only inserted into the PDF information catalog. Can be left
 % out. 
 
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Съдържание}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
 \begin{document}
 
 \begin{frame}
@@ -80,11 +87,11 @@ public class SimpleClass {
 \begin{frame}{Основни положения}  
   \transdissolve
   \begin{itemize}
-  \item Целият код на програмата живее в класове
-  \item Входната точка на всяка програма е клас с main метод
-  \item Програмите са чувствителни към малки и големи букви
+  \item Целият код на програмата живее в класове \pause
+  \item Входната точка на всяка програма е клас с main метод \pause
+  \item Програмите са чувствителни към малки и големи букви \pause
   \item Имената на класовете трябва да започват с буква и да следват
-    CamelCase конвенцията
+    CamelCase конвенцията \pause
   \item Имената на публичните класове трябва да съвпадат с тези на
     .java сорс файлове, в които са дефинирани
   \end{itemize}
@@ -93,10 +100,11 @@ public class SimpleClass {
 \begin{frame}{Основни положения}  
   \transdissolve
   \begin{itemize}
-  \item Частите(блоковете) на програмата се заграждат в \{\}
-  \item Програмната логика е организирана като последователност от твърдения
-  \item Твърденията се терминират с ;
-  \item Твърденията в една Java програма се изпълняват последователно
+  \item Частите(блоковете) на програмата се заграждат в \{\} \pause
+  \item Програмната логика е организирана като последователност от
+    твърдения \pause
+  \item Твърденията се терминират с ; \pause
+  \item Твърденията в една Java програма се изпълняват последователно \pause
   \item обект.метод(параметър, ...) - извикване на метод върху обект
   \end{itemize}
 \end{frame}
@@ -104,13 +112,13 @@ public class SimpleClass {
 \begin{frame}{Коментари}
   \transdissolve  
   \begin{itemize}
-    \item Използват се за подобряване на четимостта на кода
-    \item Игнорират се от компилатора
-    \item Видове
+    \item Използват се за подобряване на четимостта на кода \pause
+    \item Игнорират се от компилатора \pause
+    \item Видове \pause
       \begin{itemize}
         \item C стил /* ... */ - за коментар с произволен
-          размер(многоредов коментар)
-        \item C++ стил // - коментар до края на реда
+          размер(многоредов коментар) \pause
+        \item C++ стил // - коментар до края на реда \pause
         \item javadoc /** ... */ - специален коментар
       \end{itemize}
   \end{itemize}
@@ -146,19 +154,17 @@ public class ExecutionFlowExample2 {
 
 \section{Примитивни типове данни}
 
-\begin{frame}{Типове в Java}
-  
+\begin{frame}{Типове в Java}  
   \begin{itemize}
-  \item Java е силно типизиран език(strongly typed/statically typed)
-  \item Всяка променлива, която дефинирате трябва да има тип
-  \item Видове
+  \item Java е силно типизиран език(strongly typed/statically typed) \pause
+  \item Всяка променлива, която дефинирате трябва да има тип \pause
+  \item Видове \pause
     \begin{itemize}
-      \item Примитивни - числени типове, символен тип, булев тип
+      \item Примитивни - числени типове, символен тип, булев тип \pause
       \item Референтни - масиви, инстанции на класове(обекти)
     \end{itemize}
   \end{itemize}
 \end{frame}
-
 
 \subsection{Целочислени типове}
 \begin{frame}{Целочислени типове}
@@ -168,24 +174,25 @@ public class ExecutionFlowExample2 {
     \begin{itemize}
     \item размер - 1 байт
     \item граници - от -128 до 127
-    \end{itemize}
+    \end{itemize} \pause
   \item short
     \begin{itemize}
     \item размер - 2 байта
     \item граници - от -32,768 до 32,767
-    \end{itemize}
+    \end{itemize} \pause
   \item int
     \begin{itemize}
       \item размер - 4 байта
       \item граници - от -2,147,483,648 до
         2,147,483, 647
-    \end{itemize}
+    \end{itemize} \pause
   \item long
     \begin{itemize}
     \item суфикс - L
     \item размер - 8 байта
-    \item граници
-    \end{itemize}
+    \item граници - –9,223,372,036,854,775,808 до
+      9,223,372,036,854,775,807
+    \end{itemize} \pause
   \end{itemize}
   Могат да се използват 8, 10 и 16тини
   бройни системи
@@ -199,14 +206,14 @@ public class ExecutionFlowExample2 {
     \begin{itemize}
     \item суфикс - F
     \item размер - 4 байта
-    \item граници
+    \item граници - приблизително ±3.40282347E+38F
     \item значими знаци след запетаята - 6-7
-    \end{itemize}
+    \end{itemize} \pause
     \item double
       \begin{itemize}
       \item суфикс - L
       \item размер - 15 байта
-      \item граници
+      \item граници - приблизително ±1.79769313486231570E+308
       \item значими знаци след запетаята - 15
       \end{itemize}
   \end{itemize}
@@ -216,21 +223,21 @@ public class ExecutionFlowExample2 {
 \begin{frame}{Символен тип}
   \transdissolve
   \begin{itemize}
-  \item Java има вградена поддръжка на Unicode 16
-  \item char типът представя един символ в Unicode 16 кодировка
+  \item Java има вградена поддръжка на Unicode 16 \pause
+  \item char типът представя един символ в Unicode 16 кодировка \pause
   \item char константите трябва да бъдат оградени с ''(единични
-    кавички)
+    кавички) \pause
   \item Използването на char е желателно да се избягва - обикновено
-    всъщност се нуждаете от низ(String) от един символ
+    всъщност се нуждаете от низ(String) от един символ \pause
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Булев тип}
   \transdissolve
   \begin{itemize}
-  \item boolean - има две дискретни стойности true и false
-  \item 0 и null не се считат за false
-  \item всички логически изрази имат резултат от тип boolean
+  \item boolean - има две дискретни стойности true и false \pause
+  \item 0 и null не се считат за false \pause
+  \item всички логически изрази имат резултат от тип boolean \pause
   \end{itemize}
 \end{frame}
 
@@ -239,10 +246,11 @@ public class ExecutionFlowExample2 {
   \transdissolve
   \begin{itemize}
   \item Всяка променлива трябва да има
-    зададен тип и име
+    зададен тип и име \pause
   \item Името трябва да започва с буква или \_
-    и да съдържа само букви, цифри и \_
-  \item Имената на променливите трябва да спазват конвенцията camelCase
+    и да съдържа само букви, цифри и \_ \pause
+  \item Имената на променливите трябва да спазват конвенцията
+    camelCase \pause
   \item Променливите трябва да бъдат инициализирани преди да бъдат използвани!
   \end{itemize}
 \end{frame}
@@ -267,10 +275,10 @@ public class ExecutionFlowExample2 {
   \transdissolve
   \begin{itemize}
   \item Могат да бъдат декларирани навсякъде(преди да бъдат
-    използвани)
-  \item Променливите имат обхват(scope)
+    използвани) \pause
+  \item Променливите имат обхват(scope) \pause
   \item Препоръчително е да бъдат дефинирани точно преди да бъде
-    използвани, за да се намали обхватът им
+    използвани, за да се намали обхватът им \pause
   \item На променливите(които не са маркирани като final) може да бъде
     присвоена нова стойност
   \end{itemize}
@@ -278,13 +286,14 @@ public class ExecutionFlowExample2 {
 
 \subsection{Константи}
 \begin{frame}{Константи}
+  \transdissolve
   \begin{itemize}
-  \item За дефиниране на константи се използва ключовата дума final
-  \item Имената на константи се изписват по конвенцията CONSTANT\_NAME
+  \item За дефиниране на константи се използва ключовата дума final \pause
+  \item Имената на константи се изписват по конвенцията CONSTANT\_NAME \pause
   \item Обикновено константите се дефинират на ниво клас, извън всички
-    методи
+    методи \pause
   \item Константите са наистина константи само за примитивни типове и
-    за непроменими(immutable) референтни типове
+    за непроменими(immutable) референтни типове \pause
   \end{itemize}
 \end{frame}
 
@@ -327,13 +336,14 @@ public class Constants
 \begin{frame}{Оператори}
   \transdissolve
   \begin{itemize}
-  \item + - събиране
-  \item - - изваждане
-  \item * - умножение
+  \item + - събиране \pause
+  \item - - изваждане \pause
+  \item * - умножение \pause
   \item / - делене – целочислено, ако и двете
     числа са цели числа, иначе с плаваща
-    запетая
-  \item \% - остатък при делене
+    запетая \pause
+  \item \% - остатък при делене \pause
+  \item комбиниране на оператор и присвояване - +=, -=, *=, /=, \%=
   \end{itemize}
 \end{frame}
 
@@ -354,14 +364,12 @@ int t = q * 7; // initialize to q * 7, i.e. 378
   \transdissolve
   \begin{itemize}
   \item Могат да бъдат прилагани само върху
-    променливи от целочислен тип.
-    Променят стойността на променливата.
-
+    променливи от целочислен тип. \pause
+   \item Променят стойността на променливата. \pause
    \item ++var - увеличава стойността на var с 1
-    преди да бъде ползвана
-
+    преди да бъде ползвана \pause
    \item --var - намалява стойността на var с 1,
-    преди да бъде ползвана
+    преди да бъде ползвана \pause
   \end{itemize}
 \end{frame}
 
@@ -384,10 +392,10 @@ System.out.println(i);   // prints 6
   \begin{itemize}
   \item var++ - увеличава с 1 стойността на
     променливата, след като стойността е
-    използвана
+    използвана \pause
   \item var-- - намалява с 1 стойността на
     променливата, след като стойността е
-    използвана
+    използвана \pause
   \end{itemize}
 \end{frame}
 
@@ -408,7 +416,7 @@ System.out.println(i);   // prints 6
 \begin{frame}{Оператори за сравнение}
   \transdissolve
   Ползват се върху сравними примитивни
-  типове и връщат булева стойност като резултат.
+  типове и връщат булева стойност като резултат. \pause
   
   \begin{itemize}
   \item == - проверка за равенство
@@ -425,7 +433,7 @@ System.out.println(i);   // prints 6
   \begin{itemize}
   \item   Логически израз се изчислява само, докато
     не е сигурна неговата стойност (short
-    circuit)
+    circuit) \pause
   \item \&\& - логическо И
   \item || - логическо ИЛИ
   \item ! - логическо отрицание
@@ -471,12 +479,13 @@ int y = 0;
   \transdissolve
   \begin{itemize}
     \item Ако единият операнд е от тип double, другият бива
-      преобразуван до double.
+      преобразуван до double. \pause
     \item В противен случай, ако единият операнд е от тип float,
-      другият бива преобразуван до float.
+      другият бива преобразуван до float. \pause
     \item В противен случай, ако единият операнд е от тип long,
-      другият бива преобразуван до long.
-    \item В противен случай двата операнда биват преобразувани до int.
+      другият бива преобразуван до long. \pause
+    \item В противен случай двата операнда биват преобразувани до
+      int. \pause
   \end{itemize}
 \end{frame}
 
@@ -485,7 +494,7 @@ int y = 0;
   \transdissolve
   \begin{itemize}
   \item Когато искаме преобразувания водещи
-    до загуба на информация
+    до загуба на информация \pause
   \item ( тип-към-който-преобразуваме ) променлива
   \end{itemize}
   \begin{lstlisting}
@@ -502,33 +511,33 @@ long t = 8; int q = (int) t;
   \hline
   Оператори & Асоциативност \\
   \hline
-  [] . () (method call) & Left to right \\
+  [] . () (method call) & Лява \\
   \hline
-  ! ~ ++ -- + (unary) (unary) () (cast) new & Right to left \\
+  ! ~ ++ -- + (unary) (unary) () (cast) new & Дясна \\
   \hline
-  * / \% & Left to right \\
+  * / \% & Лява \\
   \hline
-  + -   & Left to right \\
+  + -   & Лява \\
   \hline
-  $<$ $>$$>$ $>$$>$$>$ & Left to right \\
+  $<$ $>$$>$ $>$$>$$>$ & Лява \\
   \hline
-  $<$ $<$= $>$ $>$= instanceof & Left to right \\
+  $<$ $<$= $>$ $>$= instanceof & Лява \\
   \hline
-  == != & Left to right \\
+  == != & Лява \\
   \hline
-  \& & Left to right \\
+  \& & Лява \\
   \hline
-  xor & Left to right \\
+  xor & Лява \\
   \hline
-  |                                      & Left to right \\
+  |                                      & Лява \\
   \hline
-  \&\&                                   &  Left to right \\
+  \&\&                                   &  Лява \\
   \hline
-  ||                                   &  Left to right \\
+  ||                                   &  Лява \\
   \hline
-  ?:                                  &   Right to left \\
+  ?:                                  &   Дясна \\
   \hline
-  = += -= *= /= \%= \&= |= xor= $<$$<$= $>$$>$= $>$$>$$>$= & Right to left \\
+  = += -= *= /= \%= \&= |= xor= $<$$<$= $>$$>$= $>$$>$$>$= & Дясна \\
   \hline
 \end{tabular}
 
@@ -537,9 +546,9 @@ long t = 8; int q = (int) t;
 \begin{frame}{Изброени типове}
   \transdissolve
   \begin{itemize}
-  \item enum {CONS1, CONS2, CONS3...}
-  \item Въведени в Java 5
-  \item Състоят се от краен брой константи
+  \item enum {CONS1, CONS2, CONS3...} \pause
+  \item Въведени в Java 5 \pause
+  \item Състоят се от краен брой константи \pause
   \item Пълноправни класове 
   \end{itemize}
 \end{frame}
@@ -548,27 +557,29 @@ long t = 8; int q = (int) t;
 \begin{frame}{Низове}
   \transdissolve
   \begin{itemize}
-  \item Инстанции на java.lang.String
-  \item Последователност от Unicode 16 символи
-  \item непроменими(immutable)
-  \item споделяни от компилатора
+  \item Инстанции на java.lang.String \pause
+  \item Последователност от Unicode 16 символи \pause
+  \item непроменими(immutable) \pause
+  \item споделяни от компилатора \pause
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Операции върху низове}
   \transdissolve
   \begin{itemize}
-  \item Контатенация - низ1 + низ2
-  \item Подниз - низ.substring(началенИндекс, бройСимволи)
-  \item Сравняване - низ.equals(низ2)
+  \item Контатенация - низ1 + низ2 \pause
+  \item Подниз - низ.substring(началенИндекс, бройСимволи) \pause
+  \item Сравняване - низ.equals(низ2) \pause
   \item Сравняване с игнориране на размера на буквите -
-    низ.equalsIgnoreCase(низ2)
+    низ.equalsIgnoreCase(низ2) \pause
   \item Проверка за идентичност - низ1 == низ2
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример - работа с низове}
+  \transdissolve
+\begin{lstlisting}
 public class StringTest {
   public static void main(String[] args) {
     String hey = "hey hey hey ";
@@ -578,10 +589,7 @@ public class StringTest {
     System.out.println(s.toUpperCase());
     System.out.println(hey + s);
   }
-}
-  \transdissolve
-\begin{lstlisting}
-  
+}  
 \end{lstlisting}
 \end{frame}
 
@@ -589,9 +597,9 @@ public class StringTest {
   \transdissolve
   \begin{itemize}
   \item Интернет документация -
-    http://download.oracle.com/javase/6/docs/api/
-  \item Локална инсталация
-  \item Достъп до документацията от IDE
+    http://download.oracle.com/javase/6/docs/api/ \pause
+  \item Локална инсталация \pause
+  \item Достъп до документацията от IDE \pause
   \end{itemize}
 \end{frame}
 
@@ -599,8 +607,9 @@ public class StringTest {
   \transdissolve
   \begin{itemize}
   \item Изграждането на нови низове чрез конкатенация е уникално лоша
-    идея
-  \item StringBuilder(въведен в Java 5) е клас специално създаден за тази цел
+    идея \pause
+  \item StringBuilder(въведен в Java 5) е клас специално създаден за
+    тази цел \pause
   \item StringBuffer е thread-safe еквивалент на StringBuilder
   \end{itemize}
 \end{frame}
@@ -628,9 +637,9 @@ public class StringBuilderTest {
 \begin{frame}{Конзолен вход и изход}
   \transdissolve
   \begin{itemize}
-  \item Входен поток System.in
-  \item Прочитане на редове, низове и числа с класа Scanner
-  \item Извеждане на изход
+  \item Входен поток System.in \pause
+  \item Прочитане на редове, низове и числа с класа Scanner \pause
+  \item Извеждане на изход \pause
   \item Въвеждане на пароли с класа Console
   \end{itemize}
 \end{frame}
@@ -639,24 +648,33 @@ public class StringBuilderTest {
   \frametitle{Пример - конзолен вход и изход}
   \transdissolve
 \begin{lstlisting}
-  
+public class IOTest {
+  public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    System.out.print("Enter your name: ");
+    String name = in.next();
+    System.out.printf("Welcome back, Lord %s, Master of Java and Ruler of the Universe!%n", name);
+    System.out.print("Enter a number, my liege: ");
+    int number = in.nextInt();
+    System.out.printf("Lord %s, the sacred number you entered is %d!%n", name, number);
+  }
+}  
 \end{lstlisting}
 \end{frame}
-
 
 \begin{frame}{Форматиране на изход}
   \transdissolve
   \begin{itemize}
-  \item printf - класиката си е класика
+  \item printf - класиката си е класика \pause
     \begin{itemize}
-      \item функция за форматиране на конзолен изход
-      \item System.out.printf("Hello, \%s. Next year, you'll be \%d", name, age);
+      \item функция за форматиране на конзолен изход \pause
+      \item System.out.printf("Hello, \%s. Next year, you'll be \%d",
+        name, age); \pause
     \end{itemize}
-  \item String.format() - създаване на форматиран низ
+  \item String.format() - създаване на форматиран низ \pause
     \begin{itemize}
       \item Притежава същата семантика като printf
     \end{itemize}
-
   \end{itemize}
 \end{frame}
 
@@ -711,8 +729,8 @@ public class FormatTest {
 \begin{frame}{Файлов вход и изход}
   \transdissolve
   \begin{itemize}
-  \item Четене на текстови файлове със java.util.Scanner
-  \item Запис във файл с java.io.PrintWriter
+  \item Четене на текстови файлове със java.util.Scanner \pause
+  \item Запис във файл с java.io.PrintWriter \pause
   \end{itemize}
 \end{frame}
 
@@ -720,16 +738,33 @@ public class FormatTest {
   \frametitle{Пример - файлов вход и изход}
   \transdissolve
 \begin{lstlisting}
-  
+public class FileIOTest {
+  public static void main(String[] args) throws FileNotFoundException {
+    File someFile = new File("someFile.txt");
+    PrintWriter pw = new PrintWriter(someFile);
+    pw.write("One\\n");
+    pw.write("Two\\n");
+    pw.write("Three\\n");
+    // force write to file
+    pw.flush();
+    Scanner in = new Scanner(someFile);
+    System.out.println(in.nextLine());
+    System.out.println(in.nextLine());
+    System.out.println(in.nextLine());
+  }
+}  
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}{Големи числа}
   \transdissolve
   \begin{itemize}
-  \item Примитивните числени типове не са подходящи за всички изчисления
-  \item java.math.BigInteger - реализира целичислен тип с неорганичен размер
-  \item java.math.BigDecimal - реализира реален тип с неограничена прецизност
+  \item Примитивните числени типове не са подходящи за всички
+    изчисления \pause
+  \item java.math.BigInteger - реализира целичислен тип с неорганичен
+    размер \pause
+  \item java.math.BigDecimal - реализира реален тип с неограничена
+    прецизност \pause
   \item Проблем на тези типове е производителността и невъзможността
     да се използват оператори с тях
   \end{itemize}
@@ -757,11 +792,11 @@ public class BigIntegerTest {
   \transdissolve
   \begin{itemize}
   \item Позволява да бъдат групирани няколко
-    твърдения
+    твърдения \pause
    \item Дефиницията на блок започва с \{ и
       завършва с \} - между тях има
-    твърдения
-   \item Имат собствен обхват
+    твърдения \pause
+   \item Имат собствен обхват \pause
    \item Могат да бъдат влагани един в друг
   \end{itemize}
 \end{frame}
@@ -803,9 +838,9 @@ public static void main(String[] args) {
 \begin{frame}{Условна конструкция if}
   \transdissolve
   \begin{itemize}
-  \item Позволява условното изпълнение на код при изпълнено условие
-  \item if (условие) твърдение(блок от твърдения)
-  \item условие(condition) - логически израз
+  \item Позволява условното изпълнение на код при изпълнено условие \pause
+  \item if (условие) твърдение(блок от твърдения) \pause
+  \item условие(condition) - логически израз \pause
   \item твърдение - действие, което да бъде
     изпълнено, ако условието е вярно
   \end{itemize}
@@ -825,12 +860,12 @@ if (performance > 5) {
 \begin{frame}{Условна конструкция if-else}
   \transdissolve
   \begin{itemize}
-  \item if (condition) statement1 else statement2
-  \item condition - логически израз
+  \item if (condition) statement1 else statement2 \pause
+  \item condition - логически израз \pause
   \item statement1 - твърдение, което да бъде
-      изпълнено, ако условието е вярно
+      изпълнено, ако условието е вярно \pause
   \item statement2 - твърдение, което да бъде
-    изпълнено, ако условието е невярно
+    изпълнено, ако условието е невярно \pause
   \end{itemize}
 \end{frame}
 
@@ -869,9 +904,9 @@ if (performance > 5) {
   \frametitle{Множествен избор със switch}
   \transdissolve
   \begin{itemize}
-  \item Множествен избор - switch
+  \item Множествен избор - switch \pause
   \item може да се
-    използва с byte, short, char, int
+    използва с byte, short, char, int \pause
   \end{itemize}
   \begin{lstlisting}
 switch (variable) {
@@ -919,13 +954,14 @@ default: System.out.println("Invalid number."); break;
 \begin{frame}{Цикъл while}
   \transdissolve
   \begin{itemize}
-  \item Синтаксис - while (condition) \{statement(s);\}
+  \item Синтаксис - while (condition) \{statement(s);\} \pause
     \begin{itemize}
-      \item условие(condition) определя дали ще изпълни тялото на цикъла
-      \item тялото на цикъла се състои от едно или повече твърдения
+      \item условие(condition) определя дали ще изпълни тялото на
+        цикъла \pause
+      \item тялото на цикъла се състои от едно или повече твърдения \pause
     \end{itemize}
 
-  \item Семантика - цикълът while може и ДА НЕ СЕ изпълни нито веднъж
+  \item Семантика - цикълът while може и ДА НЕ СЕ изпълни нито веднъж \pause
   \item Поток на изпълнение - след изпълнение на тялото контрола се
     прехвърля в условието на цикъла
   \end{itemize}
@@ -948,7 +984,7 @@ System.out.print("We've drunk " +  beersDrank + " beers.");
 \begin{frame}{Цикъл do-while}
   \transdissolve
   \begin{itemize}
-  \item Синтаксис - do \{statements\} while (condition)
+  \item Синтаксис - do \{statements\} while (condition) \pause
   \item Семантика - цикълът do-while се изпълнява винаги поне веднъж
   \end{itemize}
 \end{frame}
@@ -968,12 +1004,12 @@ do {
 \begin{frame}{Цикъл for}
   \transdissolve
   \begin{itemize}
-  \item for ( initialization; condition; update )  {statement}
-  \item initialization инициализираме променливи
-  \item condition логически израз
-  \item update – изпълнява се, докато
-    условието е вярно, преди statement
-  \item statement – изпълнява се, докато
+  \item for ( initialization; condition; update )  {statement} \pause
+  \item initialization инициализираме променливи \pause
+  \item condition логически израз \pause
+  \item update - изпълнява се, докато
+    условието е вярно, преди statement \pause
+  \item statement - изпълнява се, докато
     условието е вярно, след update
   \end{itemize}
 \end{frame}
@@ -1015,7 +1051,6 @@ System.out.println("closest number : " + i);
 \begin{frame}[fragile]
   \frametitle{Преминаване към следващата итерация}
   \transdissolve
-  \transglitter[direction=90]
   \begin{block}{continue}
     преминаване към следваща
     итерация в цикъл. Може да се
@@ -1032,14 +1067,15 @@ for (int i = startValue; i < 1000; i++) {
 
 \section{Масиви}
 
-\begin{frame}{Масиви}
+\begin{frame}{Масив}
   \transdissolve
   \begin{itemize}
-    \item съдържа набор от елементи от даден тип
-    \item достъпът до елементи се осъществява по индекс
-    \item индексите са започват от 0(Нула)
-    \item arr.length ни дава дължината на един масив
-    \item масивите имат предефинирана дължина и тя не може да бъде променена
+    \item съдържа набор от елементи от даден тип \pause
+    \item достъпът до елементи се осъществява по индекс \pause
+    \item индексите са започват от 0(Нула) \pause
+    \item arr.length ни дава дължината на един масив \pause
+    \item масивите имат предефинирана дължина и тя не може да бъде
+      променена \pause
     \item може да има повече от едно измерение
   \end{itemize}
 
@@ -1106,10 +1142,10 @@ public class ForEachLoopTest {
 \begin{frame}{Упражнение}
   \transdissolve  
   \begin{enumerate}
-    \item Намерете сумата на първите хиляда естествени числа.
+    \item Намерете сумата на първите хиляда естествени числа. \pause
     \item Намерете сумата на всички естествени числа, които са
-      по-малки от хиляда и се делят на 3 и 5 без остатък.
-    \item Намерете сумата от цифрите на 100!(факториел).
+      по-малки от хиляда и се делят на 3 и 5 без остатък. \pause
+    \item Намерете сумата от цифрите на 100!(факториел). \pause
     \item Намерете броят на необходимите букви за изписването на
       всички числа между 1 и 1000(включително) на английски език.
   \end{enumerate}
@@ -1123,7 +1159,7 @@ public class ForEachLoopTest {
   % Keep the summary *very short*.
   \begin{itemize}
   \item
-    Примитивните типове от данни са в основата на много Java приложения.
+    Примитивните типове от данни са в основата на \alert{всички} Java приложения.
   \item
     Управляващите конструкции ви позволяват да манипулирате потокът на
     изпълнение на една Java програма.
