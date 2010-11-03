@@ -206,14 +206,14 @@ public class ExecutionFlowExample2 {
     \begin{itemize}
     \item суфикс - F
     \item размер - 4 байта
-    \item граници - приблизително ±3.40282347E+38F
+    \item граници - приблизително +-3.40282347E+38F
     \item значими знаци след запетаята - 6-7
     \end{itemize} \pause
     \item double
       \begin{itemize}
-      \item суфикс - L
+      \item суфикс - D
       \item размер - 15 байта
-      \item граници - приблизително ±1.79769313486231570E+308
+      \item граници - приблизително +-1.79769313486231570E+308
       \item значими знаци след запетаята - 15
       \end{itemize}
   \end{itemize}
@@ -667,9 +667,9 @@ public class IOTest {
   \begin{itemize}
   \item printf - класиката си е класика \pause
     \begin{itemize}
-      \item функция за форматиране на конзолен изход \pause
-      \item System.out.printf("Hello, \%s. Next year, you'll be \%d",
-        name, age); \pause
+      \item метод за форматиране на конзолен изход \pause
+      \item \lstinline{System.out.printf("Hello, \%s. Next year, you'll be \%d",
+        name, age);} \pause
     \end{itemize}
   \item String.format() - създаване на форматиран низ \pause
     \begin{itemize}
