@@ -56,6 +56,7 @@
 \AtBeginSection[]
 {
   \begin{frame}<beamer>{Съдържание}
+    \transdissolve
     \tableofcontents[currentsection,currentsubsection]
   \end{frame}
 }
@@ -67,6 +68,7 @@
 \end{frame}
 
 \begin{frame}{Съдържание}
+  \transdissolve
   \tableofcontents[pausesections]
 \end{frame}
 
@@ -154,7 +156,8 @@ public class ExecutionFlowExample2 {
 
 \section{Примитивни типове данни}
 
-\begin{frame}{Типове в Java}  
+\begin{frame}{Типове в Java}
+  \transdissolve
   \begin{itemize}
   \item Java е силно типизиран език(strongly typed/statically typed) \pause
   \item Всяка променлива, която дефинирате трябва да има тип \pause
@@ -229,6 +232,8 @@ public class ExecutionFlowExample2 {
     кавички) \pause
   \item Използването на char е желателно да се избягва - обикновено
     всъщност се нуждаете от низ(String) от един символ \pause
+  \item Може да бъде използван и като целочислен тип без знак(unsigned
+    int) с размер 2 байта
   \end{itemize}
 \end{frame}
 
@@ -1070,15 +1075,61 @@ for (int i = startValue; i < 1000; i++) {
 \begin{frame}{Масив}
   \transdissolve
   \begin{itemize}
-    \item съдържа набор от елементи от даден тип \pause
-    \item достъпът до елементи се осъществява по индекс \pause
-    \item индексите са започват от 0(Нула) \pause
-    \item arr.length ни дава дължината на един масив \pause
-    \item масивите имат предефинирана дължина и тя не може да бъде
-      променена \pause
-    \item може да има повече от едно измерение
+    \item съдържа набор от елементи от един тип \pause
+    \item достъпът до елементи се осъществява по индекс(позиция) \pause
+    \item индексите започват от 0(Нула) \pause
   \end{itemize}
+  \includegraphics[width=300px,height=100px]{images/array.png}
+\end{frame}
 
+\begin{frame}{Свойства на масивите}
+  \transdissolve
+  \begin{itemize}
+  \item arr.length ни дава дължината на един масив \pause
+  \item има предефинирана дължина и тя не може да бъде
+    променена \pause
+  \item може да има повече от едно измерение
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Създаване и инициализиране на масиви}
+  \transdissolve
+  \begin{itemize}
+  \item Декларация
+    \begin{itemize}
+      \item type[] arrVariable;
+      \item type arrVariable[];
+    \end{itemize}
+  \item Създаване на масив
+    \begin{itemize}
+      \item new type[size]
+    \end{itemize}
+  \item Инициализация със списък от стойности
+  \item Анонимен масив
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Масив - декларация, създаване и инициализация}
+  \transdissolve
+\begin{lstlisting}[basicstyle=\tiny]
+class ArrayDemo {
+  public static void main(String[] args) {
+    int[] anArray; // declares an array of integers             
+
+    anArray = new int[10]; // allocates memory for 10 integers
+           
+    anArray[0] = 100; // initialize first element
+    anArray[1] = 200; // initialize second element
+    anArray[2] = 300; // etc.
+
+    System.out.println("Element at index 0: " + anArray[0]);
+    System.out.println("Element at index 1: " + anArray[1]);
+    System.out.println("Element at index 2: " + anArray[2]);
+  }
+} 
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -1087,7 +1138,7 @@ for (int i = startValue; i < 1000; i++) {
 \begin{lstlisting}
 String[] names = { "Pesho", "Gosho", "Ivan" };
 
-for (int i=0; i<names.length; i++) {
+for (int i=0; i < names.length; i++) {
   System.out.println("Name : " + names[i]);
 }
 \end{lstlisting}
@@ -1137,6 +1188,45 @@ public class ForEachLoopTest {
   }
 }  
 \end{lstlisting}
+\end{frame}
+
+\begin{frame}{Основни операции с масиви}
+  \transdissolve
+  \begin{itemize}
+    \item Отпечатване
+      \begin{itemize}
+        \item С цикъл
+        \item Arrays.toString(array)
+      \end{itemize}
+    \item Копиране
+      \item Присвояването не работи - така няколко променливи споделят
+        един масив
+      \item System.arraycopy()
+      \item Arrays.copyOf()
+    \item Сортиране
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Параметри от командния ред}
+  \transdissolve
+  \begin{itemize}
+  \item Предават се под формата на масив от низове на метода main()
+  \item Разделят се с интервали или табулации
+  \item За разработка на конзолно приложение с гъвкави аргументи ще ви
+    трябва външна библиотека като JArgs, JOpts и Commons CLI
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Многоизмерни масиви}
+  \transdissolve
+  \begin{itemize}
+  \item Позволяват представянето на комплексни данни в масив
+  \item Java не поддържа истински многоизмерни масиви
+  \item Декларация и създаване на много измерен масив
+    \begin{itemize}
+      \item type[][] someArr = new type[3][3];
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Упражнение}
