@@ -1190,20 +1190,49 @@ public class ForEachLoopTest {
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Копиране на масив}
+  \transdissolve
+  \begin{itemize}
+  \item Присвояването не работи - така няколко променливи споделят
+    един масив \pause
+    \begin{lstlisting}
+int[] smallPrimes = {2, 3, 5, 7, 11, 13}
+// the two variable refer to the same array
+int[] luckyNumbers = smallPrimes;
+// change will be visible in smallPrimes
+luckyNumbers[5] = 12;
+    \end{lstlisting}
+    \pause
+    \includegraphics[width=300px,height=100px]{images/arraycopy.png}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Основни операции с масиви}
   \transdissolve
   \begin{itemize}
+  \item Копиране
+    \begin{itemize}
+    \item System.arraycopy()
+    \item Arrays.copyOf()        
+    \end{itemize}
+    \pause
     \item Отпечатване
       \begin{itemize}
         \item С цикъл
         \item Arrays.toString(array)
       \end{itemize}
-    \item Копиране
-      \item Присвояването не работи - така няколко променливи споделят
-        един масив
-      \item System.arraycopy()
-      \item Arrays.copyOf()
+      \pause
     \item Сортиране
+      \begin{itemize}
+        \item Arrays.sort()
+      \end{itemize}
+    \pause
+    \item Търсене на елемент в масив
+      \begin{itemize}
+        \item Последователно търсене
+        \item Двоично търсене - Arrays.binarySearch()
+      \end{itemize}
   \end{itemize}
 \end{frame}
 
