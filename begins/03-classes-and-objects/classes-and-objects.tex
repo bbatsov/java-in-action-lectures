@@ -63,22 +63,22 @@
   \tableofcontents[pausesections]
 \end{frame}
 
-\section{Обектно ориентирано програмиране}
+\section{Обектно-ориентирано програмиране}
 
 \subsection{Какво е ООП?}
 
-\begin{frame}{Обектно ориентирано програмиране(ООП)}
+\begin{frame}{Обектно-ориентирано програмиране(ООП)}
   \transdissolve
   \begin{itemize}
   \item Какво е ООП?
   \item Основния понятия в ООП
     \begin{itemize}
-      \item клас - шаблон
-      \item обект - инстанция на шаблон
-        \begin{itemize}
-          \item състояние(state)
-          \item поведение(behaviour)
-        \end{itemize}
+    \item клас - шаблон
+    \item обект - инстанция на шаблон
+      \begin{itemize}
+      \item състояние(state)
+      \item поведение(behaviour)
+      \end{itemize}
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -86,23 +86,23 @@
 \begin{frame}{Пример - човек}
   \begin{columns}
     \column{.5\textwidth}
-    Клас човек
+    Клас Човек
     \begin{itemize}
-      \item атрибути
-        \begin{itemize}
-          \item име
-          \item възраст 
-          \item адрес
-        \end{itemize}
-      \item поведение
-        \begin{itemize}
-          \item говори
-          \item ходи
-        \end{itemize}
+    \item атрибути
+      \begin{itemize}
+      \item име
+      \item възраст 
+      \item адрес
+      \end{itemize}
+    \item поведение
+      \begin{itemize}
+      \item говори
+      \item ходи
+      \end{itemize}
     \end{itemize}
 
     \column{.5\textwidth}
-    Човек Божидар
+    Обект от клас Човек
     \begin{itemize}
     \item състояние
       \begin{itemize}
@@ -120,32 +120,62 @@
 \end{frame}
 
 \begin{frame}{Основни понятия при класовете}
-\transdissolve
-\begin{itemize}
-\item Атрибути - реализирано чрез полета(instance fields)
-\item Поведение - реализирано чрез методи(instance methods)
-\item Капсулиране на състоянието - достъпно само чрез методи
-\item Класово състояние/поведение - статични полета и методи
-\item Наследяване
-\end{itemize}
+  \transdissolve
+  \begin{itemize}
+  \item Атрибути
+    \begin{itemize}
+    \item описват структурата на обектите
+    \item реализирани са чрез полета(instance fields)
+    \end{itemize}
+  \item Поведение
+    \begin{itemize}
+    \item реализирано чрез методи(instance methods)
+    \end{itemize}
+  \item Капсулиране на състоянието 
+    \begin{itemize}
+    \item достъпно само чрез методи
+    \end{itemize}
+  \item Класово състояние/поведение
+    \begin{itemize}
+    \item статични полета и методи
+    \end{itemize}
+  \item Наследяване
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Основни понятия при обектите}
   \transdissolve
   \begin{itemize}
-  \item Състояние - стойности за атрибутите
-  \item Поведение - операции над състоянието
-  \item Идентичност - каква информация определя два обекта като
-    еднакви 
+  \item Състояние
+    \begin{itemize}
+    \item стойности за атрибутите
+    \end{itemize}
+  \item Поведение
+    \begin{itemize}
+    \item операции над състоянието
+    \end{itemize}
+  \item Идентичност
+    \begin{itemize}
+    \item каква информация определя два обекта като еднакви 
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Отношения между класовете}
   \transdissolve
   \begin{itemize}
-  \item Зависимост(coupling, dependency, uses-a) - класове използвани от класа
-  \item Агрегация(has-a) - индикира че един обект съдържа други обекти
-  \item Наследяване(is-a) - индикира че един e  тип подтип(по-специализиран тип) на друг тип
+  \item Зависимост(coupling, dependency, uses-a)
+    \begin{itemize}
+    \item класове използвани от класа
+    \end{itemize}
+  \item Агрегация(has-a)
+    \begin{itemize}
+    \item индикира че един обект съдържа други обекти
+    \end{itemize}
+  \item Наследяване(is-a)
+    \begin{itemize}
+    \item индикира че един e тип подтип(по-специализиран тип) на друг тип
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -162,11 +192,14 @@
 \begin{frame}{Създаване на обекти}
   \transdissolve
   \begin{itemize}
-  \item Конструктор -  специален метод, който
-    инициализира състоянието на обект
-   \item Конструктора има същото име като
+  \item Конструктор
+    \begin{itemize}
+    \item специален метод, който създава обект от даден клас
+    \item обикновено в него се инициализират атрибутите на обекта
+    \end{itemize}
+  \item Конструктора има същото име като
     името на класа
-    \item Обръщения към конструктора трябва да
+  \item Обръщения към конструктора трябва да
     се предшествани от ключовата дума
     \textbf{new}
   \end{itemize}
@@ -186,13 +219,13 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}{Променливи от референтен тип}
   \transdissolve
   \begin{itemize}
-  \item Променливите НЕ са обекти
-  \item Променливите НЕ съдържат обект
-  \item Променливите съдържат само
-    препратка(референция, адрес) на обект
+  \item Променливите \alert{НЕ} са обекти
+  \item Променливите \alert{НЕ} съдържат обект
+  \item Променливите \alert{съдържат само
+    препратка(референция, адрес)} на обект
   \item Няколко променливи могат да сочат към
     един обект
-  \item Променливите не са инициализирани с
+  \item Променливите \alert{НЕ} са инициализирани с
     null по подразбиране
   \end{itemize}
 \end{frame}
@@ -205,33 +238,28 @@ anotherDate = currentDate; // a second referrence to the first date
   \item java.util.Scanner - вход от поток
   \item java.lang.System - агрегатор на системни
     операции
-  \item java.util.GregorianCalendar -  представя дата по
+  \item java.util.GregorianCalendar - представя дата по
     грегорианския(нашия) календар
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Класът String}
-  \transdissolve
-  \begin{itemize}
-  \item Представя низ от символи, кодирани в
-    Unicode-16
-    \item Непроменими инстанции
-    \item специален опростен синтаксис
-    \begin{itemize}
-    \item Създаване на обект
-    \lstinline$String someString = "string";$
-    \item Конкатениране(сливане) на низове    
-    \lstinline$String sum = "first " + "second";$
-    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Разработка на класа Person}
   \transdissolve
   \begin{itemize}
-  \item Полета - име, фамилия, адрес, дата на раждане
-  \item Конструктoри
-  \item Методи - аксесори/мутатори, кажи нещо
+  \item Полета
+    \begin{itemize}
+    \item име
+    \item фамилия
+    \item адрес
+    \item дата на раждане
+    \end{itemize}
+  \item Конструктори
+  \item Методи
+    \begin{itemize}
+    \item аксесори(getters)/мутатори(setters)
+    \item кажи нещо
+    \item отиди някъде
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -245,7 +273,7 @@ anotherDate = currentDate; // a second referrence to the first date
     javac A.java
     ще компилира и класа Б, ако не е вече
     компилиран
-   \item Вградена функционалност тип \textbf{make}
+  \item Вградена функционалност тип \textbf{make}
   \end{itemize}
 \end{frame}
 
@@ -254,10 +282,10 @@ anotherDate = currentDate; // a second referrence to the first date
   \begin{itemize}
   \item Всички полета са маркирани с
     модификатора за достъп “private”
-   \item private ограничава достъпа до полетата
+  \item private ограничава достъпа до полетата
     само до рамките на класа, в който те са
     дефинирани
-   \item Осигурява се отлична капсулация на
+  \item Осигурява се отлична капсулация на
     данните и достъпа до тях се контролира
     надеждно чрез методи
   \end{itemize}
@@ -329,8 +357,10 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}[fragile]
   \frametitle{Допълнение за private}
   \transdissolve
-    private членовете от всеки обект на
+  \begin{itemize}
+  \item private членовете от всеки обект на
     класа са достъпни в неговите методи.
+  \end{itemize}
 \begin{lstlisting}
 class Person {
   public int compare(Person another) {
@@ -382,16 +412,17 @@ class Person {
   \begin{itemize}
   \item Винаги се предават по стойност(by value)
     \begin{itemize}
-      \item При примитивните типове се предава самата стойност на
-        аргумента
-      \item При референтните типове се предава препратка(адрес) към
-        обекта. Самата препратка е непроменима, но обектът указан от
-        нея е.
+    \item При примитивните типове се предава самата стойност на
+      аргумента
+    \item При референтните типове се предава препратка(адрес) към
+      обекта. Самата препратка е непроменима, но обектът указан от
+      нея е.
     \end{itemize}
   \item Прототип на метод - името и параметрите на метода, но не и
     връщаната му стойност
   \end{itemize}
 \end{frame}
+
 \begin{frame}{Конструиране на обекти}
   \transdissolve
   \begin{itemize}
@@ -399,9 +430,9 @@ class Person {
   \item Конструктор по подразбиране
   \item Всички полета се инициализират със стойност по подразбиране
     \begin{itemize}
-      \item 0 за числени типове
-      \item null за референтни типове
-      \item false за булеви полета
+    \item 0 за числени типове
+    \item null за референтни типове
+    \item false за булеви полета
     \end{itemize}
   \item Може да имате повече от един конструктор
   \item Може да извиквате един конструктор от друг
@@ -417,9 +448,9 @@ class Person {
     метод, който да бъде извикан
   \item Сигнатура(прототип)
     \begin{itemize}
-      \item формални параметри
-      \item име на метода
-      \item НЕ включва типа на връщаната от метода стойност
+    \item формални параметри
+    \item име на метода
+    \item НЕ включва типа на връщаната от метода стойност
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -479,8 +510,8 @@ class Person {
   \item Всяка част от името на пакета е отделена от другите с точка и
     съответства на поддиректория в директорията с кода
     \begin{itemize}
-      \item пакет - bg.drow.spellbook
-      \item директория bg/drow/spellbook
+    \item пакет - bg.drow.spellbook
+    \item директория bg/drow/spellbook
     \end{itemize}
   \item Не съществува йерархична организация на пакетите
   \end{itemize}
@@ -489,14 +520,19 @@ class Person {
 \begin{frame}{Пакетиране на Java код}
   \transdissolve
   \begin{itemize}
-  \item jar архив - bytecode + мета информация, компресирани със zip
+  \item jar архив
+    \begin{itemize}
+    \item bytecode + мета информация, компресирани със zip
+    \end{itemize}
   \item Добавяне на jar архиви в клас пътя на виртуалната машина
   \item Изпълнение на код пакетиран в jar архив
-    java -jar somejar.jar MainClass
+    \begin{itemize}
+    \item java -jar somejar.jar MainClass
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Класпът в Java(classpath)}
+\begin{frame}{Java Classpath}
   \transdissolve
   \begin{itemize}
   \item Указва местата, където виртуалната машина търси класове, при
@@ -509,13 +545,18 @@ class Person {
 
 \begin{frame}{Пример}
   \transdissolve
-  В UNIX(Linux, Solaris, BSD)
-  java -cp .:dir2:dir3 MyClass
-  export CLASSPATH=.:dir2:dir3
-
-  В Windows:
-  Java -cp .;dir2;dir3; MyClass
-  set CLASSPATH=.;dir2;dir3
+  \begin{itemize}
+  \item В UNIX(Linux, Solaris, BSD)
+      \begin{itemize}
+      \item java -cp .:dir2:dir3 MyClass
+      \item export CLASSPATH=.:dir2:dir3
+      \end{itemize}
+    \item В Windows:
+      \begin{itemize}
+      \item Java -cp .;dir2;dir3; MyClass
+      \item set CLASSPATH=.;dir2;dir3
+      \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Документиране на класове с javadoc}
@@ -541,13 +582,13 @@ class Person {
 \begin{frame}{Седем прости правила за създаване на добри класове}
   \transdissolve
   \begin{enumerate}
-    \item Правете всички полета private
-    \item Инициализирайте изрично всички полета
-    \item Не използвайте много примитивни полета
-    \item Не слагайте get/set методи, ако нямате нужда от тях
-    \item Дефинирайте класовете по стандартен начин
-    \item Раздробявайте класовете с много отговорности на по-малки
-    \item Избирайте смислени име за класовете, полетата и методите
+  \item Правете всички полета private
+  \item Инициализирайте изрично всички полета
+  \item Не използвайте много примитивни полета
+  \item Не слагайте get/set методи, ако нямате нужда от тях
+  \item Дефинирайте класовете по стандартен начин
+  \item Раздробявайте класовете с много отговорности на по-малки
+  \item Избирайте смислени име за класовете, полетата и методите
   \end{enumerate}
 \end{frame}
 
