@@ -70,47 +70,47 @@
 \begin{frame}{Обектно-ориентирано програмиране(ООП)}
   \transdissolve
   \begin{itemize}
-  \item Какво е ООП?
+  \item Какво е ООП? \pause
   \item Основния понятия в ООП
     \begin{itemize}
-    \item клас - шаблон
-    \item обект - инстанция на шаблон
+    \item клас - шаблон \pause
+    \item обект - инстанция на шаблон \pause
       \begin{itemize}
-      \item състояние(state)
+      \item състояние(state) \pause
       \item поведение(behaviour)
       \end{itemize}
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Пример - човек}
+\begin{frame}{Пример - Клас Човек}
   \begin{columns}
     \column{.5\textwidth}
     Клас Човек
     \begin{itemize}
-    \item атрибути
+    \item атрибути \pause
       \begin{itemize}
       \item име
       \item възраст 
       \item адрес
       \end{itemize}
-    \item поведение
+    \item поведение \pause
       \begin{itemize}
       \item говори
       \item ходи
       \end{itemize}
-    \end{itemize}
+    \end{itemize} \pause
 
     \column{.5\textwidth}
     Обект от клас Човек
     \begin{itemize}
-    \item състояние
+    \item състояние \pause
       \begin{itemize}
       \item Божидар
       \item 33 
       \item Готам Сити
       \end{itemize}
-    \item поведение
+    \item поведение \pause
       \begin{itemize}
       \item Кажи "аааа"
       \item Ходи в бат пещерата
@@ -119,25 +119,26 @@
   \end{columns}
 \end{frame}
 
+\subsection{Класове и обекти}
 \begin{frame}{Основни понятия при класовете}
   \transdissolve
   \begin{itemize}
   \item Атрибути
     \begin{itemize}
-    \item описват структурата на обектите
-    \item реализирани са чрез полета(instance fields)
+    \item описват структурата на обектите \pause
+    \item реализирани са чрез полета(instance fields) \pause
     \end{itemize}
-  \item Поведение
+  \item Поведение \pause
     \begin{itemize}
-    \item реализирано чрез методи(instance methods)
+    \item реализирано чрез методи(instance methods) \pause
     \end{itemize}
-  \item Капсулиране на състоянието 
+  \item Капсулиране на състоянието  \pause
     \begin{itemize}
     \item достъпно само чрез методи
     \end{itemize}
-  \item Класово състояние/поведение
+  \item Класово състояние/поведение \pause
     \begin{itemize}
-    \item статични полета и методи
+    \item статични полета и методи \pause
     \end{itemize}
   \item Наследяване
   \end{itemize}
@@ -146,17 +147,17 @@
 \begin{frame}{Основни понятия при обектите}
   \transdissolve
   \begin{itemize}
-  \item Състояние
+  \item Състояние \pause
     \begin{itemize}
-    \item стойности за атрибутите
+    \item стойности за атрибутите \pause
     \end{itemize}
-  \item Поведение
+  \item Поведение \pause
     \begin{itemize}
-    \item операции над състоянието
+    \item операции над състоянието \pause
     \end{itemize}
-  \item Идентичност
+  \item Идентичност \pause
     \begin{itemize}
-    \item каква информация определя два обекта като еднакви 
+    \item каква информация определя два обекта като еднакви
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -164,15 +165,15 @@
 \begin{frame}{Отношения между класовете}
   \transdissolve
   \begin{itemize}
-  \item Зависимост(coupling, dependency, uses-a)
+  \item Зависимост(coupling, dependency, uses-a) \pause
     \begin{itemize}
-    \item класове използвани от класа
+    \item класове използвани от класа \pause
     \end{itemize}
-  \item Агрегация(has-a)
+  \item Агрегация(has-a) \pause
     \begin{itemize}
-    \item индикира че един обект съдържа други обекти
+    \item индикира че един обект съдържа други обекти \pause
     \end{itemize}
-  \item Наследяване(is-a)
+  \item Наследяване(is-a) \pause
     \begin{itemize}
     \item индикира че един e тип подтип(по-специализиран тип) на друг тип
     \end{itemize}
@@ -182,25 +183,30 @@
 \begin{frame}{UML}
   \transdissolve
   \begin{itemize}
-  \item Unified modeling language
-  \item Показва зависимости между класовете(и
-    много други неща) във вид на диаграми
+  \item Unified modeling language \pause
+  \item Показва зависимости между класовете(и много други неща) във
+    вид на диаграми \pause
   \item IntelliJ IDEA и NetBeans има вградена поддръжка на UML
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Видове UML диаграми}
+  \transdissolve
+  \includegraphics[width=320px, height=200px]{images/uml-diagram.png}
+\end{frame}
+
+\section{Разработка на ООП програми с Java}
 \begin{frame}{Създаване на обекти}
   \transdissolve
   \begin{itemize}
-  \item Конструктор
+  \item Конструктор \pause
     \begin{itemize}
-    \item специален метод, който създава обект от даден клас
-    \item обикновено в него се инициализират атрибутите на обекта
+    \item специален метод, който създава обект от даден клас \pause
+    \item обикновено в него се инициализират атрибутите на обекта \pause
     \end{itemize}
-  \item Конструктора има същото име като
-    името на класа
-  \item Обръщения към конструктора трябва да
-    се предшествани от ключовата дума
+  \item Конструктора има същото име като името на класа \pause
+  \item Обръщения към конструктора трябва да се предшествани от
+    ключовата дума
     \textbf{new}
   \end{itemize}
 \end{frame}
@@ -219,12 +225,12 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}{Променливи от референтен тип}
   \transdissolve
   \begin{itemize}
-  \item Променливите \alert{НЕ} са обекти
-  \item Променливите \alert{НЕ} съдържат обект
-  \item Променливите \alert{съдържат само
-    препратка(референция, адрес)} на обект
+  \item Променливите \alert{НЕ} са обекти \pause
+  \item Променливите \alert{НЕ} съдържат обект \pause
+  \item Променливите \alert{съдържат само препратка(референция,
+      адрес)} на обект \pause
   \item Няколко променливи могат да сочат към
-    един обект
+    един обект \pause
   \item Променливите \alert{НЕ} са инициализирани с
     null по подразбиране
   \end{itemize}
@@ -246,18 +252,18 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}{Разработка на класа Person}
   \transdissolve
   \begin{itemize}
-  \item Полета
+  \item Полета \pause
     \begin{itemize}
-    \item име
-    \item фамилия
-    \item адрес
-    \item дата на раждане
+    \item име \pause
+    \item фамилия \pause
+    \item адрес \pause
+    \item дата на раждане \pause
     \end{itemize}
-  \item Конструктори
-  \item Методи
+  \item Конструктори \pause
+  \item Методи \pause
     \begin{itemize}
-    \item аксесори(getters)/мутатори(setters)
-    \item кажи нещо
+    \item аксесори(getters)/мутатори(setters) \pause
+    \item кажи нещо \pause
     \item отиди някъде
     \end{itemize}
   \end{itemize}
@@ -267,13 +273,13 @@ anotherDate = currentDate; // a second referrence to the first date
   \transdissolve
   \begin{itemize}
   \item Java компилатора разбира
-    зависимостите между класовете
-  \item Ако клас А зависи(използва) от клас Б –
-    командата:
-    javac A.java
-    ще компилира и класа Б, ако не е вече
-    компилиран
-  \item Вградена функционалност тип \textbf{make}
+    зависимостите между класовете \pause
+  \item Ако клас А зависи(използва) от клас Б, то компилацията на A ще
+    доведе автоматично до компилацията и на Б \pause
+    \begin{itemize}
+    \item javac A.java \pause
+    \end{itemize}
+–  \item Вградена функционалност тип \textbf{make}
   \end{itemize}
 \end{frame}
 
@@ -281,10 +287,10 @@ anotherDate = currentDate; // a second referrence to the first date
   \transdissolve
   \begin{itemize}
   \item Всички полета са маркирани с
-    модификатора за достъп “private”
+    модификатора за достъп \textbf{private} \pause
   \item private ограничава достъпа до полетата
     само до рамките на класа, в който те са
-    дефинирани
+    дефинирани \pause
   \item Осигурява се отлична капсулация на
     данните и достъпа до тях се контролира
     надеждно чрез методи
@@ -295,21 +301,24 @@ anotherDate = currentDate; // a second referrence to the first date
   \transdissolve
   \begin{itemize}
   \item Всички методи са маркирани с
-    модификатора за достъп public
-  \item Public маркира програмен елемент като
-    достъпен за ВСИЧКИ класове
+    модификатора за достъп \textbf{public} \pause
+  \item public маркира програмен елемент като
+    достъпен за ВСИЧКИ класове \pause
   \item Почти никога не е добра идея полета да
-    бъдат маркирани като public – това
-    нарушава капсулацията на данните –
+    бъдат маркирани като public - това
+    нарушава капсулацията на данните
     основен принцип на ООП
+    \begin{itemize}
+      \item Изключение от това правило са константите и singleton обектите
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Представяне на обект като низ}
   \transdissolve
   \begin{itemize}
-  \item Полезна техника за търсене на грешки
-  \item Метод toString()
+  \item Полезна техника за търсене на грешки \pause
+  \item Метод toString() \pause
   \item Генериране на метода toString() в IntelliJ IDEA
   \end{itemize}
 \end{frame}
@@ -317,12 +326,12 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}{Конструктор}
   \transdissolve
   \begin{itemize}
-  \item има същото име като класа
-  \item Не връща резултат
+  \item има същото име като класа \pause
+  \item Не връща резултат \pause
   \item Клас може да има повече от един
-    конструктор
+    конструктор \pause
   \item Конструктора може да приема различен
-    брой аргументи
+    брой аргументи \pause
   \item Конструктора може да бъде извикан
     само с ключовата дума \textbf{new}
   \end{itemize}
@@ -331,14 +340,20 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}{Параметри на конструкторите}
   \transdissolve
   \begin{itemize}
-  \item Преки/Директни 
-    стойността им се
-    използва директно за инициализиране
-    на поле
-  \item Непреки – 
-    стойността им се
-    използва като база за изчисляването на
-    стойността, която да се зададе на поле
+  \item Преки
+    \begin{itemize}
+    \item стойността им се
+      използва директно за инициализиране
+      на поле
+    \end{itemize}
+  \item Непреки
+    \begin{itemize}
+    \item стойността им се
+      използва като база за изчисляването на
+      стойността, която да се зададе на поле
+    \item например можем да използваме параметър дата на раждане за
+      изчисляване на стойността на поле възраст
+    \end{itemize}– 
   \item Препоръчително е конструкторът да няма повече от 4 параметъра
   \end{itemize}
 \end{frame}
@@ -346,8 +361,8 @@ anotherDate = currentDate; // a second referrence to the first date
 \begin{frame}{Предимства на енкапсулацията}
   \transdissolve
   \begin{itemize}
-  \item Валидиране на данни
-  \item Защитаване на данни от промени
+  \item Валидиране на данни \pause
+  \item Защитаване на данни от промени \pause
   \item Гъвкавост - възможно е да бъде
     променена вътрешна имплементация
     без промени на публичното API
@@ -382,14 +397,25 @@ class Person {
 \begin{frame}{Модификатора final}
   \transdissolve
   \begin{itemize}
-  \item Приложен към примитивен тип -  има
-    смисъл на константа
-  \item Приложен към обект -  има смисъл на
-    константна референция, самия обект
-    може да бъде променен
-  \item Приложен към клас -  ненаследим клас
-  \item Приложен към метод -  метод, който не
-    може да бъде overridden
+  \item Приложен към примитивен тип
+    \begin{itemize}
+      \item константа \pause
+    \end{itemize}
+  \item Приложен към обект
+    \begin{itemize}
+    \item константна референция, самия обект
+      може да бъде променен \pause
+    \end{itemize}
+  \item Приложен към клас
+    \begin{itemize}
+    \item ненаследим клас \pause
+    \end{itemize}
+  \item Приложен към метод
+    \begin{itemize}
+    \item метод, който не
+      може да бъде overridden
+    \end{itemize}
+
   \end{itemize}
 \end{frame}
 
@@ -397,11 +423,11 @@ class Person {
   \transdissolve
   \begin{itemize}
   \item Асоциирани са съм самия клас, а не
-    обектите инстанцирани от него
+    обектите инстанцирани от него \pause
   \item Достъпни са както посредством класа,
-    така и посредство обектите от него
+    така и посредство обектите от него \pause
   \item Статични полета често се използват за
-    съхранение на константи
+    съхранение на константи \pause
   \item Статични методи често се използват за
     реализация на фабрични методи
   \end{itemize}
@@ -426,57 +452,82 @@ class Person {
 \begin{frame}{Конструиране на обекти}
   \transdissolve
   \begin{itemize}
-  \item Обекти обикновено се създават посредством конструктор
+  \item Обекти обикновено се създават посредством конструктор \pause
   \item Конструктор по подразбиране
+    \begin{itemize}
+      \item генериран автоматично от компилатора, ако няма изрично
+        дефинирани конструктори
+      \item не приема параметри
+      \item изрично дефиниран конструктор, който не приема параметри
+        \alert{НЕ} е конструктор по подразбиране
+    \end{itemize}
+ \pause
   \item Всички полета се инициализират със стойност по подразбиране
     \begin{itemize}
     \item 0 за числени типове
     \item null за референтни типове
     \item false за булеви полета
-    \end{itemize}
-  \item Може да имате повече от един конструктор
+    \end{itemize} \pause
+  \item Може да имате повече от един конструктор \pause
   \item Може да извиквате един конструктор от друг
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Презареждане на методи}
+\begin{frame}{Презареждане(overloading) на методи}
   \transdissolve
   \begin{itemize}
   \item Може да дефинирате няколко метода с едно и също име в даден
-    клас стига сигнатурата им да е различна
+    клас стига сигнатурата им да е различна \pause
   \item Компилаторът използва сигнатурата, за да определи правилният
-    метод, който да бъде извикан
+    метод, който да бъде извикан \pause
   \item Сигнатура(прототип)
     \begin{itemize}
     \item формални параметри
     \item име на метода
-    \item НЕ включва типа на връщаната от метода стойност
+    \item \alert{НЕ} включва типа на връщаната от метода стойност
     \end{itemize}
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Пример - презареждане}
+  \transdissolve
+\begin{lstlisting}
+public class DataArtist {
+  ...
+  public void draw(String s) {...}
+  public void draw(int i) {...}
+  public void draw(double f) {...}
+  public void draw(int i, double f) {...}
+}
+\end{lstlisting}
+\end{frame}
+
+
 \begin{frame}{Съвети за работа с конструктори}
   \transdissolve
   \begin{itemize}
-  \item Именуване на параметрите
-  \item Навързване на конструктори
+  \item Именуване на параметрите \pause
+  \item Навързване на конструктори \pause
   \item Конструктори с повече от 4-5 параметъра могат да бъдат
-    заменени с шаблона за дизайн Builder
+    заменени с шаблона за дизайн Builder \pause
   \item Конструкторите могат да бъдат заменени със статични
     методи-фабрика, които вътрешно използват private конструктори
   \end{itemize}
 \end{frame}
 
+\section{Организация и документация на класове}
+\subsection{Пакети}
 \begin{frame}{Пакети в Java}
   \transdissolve
   \begin{itemize}
-  \item позволяват групиране на свързани класове
+  \item позволяват групиране на свързани класове \pause
   \item предотвратяват конфликти в имената на класове - приблизителен
-    еквивалент на namespaces в C++/Java
+    еквивалент на namespaces в C++/Java \pause
   \item съществува строга връзка между имената нивата в имената на
-    пакетите съответстват на директории във файловата система
+    пакетите съответстват на директории във файловата система \pause
   \item желателно е да са уникални - конвенцията диктува да започват
-    обърнат наопаки домейнът на вашата организация
+    обърнат наопаки домейнът на вашата организация \pause
   \item запазени имена на пакети - java.*, javax.*
   \end{itemize}
 \end{frame}
@@ -485,11 +536,11 @@ class Person {
   \transdissolve
   \begin{itemize}
   \item Всеки клас има достъп до всички класове в неговия пакет без
-    допълнителни импорти
+    допълнителни импорти \pause
   \item Всеки клас има достъп до всички публични класове, които са
-    импортирани или използвани с напълно квалифицирани имена
+    импортирани или използвани с напълно квалифицирани имена \pause
   \item Всички класове от един пакет могат да бъдат импортирани с
-    wildcard import, но това не е препоръчително
+    wildcard import(*), но това не е препоръчително
   \end{itemize}
 \end{frame}
 
@@ -497,9 +548,9 @@ class Person {
   \transdissolve
   \begin{itemize}
   \item Импортиране само на определени статични елементи от даден клас
-    - полета или методи
+    - полета или методи \pause
   \item Подходяща техника за работа със статични класове като
-    java.util.Math
+    java.util.Math \pause
   \item Могат да нарушат четимостта на програмата, ако се използват безразборно
   \end{itemize}
 \end{frame}
@@ -517,14 +568,15 @@ class Person {
   \end{itemize}
 \end{frame}
 
+\subsection{Разпространение на Java код}
 \begin{frame}{Пакетиране на Java код}
   \transdissolve
   \begin{itemize}
   \item jar архив
     \begin{itemize}
     \item bytecode + мета информация, компресирани със zip
-    \end{itemize}
-  \item Добавяне на jar архиви в клас пътя на виртуалната машина
+    \end{itemize} \pause
+  \item Добавяне на jar архиви в клас пътя на виртуалната машина \pause
   \item Изпълнение на код пакетиран в jar архив
     \begin{itemize}
     \item java -jar somejar.jar MainClass
@@ -536,9 +588,9 @@ class Person {
   \transdissolve
   \begin{itemize}
   \item Указва местата, където виртуалната машина търси класове, при
-    изпълнението на дадена програма
+    изпълнението на дадена програма \pause
   \item може да се задава като параметър от командния ред или като
-    настройка на средата
+    настройка на средата \pause
   \item Източник на много проблеми
   \end{itemize}
 \end{frame}
@@ -550,7 +602,7 @@ class Person {
       \begin{itemize}
       \item java -cp .:dir2:dir3 MyClass
       \item export CLASSPATH=.:dir2:dir3
-      \end{itemize}
+      \end{itemize} \pause
     \item В Windows:
       \begin{itemize}
       \item Java -cp .;dir2;dir3; MyClass
@@ -559,6 +611,7 @@ class Person {
   \end{itemize}
 \end{frame}
 
+\subsection{Документиране на код}
 \begin{frame}{Документиране на класове с javadoc}
   \transdissolve
   \begin{itemize}
@@ -572,29 +625,38 @@ class Person {
 \begin{frame}{Работа с javadoc}
   \transdissolve
   \begin{itemize}
-  \item javadoc -d docdir package - създава html
-    документация за пакета package в
-    директорията docdir
-  \item javadoc -d docdir package1, package2 - създава документация за няколко пакета
+  \item Документиране на един пакет
+    \begin{itemize}
+    \item javadoc -d docdir package
+    \end{itemize}
+  \item създава документация за няколко пакета
+    \begin{itemize}
+    \item javadoc -d docdir package1, package2
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Седем прости правила за създаване на добри класове}
   \transdissolve
   \begin{enumerate}
-  \item Правете всички полета private
-  \item Инициализирайте изрично всички полета
-  \item Не използвайте много примитивни полета
-  \item Не слагайте get/set методи, ако нямате нужда от тях
-  \item Дефинирайте класовете по стандартен начин
-  \item Раздробявайте класовете с много отговорности на по-малки
+  \item Правете всички полета private \pause
+  \item Инициализирайте изрично всички полета \pause
+  \item Не използвайте много примитивни полета \pause
+  \item Не слагайте get/set методи, ако нямате нужда от тях \pause
+  \item Дефинирайте класовете по стандартен начин \pause
+  \item Раздробявайте класовете с много отговорности на по-малки \pause
   \item Избирайте смислени име за класовете, полетата и методите
   \end{enumerate}
 \end{frame}
 
 \begin{frame}{Упражнение}
   \transdissolve
-  
+  \begin{itemize}
+    \item Реализирайте клас Rational, който представя дроби и
+      предоставя математически операции за работа с тях - събиране,
+      изваждане, умножение и делене. Всички негови методи, трябва да
+      могат да работят освен с други дроби и с цели числа.
+  \end{itemize}
 \end{frame}
 
 \section*{Заключение}
