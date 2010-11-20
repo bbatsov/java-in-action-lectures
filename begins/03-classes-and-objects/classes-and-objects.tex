@@ -40,6 +40,7 @@
   frame=shadowbox, 
   rulesepcolor=\color{blue},
   columns=fixed}
+\usepackage{hyperref}
 
 \title{Класове и обекти в Java}
 
@@ -60,6 +61,7 @@
 \end{frame}
 
 \begin{frame}{Съдържание}
+  \transdissolve
   \tableofcontents[pausesections]
 \end{frame}
 
@@ -84,35 +86,35 @@
 \end{frame}
 
 \begin{frame}{Пример - Клас Човек}
+  \transdissolve
   \begin{columns}
     \column{.5\textwidth}
-    Клас Човек
+    \underline{Клас Човек}
     \begin{itemize}
     \item атрибути \pause
       \begin{itemize}
-      \item име
-      \item възраст 
-      \item адрес
+      \item име \pause
+      \item възраст \pause
+      \item адрес \pause
       \end{itemize}
     \item поведение \pause
       \begin{itemize}
-      \item говори
-      \item ходи
+      \item говори \pause
+      \item ходи \pause
       \end{itemize}
-    \end{itemize} \pause
-
+    \end{itemize}
     \column{.5\textwidth}
-    Обект от клас Човек
+    \underline{Обект Божидар от клас Човек}
     \begin{itemize}
     \item състояние \pause
       \begin{itemize}
-      \item Божидар
-      \item 33 
-      \item Готам Сити
+      \item Божидар \pause
+      \item 26  \pause
+      \item Готам Сити \pause
       \end{itemize}
     \item поведение \pause
       \begin{itemize}
-      \item Кажи "аааа"
+      \item Кажи "аааа" \pause
       \item Ходи в бат пещерата
       \end{itemize}
     \end{itemize}
@@ -132,15 +134,19 @@
     \begin{itemize}
     \item реализирано чрез методи(instance methods) \pause
     \end{itemize}
-  \item Капсулиране на състоянието  \pause
+  \item Енкапсулация(скриване) на състоянието  \pause
     \begin{itemize}
-    \item достъпно само чрез методи
+    \item достъпно само чрез методи \pause
     \end{itemize}
   \item Класово състояние/поведение \pause
     \begin{itemize}
     \item статични полета и методи \pause
     \end{itemize}
   \item Наследяване
+    \begin{itemize}
+      \item мощна техника за преизползване на код
+    \end{itemize}
+
   \end{itemize}
 \end{frame}
 
@@ -177,22 +183,9 @@
     \begin{itemize}
     \item индикира че един e тип подтип(по-специализиран тип) на друг тип
     \end{itemize}
+  \item Отношенията между класовете и обектите в една програма
+    обикновено се изразяват с \href{http://en.wikipedia.org/wiki/Unified_Modeling_Language}{UML(Unified Modeling Language)} диаграми
   \end{itemize}
-\end{frame}
-
-\begin{frame}{UML}
-  \transdissolve
-  \begin{itemize}
-  \item Unified modeling language \pause
-  \item Показва зависимости между класовете(и много други неща) във
-    вид на диаграми \pause
-  \item IntelliJ IDEA и NetBeans има вградена поддръжка на UML
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Видове UML диаграми}
-  \transdissolve
-  \includegraphics[width=320px, height=200px]{images/uml-diagram.png}
 \end{frame}
 
 \section{Разработка на ООП програми с Java}
@@ -202,9 +195,15 @@
   \item Конструктор \pause
     \begin{itemize}
     \item специален метод, който създава обект от даден клас \pause
-    \item обикновено в него се инициализират атрибутите на обекта \pause
-    \end{itemize}
+    \item обикновено в него се инициализират атрибутите на обекта
+      \pause
+    \item Не връща резултат \pause
+    \item Клас може да има повече от един
+      конструктор \pause
+    \item Конструктора може да приема различен
+      брой аргументи \pause
   \item Конструктора има същото име като името на класа \pause
+    \end{itemize}
   \item Обръщения към конструктора трябва да се предшествани от
     ключовата дума
     \textbf{new}
@@ -269,20 +268,6 @@ anotherDate = currentDate; // a second referrence to the first date
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Работа с няколко сорс файла}
-  \transdissolve
-  \begin{itemize}
-  \item Java компилатора разбира
-    зависимостите между класовете \pause
-  \item Ако клас А зависи(използва) от клас Б, то компилацията на A ще
-    доведе автоматично до компилацията и на Б \pause
-    \begin{itemize}
-    \item javac A.java \pause
-    \end{itemize}
-–  \item Вградена функционалност тип \textbf{make}
-  \end{itemize}
-\end{frame}
-
 \begin{frame}{Изследване на класа Person}
   \transdissolve
   \begin{itemize}
@@ -314,50 +299,6 @@ anotherDate = currentDate; // a second referrence to the first date
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Представяне на обект като низ}
-  \transdissolve
-  \begin{itemize}
-  \item Полезна техника за търсене на грешки \pause
-  \item Метод toString() \pause
-  \item Генериране на метода toString() в IntelliJ IDEA
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Конструктор}
-  \transdissolve
-  \begin{itemize}
-  \item има същото име като класа \pause
-  \item Не връща резултат \pause
-  \item Клас може да има повече от един
-    конструктор \pause
-  \item Конструктора може да приема различен
-    брой аргументи \pause
-  \item Конструктора може да бъде извикан
-    само с ключовата дума \textbf{new}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Параметри на конструкторите}
-  \transdissolve
-  \begin{itemize}
-  \item Преки
-    \begin{itemize}
-    \item стойността им се
-      използва директно за инициализиране
-      на поле
-    \end{itemize}
-  \item Непреки
-    \begin{itemize}
-    \item стойността им се
-      използва като база за изчисляването на
-      стойността, която да се зададе на поле
-    \item например можем да използваме параметър дата на раждане за
-      изчисляване на стойността на поле възраст
-    \end{itemize}– 
-  \item Препоръчително е конструкторът да няма повече от 4 параметъра
-  \end{itemize}
-\end{frame}
-
 \begin{frame}{Предимства на енкапсулацията}
   \transdissolve
   \begin{itemize}
@@ -383,15 +324,6 @@ class Person {
   }
 }
 \end{lstlisting}
-\end{frame}
-
-\begin{frame}{Добрият стил диктува...}
-  \transdissolve
-  ... Само методите, които ще бъдат
-  използвани от клиентски код да бъдат
-  декларирани публични –
-  допълнителните(utility) методи е
-  желателно да бъдат private
 \end{frame}
 
 \begin{frame}{Модификатора final}
@@ -503,19 +435,6 @@ public class DataArtist {
 \end{lstlisting}
 \end{frame}
 
-
-\begin{frame}{Съвети за работа с конструктори}
-  \transdissolve
-  \begin{itemize}
-  \item Именуване на параметрите \pause
-  \item Навързване на конструктори \pause
-  \item Конструктори с повече от 4-5 параметъра могат да бъдат
-    заменени с шаблона за дизайн Builder \pause
-  \item Конструкторите могат да бъдат заменени със статични
-    методи-фабрика, които вътрешно използват private конструктори
-  \end{itemize}
-\end{frame}
-
 \section{Организация и документация на класове}
 \subsection{Пакети}
 \begin{frame}{Пакети в Java}
@@ -529,12 +448,33 @@ public class DataArtist {
   \item желателно е да са уникални - конвенцията диктува да започват
     обърнат наопаки домейнът на вашата организация \pause
   \item запазени имена на пакети - java.*, javax.*
+  \item принадлежността на клас към даден пакет се декларира
+    посредством ключовата дума package, последвана от името на пакета
+    на първия ред на даден файл с изходен код.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Особености на пакетите}
+  \transdissolve
+  \begin{itemize}
+  \item Всяка част от името на пакета е отделена от другите с точка и
+    съответства на поддиректория в директорията с кода
+    \begin{itemize}
+    \item пакет - bg.drow.spellbook
+    \item директория bg/drow/spellbook
+    \end{itemize}
+  \item Не съществува йерархична организация на пакетите
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Импортиране на класове и пакети}
   \transdissolve
   \begin{itemize}
+  \item За да използваме един клас в рамките на друг трябва
+    \begin{itemize}
+      \item Да използваме класа с пълното му име - пакет + клас
+      \item Да импортирате класа(пакета) с ключовата дума import
+    \end{itemize}
   \item Всеки клас има достъп до всички класове в неговия пакет без
     допълнителни импорти \pause
   \item Всеки клас има достъп до всички публични класове, които са
@@ -555,23 +495,12 @@ public class DataArtist {
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Особености на пакетите}
-  \transdissolve
-  \begin{itemize}
-  \item Всяка част от името на пакета е отделена от другите с точка и
-    съответства на поддиректория в директорията с кода
-    \begin{itemize}
-    \item пакет - bg.drow.spellbook
-    \item директория bg/drow/spellbook
-    \end{itemize}
-  \item Не съществува йерархична организация на пакетите
-  \end{itemize}
-\end{frame}
-
 \subsection{Разпространение на Java код}
 \begin{frame}{Пакетиране на Java код}
   \transdissolve
   \begin{itemize}
+  \item Библиотеки и приложения написани на Java обикновено се
+    разпространяват като jar архиви
   \item jar архив
     \begin{itemize}
     \item bytecode + мета информация, компресирани със zip
@@ -634,19 +563,6 @@ public class DataArtist {
     \item javadoc -d docdir package1, package2
     \end{itemize}
   \end{itemize}
-\end{frame}
-
-\begin{frame}{Седем прости правила за създаване на добри класове}
-  \transdissolve
-  \begin{enumerate}
-  \item Правете всички полета private \pause
-  \item Инициализирайте изрично всички полета \pause
-  \item Не използвайте много примитивни полета \pause
-  \item Не слагайте get/set методи, ако нямате нужда от тях \pause
-  \item Дефинирайте класовете по стандартен начин \pause
-  \item Раздробявайте класовете с много отговорности на по-малки \pause
-  \item Избирайте смислени име за класовете, полетата и методите
-  \end{enumerate}
 \end{frame}
 
 \begin{frame}{Упражнение}
