@@ -163,7 +163,7 @@
     \end{itemize}
   \item Идентичност \pause
     \begin{itemize}
-    \item каква информация определя два обекта като еднакви
+    \item каква информация определя два обекта като еднакви \pause
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -197,14 +197,12 @@
     \item специален метод, който създава обект от даден клас \pause
     \item обикновено в него се инициализират атрибутите на обекта
       \pause
-    \item Не връща резултат \pause
-    \item Клас може да има повече от един
+    \item не връща резултат \pause
+    \item конструкторът има същото име като името на класа \pause
+    \item клас може да има повече от един
       конструктор \pause
-    \item Конструктора може да приема различен
-      брой аргументи \pause
-  \item Конструктора има същото име като името на класа \pause
     \end{itemize}
-  \item Обръщения към конструктора трябва да се предшествани от
+  \item обръщения към конструктора трябва да се предшествани от
     ключовата дума
     \textbf{new}
   \end{itemize}
@@ -214,10 +212,13 @@
   \frametitle{Създаване на обекти - пример}
   \transdissolve
 \begin{lstlisting}
-Date currentDate; //not initialized
-currentDate = new Date(); //create a new date object
+//not initialized
+Date currentDate;
+//create a new date object
+currentDate = new Date();
 System.out.println(currentDate.toString());
-anotherDate = currentDate; // a second referrence to the first date
+// a second referrence to the first date
+anotherDate = currentDate;
 \end{lstlisting}
 \end{frame}
 
@@ -292,9 +293,9 @@ anotherDate = currentDate; // a second referrence to the first date
   \item Почти никога не е добра идея полета да
     бъдат маркирани като public - това
     нарушава капсулацията на данните
-    основен принцип на ООП
+    основен принцип на ООП  \pause
     \begin{itemize}
-      \item Изключение от това правило са константите и singleton обектите
+      \item Изключение от това правило са константите
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -345,7 +346,7 @@ class Person {
   \item Приложен към метод
     \begin{itemize}
     \item метод, който не
-      може да бъде overridden
+      може да бъде предефиниран(overridden)
     \end{itemize}
 
   \end{itemize}
@@ -368,13 +369,13 @@ class Person {
 \begin{frame}{Параметри на методите}
   \transdissolve
   \begin{itemize}
-  \item Винаги се предават по стойност(by value)
+  \item Винаги се предават по стойност(by value) \pause
     \begin{itemize}
     \item При примитивните типове се предава самата стойност на
-      аргумента
+      аргумента \pause
     \item При референтните типове се предава препратка(адрес) към
       обекта. Самата препратка е непроменима, но обектът указан от
-      нея е.
+      нея е. \pause
     \end{itemize}
   \item Прототип на метод - името и параметрите на метода, но не и
     връщаната му стойност
@@ -385,19 +386,19 @@ class Person {
   \transdissolve
   \begin{itemize}
   \item Обекти обикновено се създават посредством конструктор \pause
-  \item Конструктор по подразбиране
+  \item Конструктор по подразбиране \pause
     \begin{itemize}
       \item генериран автоматично от компилатора, ако няма изрично
-        дефинирани конструктори
-      \item не приема параметри
+        дефинирани конструктори \pause
+      \item не приема параметри \pause
       \item изрично дефиниран конструктор, който не приема параметри
-        \alert{НЕ} е конструктор по подразбиране
+        \alert{НЕ} е конструктор по подразбиране \pause
     \end{itemize}
  \pause
-  \item Всички полета се инициализират със стойност по подразбиране
+  \item Всички полета се инициализират със стойност по подразбиране \pause
     \begin{itemize}
-    \item 0 за числени типове
-    \item null за референтни типове
+    \item 0 за числени типове \pause
+    \item null за референтни типове \pause
     \item false за булеви полета
     \end{itemize} \pause
   \item Може да имате повече от един конструктор \pause
@@ -414,8 +415,8 @@ class Person {
     метод, който да бъде извикан \pause
   \item Сигнатура(прототип)
     \begin{itemize}
-    \item формални параметри
-    \item име на метода
+    \item формални параметри \pause
+    \item име на метода \pause
     \item \alert{НЕ} включва типа на връщаната от метода стойност
     \end{itemize}
   \end{itemize}
@@ -472,7 +473,7 @@ public class DataArtist {
   \begin{itemize}
   \item За да използваме един клас в рамките на друг трябва
     \begin{itemize}
-      \item Да използваме класа с пълното му име - пакет + клас
+      \item Да използваме класа с напълно квалифицираното му име - пакет + клас
       \item Да импортирате класа(пакета) с ключовата дума import
     \end{itemize}
   \item Всеки клас има достъп до всички класове в неговия пакет без
@@ -480,7 +481,7 @@ public class DataArtist {
   \item Всеки клас има достъп до всички публични класове, които са
     импортирани или използвани с напълно квалифицирани имена \pause
   \item Всички класове от един пакет могат да бъдат импортирани с
-    wildcard import(*), но това не е препоръчително
+    wildcard import(import some.package.*), но това не е препоръчително
   \end{itemize}
 \end{frame}
 
@@ -500,7 +501,7 @@ public class DataArtist {
   \transdissolve
   \begin{itemize}
   \item Библиотеки и приложения написани на Java обикновено се
-    разпространяват като jar архиви
+    разпространяват като jar архиви \pause
   \item jar архив
     \begin{itemize}
     \item bytecode + мета информация, компресирани със zip
@@ -544,9 +545,13 @@ public class DataArtist {
 \begin{frame}{Документиране на класове с javadoc}
   \transdissolve
   \begin{itemize}
-  \item Разглеждане на javadoc документация
-  \item Документира се само публичния интерфейс на едно API
-  \item Стандартни javadoc анотации
+  \item Разглеждане на javadoc документация \pause
+    \begin{itemize}
+      \item онлайн
+      \item в интегрираната среда за разработка
+    \end{itemize}
+  \item Документира се само публичния интерфейс на едно API \pause
+  \item Стандартни javadoc анотации \pause
   \item Работа с инструмента javadoc
   \end{itemize}
 \end{frame}
@@ -557,7 +562,7 @@ public class DataArtist {
   \item Документиране на един пакет
     \begin{itemize}
     \item javadoc -d docdir package
-    \end{itemize}
+    \end{itemize}  \pause
   \item създава документация за няколко пакета
     \begin{itemize}
     \item javadoc -d docdir package1, package2
