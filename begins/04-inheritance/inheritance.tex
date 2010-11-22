@@ -60,17 +60,35 @@
 \end{frame}
 
 \begin{frame}{Съдържание}
+  \transdissolve
   \tableofcontents[pausesections]
 \end{frame}
 
 \section{Наследяване}
 
 \begin{frame}{Модификатори за достъп}
+  \transdissolve
   \begin{itemize}
-  \item private - достъп само в рамките на класа
-  \item public - достъп за всички
-  \item default(package) - достъп за всички в пакета
-  \item protected - default + достъп в наследните
+    \item Ограничават видимостта на класовете и техните членове
+    \item Могат да се прилагат върху класове, методи и полета
+    \begin{itemize}
+    \item \textcolor{blue}{private}
+      \begin{itemize}
+      \item достъп само в рамките на класа
+      \end{itemize}
+    \item \textcolor{blue}{public}
+      \begin{itemize}
+      \item достъп за всички
+      \end{itemize}
+    \item default(package)
+      \begin{itemize}
+      \item достъп за всички в пакета
+      \end{itemize}
+    \item \textcolor{blue}{protected}
+      \begin{itemize}
+      \item default + достъп в наследените
+      \end{itemize}
+    \end{itemize}    
   \end{itemize}
 \end{frame}
 
@@ -86,9 +104,9 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Диаграма}
+\begin{frame}{Концептуален пример}
   \transdissolve
-  
+  \includegraphics[width=320px, height=150px]{images/concepts-inheritance.png}  
 \end{frame}
 
 \begin{frame}{От общото към частното}
@@ -99,9 +117,9 @@
   \item подклас(клас наследник)
   \item отношението между подклас и суперклас е е(is-a)
     \begin{itemize}
+      \item Планинското колело е колело.
       \item Програмистът е човек.
     \end{itemize}
-
   \end{itemize}
 \end{frame}
 
@@ -124,8 +142,8 @@ class SubClass extends SuperClass {
   \transdissolve
   \begin{itemize}
   \item Конструкторът на подкласа извиква конструктора на суперкласа
-  \item private елементите не са достъпни директно в подкласовете
-  \item Ключовата дума \textbf{super} позволява обръщение към метод от
+  \item \textcolor{blue}{private} елементите не са достъпни директно в подкласовете
+  \item Ключовата дума \textcolor{blue}{super} позволява обръщение към метод от
     суперкласа
   \end{itemize}
 \end{frame}
@@ -136,14 +154,12 @@ class SubClass extends SuperClass {
   \item Единична йерархия на наследяване - един подклас може да има
     само един суперклас
   \item Избягват се много от проблемите на C++
-  \item Интерфейсите предлагат "`емулация" на множествено наследяване
+  \item Интерфейсите предлагат подобие на множествено наследяване
   \end{itemize}
 \end{frame}
 
-
 \begin{frame}{Диаграма}
   \transdissolve
-  
 \end{frame}
 
 \section{Полиморфизъм}
@@ -151,28 +167,34 @@ class SubClass extends SuperClass {
 \begin{frame}[fragile]
   \frametitle{Полиморфизъм}
   \transdissolve
-  \begin{block}{Полиморфизъм}
-    Техника на програмиране, която се основава на заместване на
-    декларициите от тип подклас с деклации от суперклас и фактът, че
-    по време на изпълнение на програмата средата за изпълнение ще
-    изпълнява правилните методи на базата на истинския тип на
-    обектите. Полиморфизмът е тясно свързан с късното свързване на
+  \begin{itemize}
+    \item Променливи от суперклас могат да бъдат асоциирани с обекти
+      от подкласове
+    \item Виртуалната машина знае истинските типове на обектите и по
+      време на изпълнение извиква техните методи, независимо с
+      променлива от какъв тип са асоциирани
+    \item Полиморфизмът е тясно свързан с късното свързване на
     методите(late binding).
-  \end{block}
+  \end{itemize}
   \begin{lstlisting}
-    Programmer p = new Programmer();
-    Employee e = new Programmer();
+Programmer p = new Programmer();
+Employee e = new Programmer();
   \end{lstlisting}
-
 \end{frame}
 
 \begin{frame}{Предимства на полиморфизма}
   \transdissolve
   \begin{itemize}
   \item Ниска свързаност(loose coupling)
-  \item Гъвкавост - нови класове могат да бъдат добавяни през
-    прекомпилиране на кода
-  \item Простота - придържаме ме се към по-прост интерфейс
+  \item Гъвкавост
+    \begin{itemize}
+    \item нови класове могат да бъдат добавяни през
+      прекомпилиране на кода
+    \end{itemize}
+  \item Простота
+    \begin{itemize}
+    \item придържаме ме се към по-прост интерфейс
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -222,8 +244,7 @@ class SubClass extends SuperClass {
 abstract class SomeClass {
      abstract void doSomething();
 }
-SomeClass sc = new SomeClass(); // no
-  
+SomeClass sc = new SomeClass(); // ERROR
 \end{lstlisting}
 \end{frame}
 
@@ -249,8 +270,8 @@ p = e;
   \item Референция от суперклас може да бъде конвертирана до
     референция от подклас изрично
     \begin{lstlisting}
-      Employee e = new Programmer();
-      Programmer p = (Programmer) e;
+Employee e = new Programmer();
+Programmer p = (Programmer) e;
     \end{lstlisting}
   \item Изричното преобразуване е опасна операция, която може да
     доведе го грешки по време на изпълнение на програмата
@@ -269,7 +290,7 @@ if (e instanceof Programmer) {
     \end{lstlisting}
   \item Невъзможните преобразувания се улавят от компилатора
     \begin{lstlisting}
-      Date d = (Date) e;
+Date d = (Date) e;
     \end{lstlisting}
   \end{itemize}
 \end{frame}
@@ -289,6 +310,12 @@ if (e instanceof Programmer) {
   \item Всяка референция може да бъде преобразувана до тип Object
   \end{itemize}
 \end{frame}
+
+\begin{frame}{Върховния суперклас Object}
+  \transdissolve
+  \includegraphics[width=320px, height=150px]{images/classes-object.png}
+\end{frame}
+
 
 \begin{frame}{Сравняване на обекти}
   \transdissolve
