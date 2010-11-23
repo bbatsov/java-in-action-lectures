@@ -66,40 +66,42 @@
 
 \section{Наследяване}
 
+\subsection{Модификатори за достъп}
 \begin{frame}{Модификатори за достъп}
   \transdissolve
   \begin{itemize}
-    \item Ограничават видимостта на класовете и техните членове
-    \item Могат да се прилагат върху класове, методи и полета
+    \item Ограничават видимостта на класовете и техните членове \pause
+    \item Могат да се прилагат върху класове, методи и полета \pause
     \begin{itemize}
     \item \textcolor{blue}{private}
       \begin{itemize}
       \item достъп само в рамките на класа
-      \end{itemize}
+      \end{itemize} \pause
     \item \textcolor{blue}{public}
       \begin{itemize}
       \item достъп за всички
-      \end{itemize}
+      \end{itemize} \pause
     \item default(package)
       \begin{itemize}
       \item достъп за всички в пакета
-      \end{itemize}
+      \end{itemize} \pause
     \item \textcolor{blue}{protected}
       \begin{itemize}
       \item default + достъп в наследените
-      \end{itemize}
+      \end{itemize} \pause
     \end{itemize}    
   \end{itemize}
 \end{frame}
 
+\subsection{Основни концепции}
 \begin{frame}{Наследяване}
   \transdissolve
   \begin{itemize}
-  \item Фундаментална техника в ООП
+  \item Фундаментална техника в ООП \pause
   \item Изграждане на нови класове върху основата на съществуващи
-    класове
-  \item Преизползват се методите и полетата на съществуващи класове
-  \item Добавя се ново поведение и състояние
+    класове \pause
+  \item Преизползват се методите и полетата на съществуващи класове \pause
+  \item Добавя се ново поведение и състояние \pause
   \item Променя се съществуващото поведение
   \end{itemize}
 \end{frame}
@@ -112,9 +114,9 @@
 \begin{frame}{От общото към частното}
   \transdissolve
   \begin{itemize}
-  \item наследяване == разширяване
-  \item суперклас(клас родител/базов клас)
-  \item подклас(клас наследник)
+  \item наследяване == разширяване \pause
+  \item суперклас(клас родител/базов клас) \pause
+  \item подклас(клас наследник) \pause
   \item отношението между подклас и суперклас е е(is-a)
     \begin{itemize}
       \item Планинското колело е колело.
@@ -124,57 +126,127 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Наследяване - синтаксис}
+  \frametitle{Наследяване - супер клас}
   \transdissolve
 \begin{lstlisting}
-class SubClass extends SuperClass {
-  // fields
-  ...
-  // constructors
-  ...
-  // methods
-  ...
+public class Bicycle {
+    // the Bicycle class has three fields
+    public int cadence;
+    public int gear;
+    public int speed;
+    // the Bicycle class has one constructor
+    public Bicycle(int startCadence, int startSpeed, int startGear) {
+        gear = startGear;
+        cadence = startCadence;
+        speed = startSpeed;
+    }
+    // the Bicycle class has four methods
+    public void setCadence(int newValue) {
+        cadence = newValue;
+    }
+    public void setGear(int newValue) {
+        gear = newValue;
+    }
+    public void applyBrake(int decrement) {
+        speed -= decrement;
+    }
+    public void speedUp(int increment) {
+        speed += increment;
+    }
 }
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Наследяване - подклас}
+  \transdissolve
+\begin{lstlisting}
+public class MountainBike extends Bicycle {
+	
+    // the MountainBike subclass adds one field
+    public int seatHeight;
+
+    // the MountainBike subclass has one constructor
+    public MountainBike(int startHeight, int startCadence, int startSpeed, int startGear) {
+        super(startCadence, startSpeed, startGear);
+        seatHeight = startHeight;
+    }	
+	
+    // the MountainBike subclass adds one method
+    public void setHeight(int newValue) {
+        seatHeight = newValue;
+    }	
+
+}
+\end{lstlisting}
+\end{frame}
+
+\subsection{Ключови моменти}
 \begin{frame}{Ключови моменти при наследяването}
   \transdissolve
   \begin{itemize}
-  \item Конструкторът на подкласа извиква конструктора на суперкласа
-  \item \textcolor{blue}{private} елементите не са достъпни директно в подкласовете
+  \item Подкласът наследява всички \textcolor{blue}{public} и
+    \textcolor{blue}{protected} членове на суперкласа, независимо от
+    пакетите в които се намират \pause
+  \item Подкласът наследява и членовете с достъп default, ако са
+    намира в същия пакет като суперкласа \pause
+  \item Конструкторът на подкласа извиква конструктора на суперкласа \pause
+  \item \textcolor{blue}{private} елементите не са достъпни директно в
+    подкласовете \pause
   \item Ключовата дума \textcolor{blue}{super} позволява обръщение към метод от
     суперкласа
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Какво можете да правите в подклас?}
+  \transdissolve
+  \begin{itemize}
+  \item Може да използвате наследените полета както обикновените
+    полета \pause
+  \item Може да декларирате поле в подклас със същото име, като такова
+    в суперклас и по този начин ще го скриете(лош стил) \pause
+  \item Може да декларирате нови полета в подкласа \pause
+  \item Наследените методи могат да се използват директно \pause
+  \item Може да създавате instance методи в подклас със същата
+    сигнатура, като методи от суперкласа и по този начин ще ги
+    предефинирате(override) \pause
+  \item Същото нещо при статични методи ще доведе то скриването им \pause
+  \item Може да дефинирате нови методи \pause
+  \item Може(Винаги) конструктор в подкласа да извиква конструктор от
+    суперкласа
+  \end{itemize}
+\end{frame}
+
+\subsection{Йерархия на наследяването}
 \begin{frame}{Йерархия на наследяването}
   \transdissolve
   \begin{itemize}
   \item Единична йерархия на наследяване - един подклас може да има
-    само един суперклас
-  \item Избягват се много от проблемите на C++
+    само един суперклас \pause
+  \item Избягват се много от проблемите на C++ \pause
   \item Интерфейсите предлагат подобие на множествено наследяване
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Диаграма}
+\begin{frame}{Множествено наследяване}
   \transdissolve
+  \includegraphics[width=320px, height=150px]{images/diamond_inheritance.png}
 \end{frame}
 
 \section{Полиморфизъм}
 
+\subsection{Концепция и предимства}
 \begin{frame}[fragile]
   \frametitle{Полиморфизъм}
   \transdissolve
   \begin{itemize}
     \item Променливи от суперклас могат да бъдат асоциирани с обекти
-      от подкласове
+      от подкласове \pause
     \item Виртуалната машина знае истинските типове на обектите и по
       време на изпълнение извиква техните методи, независимо с
-      променлива от какъв тип са асоциирани
+      променлива от какъв тип са асоциирани \pause
     \item Полиморфизмът е тясно свързан с късното свързване на
-    методите(late binding).
+    методите(late binding). \pause
   \end{itemize}
   \begin{lstlisting}
 Programmer p = new Programmer();
@@ -185,7 +257,7 @@ Employee e = new Programmer();
 \begin{frame}{Предимства на полиморфизма}
   \transdissolve
   \begin{itemize}
-  \item Ниска свързаност(loose coupling)
+  \item Ниска свързаност(loose coupling) \pause
   \item Гъвкавост
     \begin{itemize}
     \item нови класове могат да бъдат добавяни през
@@ -201,8 +273,8 @@ Employee e = new Programmer();
 \begin{frame}{Търсене на метод}
   \transdissolve
   \begin{itemize}
-  \item Търсене от компилатора(ранно/статично свързване)
-  \item Търсене от виртуалната машина(късно/динамично свързване)
+  \item Търсене от компилатора(ранно/статично свързване) \pause
+  \item Търсене от виртуалната машина(късно/динамично свързване) \pause
   \item Таблица на методите
   \end{itemize}
 \end{frame}
@@ -210,9 +282,9 @@ Employee e = new Programmer();
 \begin{frame}{Късно свързване}
   \transdissolve
   \begin{itemize}
-  \item Виртуалната машина знае истинския тип на всеки един обект
+  \item Виртуалната машина знае истинския тип на всеки един обект \pause
   \item Виртуалната машина изпълнява методите на базата на истинския
-    тип
+    тип \pause
   \item Необходимост за реализиране на полиморфизъм
   \end{itemize}
 \end{frame}
@@ -220,19 +292,20 @@ Employee e = new Programmer();
 \begin{frame}{Забраняване на наследяването и късното свързване}
   \transdissolve
   \begin{itemize}
-  \item final class - неразширяем клас
-  \item final method - метод, който не може да бъде динамично свързан
-  \item Във final class всички методи са имплицитно final
+  \item final class - неразширяем клас \pause
+  \item final method - метод, който не може да бъде динамично свързан \pause
+  \item Във final class всички методи са имплицитно final \pause
   \item final като оптимизационна и защитна техника
   \end{itemize}
 \end{frame}
 
+\subsection{Абстрактни класове}
 \begin{frame}{Абстрактни класове}
   \transdissolve
   \begin{itemize}
-  \item Създадени да бъдат разширявани
-  \item Не могат да бъдат инстанцирани
-  \item Обикновено са на върха на йерархията на наследяването
+  \item Създадени да бъдат разширявани \pause
+  \item Не могат да бъдат инстанцирани \pause
+  \item Обикновено са на върха на йерархията на наследяването \pause
   \item Съдържат един или повече методи без имплементация(абстрактни методи)
   \end{itemize}
 \end{frame}
@@ -242,8 +315,9 @@ Employee e = new Programmer();
   \transdissolve
 \begin{lstlisting}
 abstract class SomeClass {
-     abstract void doSomething();
+    abstract void doSomething();
 }
+
 SomeClass sc = new SomeClass(); // ERROR
 \end{lstlisting}
 \end{frame}
@@ -252,14 +326,15 @@ SomeClass sc = new SomeClass(); // ERROR
   \frametitle{Преобразуване на обекти}
   \transdissolve
   \begin{itemize}
-  \item Всеки обект от подклас и е обект от суперкласа
-  \item Обратното не е вярно
+  \item Всеки обект от подклас и е обект от суперкласа \pause
+  \item Обратното не е вярно \pause
   \end{itemize}
 \begin{lstlisting}
 Programmer p = new Programmer();
 Employee e = p;
+
 e = new Employee();
-p = e;
+p = e; //ERROR
 \end{lstlisting}
 \end{frame}
 
@@ -298,16 +373,16 @@ Date d = (Date) e;
 \begin{frame}{Върховния суперклас Object}
   \transdissolve
   \begin{itemize}
-  \item Начало на класовата йерархия в Java
-  \item Всеки клас имплицитно наследява Object
+  \item Начало на класовата йерархия в Java \pause
+  \item Всеки клас имплицитно наследява Object \pause
   \item Съдържа в себе си методи, които имат смисъл за всички обекти
     \begin{itemize}
-      \item clone
-      \item equals
-      \item hashCode
-      \item toString
+      \item clone()
+      \item equals()
+      \item hashCode()
+      \item toString()
     \end{itemize}
-  \item Всяка референция може да бъде преобразувана до тип Object
+  \item Всяка референция може да бъде преобразувана до тип Object \pause
   \end{itemize}
 \end{frame}
 
@@ -316,32 +391,31 @@ Date d = (Date) e;
   \includegraphics[width=320px, height=150px]{images/classes-object.png}
 \end{frame}
 
-
 \begin{frame}{Сравняване на обекти}
   \transdissolve
   \begin{itemize}
-  \item == сравнява референции - сравнение за идентичност
-  \item метода equals()
-  \item Дефиниране на подходящ метод equals()
+  \item == сравнява референции - сравнение за идентичност \pause
+  \item метода equals() \pause
+  \item Дефиниране на подходящ метод equals() \pause
     \begin{itemize}
-      \item проверка за сравнение с null
-      \item проверка за сравнение със същия обект
-      \item проверка за сравнение с различен тип
-      \item сравняване на двата обекта по полета
+      \item проверка за сравнение с null \pause
+      \item проверка за сравнение със същия обект \pause
+      \item проверка за сравнение с различен тип \pause
+      \item сравняване на двата обекта по полета \pause
       \begin{itemize}
         \item рекурсивно сравняване на полета от референтни типове с equals
       \end{itemize}
     \end{itemize}
-  \item връзка между equals и hashCode
+  \item връзка между equals и hashCode \pause
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Модификатор за достъп protected}
   \transdissolve
   \begin{itemize}
-  \item Еквивалент на default достъп + директен достъп в подкласовете
-  \item Употребата му се счита за лош стил
-  \item protected и default е желателно да бъдат избягвани
+  \item Еквивалент на default достъп + директен достъп в подкласовете \pause
+  \item Употребата му се счита за лош стил \pause
+  \item protected и default е желателно да бъдат избягвани \pause
   \item четири нива на достъп
     \begin{itemize}
       \item private
@@ -349,7 +423,7 @@ Date d = (Date) e;
       \item default(package)
       \item protected
     \end{itemize}
-  \item три модификатора за достъп
+  \item три модификатора за достъп \pause
     \begin{itemize}
       \item private
       \item public
@@ -360,7 +434,15 @@ Date d = (Date) e;
 
 \begin{frame}{Упражнение}
   \transdissolve
-  
+  Моделирайте йерархия от геометрични обекти:
+  \begin{itemize}
+    \item Circle
+    \item Rectangle
+    \item Square
+  \end{itemize}
+  За всички от тях трябва да имаме възможност да пресмятаме обиколката и
+  площта ми. Използвайте абстрактен базов клас като корен на тази
+  йерархия от класове.
 \end{frame}
 
 \section*{Заключение}
@@ -370,13 +452,12 @@ Date d = (Date) e;
   % Keep the summary *very short*.
   \begin{itemize}
   \item
-    Java \alert{е много повече от език за програмиране}.
+    Наследяването \alert{е мощна техника за преизползване на код и
+      моделиране на отношенията между различни типове}.
   \item
-    JVM \alert{е целевата среда за изпълнение} на Java приложенията, а
-    не физическата процесорна микроархитектура.
+    То НЕ е единствената такава техника - композицията често е за предпочитане.
   \item
-    За пълноценна работа с езикът и платформата Java човек трябва да
-    се запознае с доста инструменти.
+    Модификаторите за достъп контролират какво точно се случва при наследяване.
   \end{itemize}
   
   % The following outlook is optional.
@@ -386,9 +467,9 @@ Date d = (Date) e;
     Следващият път:
     \begin{itemize}
     \item
-      Основния положения в езикът Java
+      Интерфейси
     \item
-      Повече примери, по-малко общи приказки
+      Вътрешни класове
     \end{itemize}
   \end{itemize}
 \end{frame}
