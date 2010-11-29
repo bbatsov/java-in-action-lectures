@@ -66,33 +66,6 @@
 
 \section{Наследяване}
 
-\subsection{Модификатори за достъп}
-\begin{frame}{Модификатори за достъп}
-  \transdissolve
-  \begin{itemize}
-    \item Ограничават видимостта на класовете и техните членове \pause
-    \item Могат да се прилагат върху класове, методи и полета \pause
-    \begin{itemize}
-    \item \textcolor{blue}{private}
-      \begin{itemize}
-      \item достъп само в рамките на класа
-      \end{itemize} \pause
-    \item \textcolor{blue}{public}
-      \begin{itemize}
-      \item достъп за всички
-      \end{itemize} \pause
-    \item default(package)
-      \begin{itemize}
-      \item достъп за всички в пакета
-      \end{itemize} \pause
-    \item \textcolor{blue}{protected}
-      \begin{itemize}
-      \item default + достъп в наследените
-      \end{itemize} \pause
-    \end{itemize}    
-  \end{itemize}
-\end{frame}
-
 \subsection{Основни концепции}
 \begin{frame}{Наследяване}
   \transdissolve
@@ -125,15 +98,43 @@
   \end{itemize}
 \end{frame}
 
+\subsection{Модификатори за достъп}
+\begin{frame}{Модификатори за достъп}
+  \transdissolve
+  \begin{itemize}
+  \item Ограничават видимостта на класовете и техните членове \pause
+  \item Могат да се прилагат върху класове, методи и полета \pause
+    \begin{itemize}
+    \item \textcolor{blue}{private}
+      \begin{itemize}
+      \item достъп само в рамките на класа
+      \end{itemize} \pause
+    \item \textcolor{blue}{public}
+      \begin{itemize}
+      \item достъп за всички
+      \end{itemize} \pause
+    \item default(package)
+      \begin{itemize}
+      \item достъп за всички в пакета
+      \end{itemize} \pause
+    \item \textcolor{blue}{protected}
+      \begin{itemize}
+      \item default + достъп в наследените
+      \end{itemize} \pause
+    \end{itemize}    
+  \end{itemize}
+\end{frame}
+
+\subsection{Конкретен пример}
 \begin{frame}[fragile]
   \frametitle{Наследяване - супер клас}
   \transdissolve
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\tiny]
 public class Bicycle {
     // the Bicycle class has three fields
     public int cadence;
-    public int gear;
-    public int speed;
+    private int gear;
+    protected int speed;
     // the Bicycle class has one constructor
     public Bicycle(int startCadence, int startSpeed, int startGear) {
         gear = startGear;
@@ -160,23 +161,19 @@ public class Bicycle {
 \begin{frame}[fragile]
   \frametitle{Наследяване - подклас}
   \transdissolve
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\small]
 public class MountainBike extends Bicycle {
-	
     // the MountainBike subclass adds one field
-    public int seatHeight;
-
+    private int seatHeight;
     // the MountainBike subclass has one constructor
     public MountainBike(int startHeight, int startCadence, int startSpeed, int startGear) {
         super(startCadence, startSpeed, startGear);
         seatHeight = startHeight;
-    }	
-	
+    }		
     // the MountainBike subclass adds one method
     public void setHeight(int newValue) {
         seatHeight = newValue;
     }	
-
 }
 \end{lstlisting}
 \end{frame}
@@ -441,8 +438,14 @@ Date d = (Date) e;
     \item Square
   \end{itemize}
   За всички от тях трябва да имаме възможност да пресмятаме обиколката и
-  площта ми. Използвайте абстрактен базов клас като корен на тази
+  площта им. Използвайте абстрактен базов клас като корен на тази
   йерархия от класове.
+  \begin{itemize}
+    \item Създайте 10 произволни фигури и ги запишете в масив
+    \item За всеки фигура в масива отпечатайте нейните измерения,
+      периферия и площ.
+  \end{itemize}
+
 \end{frame}
 
 \section*{Заключение}
