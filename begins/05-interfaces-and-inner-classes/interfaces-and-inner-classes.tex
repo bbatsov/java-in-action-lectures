@@ -60,6 +60,7 @@
 \end{frame}
 
 \begin{frame}{Съдържание}
+  \transdissolve
   \tableofcontents[pausesections]
 \end{frame}
 
@@ -67,22 +68,18 @@
 
 \subsection{Що е интерфейс?}
 \begin{frame}{Интерфейс}
+  \transdissolve
   \begin{itemize}
   \item
-    Наборът от методи, които един клас предлага
+    Наборът от методи, които един клас предлага \pause
   \item
     Езикова конструкция, която съдържа контракт(набор
-    от задължения)
+    от задължения) \pause
   \item Класовете могат да изпълнят контракта(да имплементират
-    интерфейса)
-  \item Обикновено съдържа само методи
+    интерфейса) \pause
+  \item Обикновено съдържа само методи \pause
   \item Методите са с ниво на достъп \textbf{public} и са \textbf{абстрактни}
   \end{itemize}
-\end{frame}
-
-\begin{frame}{Диаграма}
-  \transdissolve
-  
 \end{frame}
 
 \subsection{Дефиниция на интерфейс}
@@ -108,7 +105,7 @@ interface SomeInterface {
 class SomeClass implements SomeInterface {
   ...  
   @Override
-  public Type method1() {...};
+  public Type method1() {...}
   @Override
   public Type method2() {...}
 }
@@ -119,13 +116,13 @@ class SomeClass implements SomeInterface {
 \begin{frame}{Особености на интерфейсите}
   \transdissolve
   \begin{itemize}
-  \item Всички методи в тях са абстрактни
-  \item Един клас може да имплементира повече от един интерфейс
+  \item Всички методи в тях са абстрактни \pause
+  \item Един клас може да имплементира повече от един интерфейс \pause
   \item Интерфейсът \textbf{НЕ Е} клас - не може създавате обекти от
-    интерфейс
-  \item Могат да бъдат декларирани променливи от интерфейсен тип
-  \item Работят с instanceof оператора
-  \item Не е желателно да имат полета
+    интерфейс \pause
+  \item Могат да бъдат декларирани променливи от интерфейсен тип \pause
+  \item Работят с instanceof оператора \pause
+  \item Не е желателно да имат полета \pause
   \item Абстрактен клас може да имплементира интерфейс напълно или
     частично
   \end{itemize}
@@ -134,11 +131,11 @@ class SomeClass implements SomeInterface {
 \begin{frame}{Особености на интерфейсите}
   \transdissolve
   \begin{itemize}
-  \item Не могат да съдържат instance полета
-  \item Не могат да съдържа статични методи
+  \item Не могат да съдържат instance полета \pause
+  \item Не могат да съдържа статични методи \pause
   \item Всички полета в един интерфейс са на практика константи(public
-    static final)
-  \item Един интерфейс може да разшири(наследи) друг
+    static final) \pause
+  \item Един интерфейс може да разшири(наследи) друг \pause
   \item Интерфейси без методи се използват като маркери(tags)
   \end{itemize}
 \end{frame}
@@ -179,12 +176,11 @@ class Employee implements Comparable<Employee> {
 \begin{frame}{Клониране обекти}
   \transdissolve
   \begin{itemize}
-  \item метода clone() на класа Object
-  \item интерфейсът Cloneable() - интерфейс маркер
-  \item плитко клониране
-  \item дълбоко клониране
+  \item метода clone() на класа Object \pause
+  \item интерфейсът Cloneable() - интерфейс маркер \pause
+  \item плитко клониране \pause
+  \item дълбоко клониране \pause
   \item имплементиране на clone()
-  \item клониране на масиви
   \end{itemize}
 \end{frame}
 
@@ -231,11 +227,20 @@ class Employee implements Cloneable
 \end{lstlisting}
 \end{frame}
 
+\subsection{Обработка на събития}
 \begin{frame}{Обработка на събития}
   \transdissolve
   \begin{itemize}
-  \item Събитие - изтекъл таймер, натиснат бутон
+  \item Събитие \pause
+    \begin{itemize}
+      \item натиснат бутон \pause
+      \item изтекъл таймер \pause
+    \end{itemize}
   \item Callback
+    \begin{itemize}
+      \item код, който се изпълнява в резултат от настъпването на
+        дадено събитие \pause
+    \end{itemize}
   \item Реализация на callback механизъм с интерфейси
   \end{itemize}
 \end{frame}
@@ -243,7 +248,7 @@ class Employee implements Cloneable
 \begin{frame}[fragile]
   \frametitle{Пример}
   \transdissolve
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\tiny]
 public class TimerTest {
   public static void main(String[] args) {
     ActionListener listener = new TimePrinter();
@@ -255,6 +260,7 @@ public class TimerTest {
     System.exit(0);
   }
 }
+
 class TimePrinter implements ActionListener {
   public void actionPerformed(ActionEvent event) {
     Date now = new Date();
@@ -266,22 +272,20 @@ class TimePrinter implements ActionListener {
 \end{frame}
 
 \section{Вътрешни класове}
-
 \subsection{Какво са вътрешните класове?}
 \begin{frame}{Вътрешни класове}
   \transdissolve
   \begin{itemize}
-  \item Влагане да дефиницията на един клас в друг
-  \item Реализирани са на ниво компилатор
-  \item Позволяват достъп до членовете на класа, в който са вложени
-  \item Видове
+  \item Влагане да дефиницията на един клас в друг \pause
+  \item Реализирани са на ниво компилатор \pause
+  \item Позволяват достъп до членовете на класа, в който са вложени \pause
+  \item Видове \pause
     \begin{itemize}
-      \item стандартни
-      \item локални 
-      \item анонимни
-      \item статични
+      \item стандартни \pause
+      \item локални  \pause
+      \item анонимни \pause
+      \item статични \pause
     \end{itemize}
-
   \end{itemize}
 \end{frame}
 
@@ -289,9 +293,9 @@ class TimePrinter implements ActionListener {
 \begin{frame}{Стандартни вътрешни класове}
   \transdissolve
   \begin{itemize}
-  \item Дефинирани са в друг клас на нивото на полетата и методите му
-  \item Имат достъп до полетата и методите на външния клас
-  \item Имат скрита референция към външния клас
+  \item Дефинирани са в друг клас на нивото на полетата и методите му \pause
+  \item Имат достъп до полетата и методите на външния клас \pause
+  \item Имат скрита референция към външния клас \pause
   \item Всяка инстанция от външния клас носи дефиницията на вътрешния
   \end{itemize}
 \end{frame}
@@ -299,17 +303,50 @@ class TimePrinter implements ActionListener {
 \begin{frame}[fragile]
   \frametitle{Пример}
   \transdissolve
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\tiny]
+class TalkingClock {
+  private int interval;
+  private boolean beep;
+
+  public TalkingClock(int interval, boolean beep) {
+    this.interval = interval;
+    this.beep = beep;
+  }
   
+  public void start() {
+    ActionListener listener = new TimePrinter();
+    Timer t = new Timer(interval, listener);
+    t.start();
+  
+  }
+  // inner class
+  private class TimePrinter implements ActionListener {
+    public void actionPerformed(ActionEvent event) {
+      Date now = new Date();
+      System.out.println("At the tone, the time is " + now);
+      if (beep) Toolkit.getDefaultToolkit().beep();
+    }
+  }
+}
 \end{lstlisting}
 \end{frame}
+
+
+\begin{frame}{Вътрешен клас}
+  \transdissolve
+  \includegraphics[width=320px,height=160px]{images/inner-class.png}
+\end{frame}
+
 
 \subsection{Локални вътрешни класове}
 \begin{frame}{Локални вътрешни класове}
   \transdissolve
   \begin{itemize}
-  \item Дефинирани са в тялото на метод на външния клас
-  \item Имат достъп до локалните променливи в метода
+  \item Дефинирани са в тялото на метод на външния клас \pause
+  \item Имат достъп до локалните променливи в метода \pause
+    \begin{itemize}
+      \item но само до тези маркирани като final \pause
+    \end{itemize}
   \item Не са видими извън метода, в който са дефинирани
   \end{itemize}
 \end{frame}
@@ -317,8 +354,20 @@ class TimePrinter implements ActionListener {
 \begin{frame}[fragile]
   \frametitle{Пример}
   \transdissolve
-\begin{lstlisting}
-  
+\begin{lstlisting}[basicstyle=\small]
+public void start() {
+  class TimePrinter implements ActionListener {
+    public void actionPerformed(ActionEvent event) {
+      Date now = new Date();
+      System.out.println("At the tone, the time is " + now);
+      if (beep) 
+        Toolkit.getDefaultToolkit().beep();
+    }
+  }
+  ActionListener listener = new TimePrinter();
+  Timer t = new Timer(interval, listener);
+  t.start();
+}  
 \end{lstlisting}
 \end{frame}
 
@@ -326,18 +375,31 @@ class TimePrinter implements ActionListener {
 \begin{frame}{Анонимни вътрешни класове}
   \transdissolve
   \begin{itemize}
-  \item Разновидност на локалните класове
+  \item Разновидност на локалните класове \pause
   \item Създава се обект от клас дефиниран след оператора за
-    присвояване
+    присвояване \pause
   \item Обикновено анонимните класове имплементират някой интерфейс
+    \pause
+  \item Не могат да дефинират собствени конструктори
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
   \transdissolve
-\begin{lstlisting}
-  
+\begin{lstlisting}[basicstyle=\small]
+public void start(int interval, final boolean beep) {
+  ActionListener listener = new ActionListener() {
+    public void actionPerformed(ActionEvent event) {
+      Date now = new Date();
+      System.out.println("At the tone, the time is " + now);
+      if (beep) 
+        Toolkit.getDefaultToolkit().beep();
+    }
+  };
+  Timer t = new Timer(interval, listener);
+  t.start();
+} 
 \end{lstlisting}
 \end{frame}
 
@@ -346,7 +408,7 @@ class TimePrinter implements ActionListener {
   \transdissolve
   \begin{itemize}
   \item Еквивалентни на стандартните, но без референция към външния
-    клас
+    клас  \pause
   \item Служат като допълнително пространство на имената
   \end{itemize}
 \end{frame}
@@ -355,7 +417,13 @@ class TimePrinter implements ActionListener {
   \frametitle{Пример}
   \transdissolve
 \begin{lstlisting}
-  
+class Outer {
+  ...
+
+  public static class Inner {
+    ...
+  }
+}  
 \end{lstlisting}
 \end{frame}
 
