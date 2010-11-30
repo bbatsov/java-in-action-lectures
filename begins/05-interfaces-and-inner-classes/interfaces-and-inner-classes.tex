@@ -337,6 +337,24 @@ class TalkingClock {
   \includegraphics[width=320px,height=160px]{images/inner-class.png}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Магията на компилатора}
+  \transdissolve
+\begin{itemize}
+  \item Вътрешните класове са феномен на компилатора
+  \item Имената на генерираните класове имат формат OuterClass\$InnerClass.class
+  \item За виртуалната машина те са съвсем обикновени
+\end{itemize}
+
+\begin{lstlisting}
+public class TalkingClock$TimePrinter {
+  public TalkingClock$TimePrinter(TalkingClock);
+  public void actionPerformed(java.awt.event.ActionEvent);
+  final TalkingClock this$0;
+}
+\end{lstlisting}
+\end{frame}
+
 
 \subsection{Локални вътрешни класове}
 \begin{frame}{Локални вътрешни класове}
