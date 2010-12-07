@@ -60,24 +60,24 @@
 \end{frame}
 
 \begin{frame}{Съдържание}
-  \transdissolve
-  \tableofcontents[pausesections]
+  
+  \tableofcontents
 \end{frame}
 
 \section{Интерфейси}
 
 \subsection{Що е интерфейс?}
 \begin{frame}{Интерфейс}
-  \transdissolve
+  
   \begin{itemize}
   \item
-    Наборът от методи, които един клас предлага \pause
+    Наборът от методи, които един клас предлага 
   \item
     Езикова конструкция, която съдържа контракт(набор
-    от задължения) \pause
+    от задължения) 
   \item Класовете могат да изпълнят контракта(да имплементират
-    интерфейса) \pause
-  \item Обикновено съдържа само методи \pause
+    интерфейса) 
+  \item Обикновено съдържа само методи 
   \item Методите са с ниво на достъп \textbf{public} и са \textbf{абстрактни}
   \end{itemize}
 \end{frame}
@@ -85,7 +85,7 @@
 \subsection{Дефиниция на интерфейс}
 \begin{frame}[fragile]
   \frametitle{Дефиниция на интерфейс}
-  \transdissolve
+  
 \begin{lstlisting}
 interface SomeInterface {
   Type field1; // bad style
@@ -100,7 +100,7 @@ interface SomeInterface {
 \subsection{Имплементиране на интерфейс}
 \begin{frame}[fragile]
   \frametitle{Имплементиране на интерфейс}
-  \transdissolve
+  
 \begin{lstlisting}
 class SomeClass implements SomeInterface {
   ...  
@@ -114,28 +114,28 @@ class SomeClass implements SomeInterface {
 
 \subsection{Особености на интерфейсите}
 \begin{frame}{Особености на интерфейсите}
-  \transdissolve
+  
   \begin{itemize}
-  \item Всички методи в тях са абстрактни \pause
-  \item Един клас може да имплементира повече от един интерфейс \pause
+  \item Всички методи в тях са абстрактни 
+  \item Един клас може да имплементира повече от един интерфейс 
   \item Интерфейсът \textbf{НЕ Е} клас - не може създавате обекти от
-    интерфейс \pause
-  \item Могат да бъдат декларирани променливи от интерфейсен тип \pause
-  \item Работят с instanceof оператора \pause
-  \item Не е желателно да имат полета \pause
+    интерфейс 
+  \item Могат да бъдат декларирани променливи от интерфейсен тип 
+  \item Работят с instanceof оператора 
+  \item Не е желателно да имат полета 
   \item Абстрактен клас може да имплементира интерфейс напълно или
     частично
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Особености на интерфейсите}
-  \transdissolve
+  
   \begin{itemize}
-  \item Не могат да съдържат instance полета \pause
-  \item Не могат да съдържа статични методи \pause
+  \item Не могат да съдържат instance полета 
+  \item Не могат да съдържа статични методи 
   \item Всички полета в един интерфейс са на практика константи(public
-    static final) \pause
-  \item Един интерфейс може да разшири(наследи) друг \pause
+    static final) 
+  \item Един интерфейс може да разшири(наследи) друг 
   \item Интерфейси без методи се използват като маркери(tags)
   \end{itemize}
 \end{frame}
@@ -143,7 +143,7 @@ class SomeClass implements SomeInterface {
 \subsection{Интерфейси от стандартната библиотека}
 \begin{frame}[fragile]
 \frametitle{Сравняване на обекти с интерфейса Comparable}
-\transdissolve
+
 \begin{lstlisting}
 public interface Comparable<T> {
   int compareTo(T other);
@@ -157,7 +157,7 @@ public interface Comparable<T> {
 
 \begin{frame}[fragile]
   \frametitle{Comparable - пример}
-  \transdissolve
+  
 \begin{lstlisting}
 class Employee implements Comparable<Employee> {
   private double salary;
@@ -174,29 +174,29 @@ class Employee implements Comparable<Employee> {
 \end{frame}
 
 \begin{frame}{Клониране обекти}
-  \transdissolve
+  
   \begin{itemize}
-  \item метода clone() на класа Object \pause
-  \item интерфейсът Cloneable() - интерфейс маркер \pause
-  \item плитко клониране \pause
-  \item дълбоко клониране \pause
+  \item метода clone() на класа Object 
+  \item интерфейсът Cloneable() - интерфейс маркер 
+  \item плитко клониране 
+  \item дълбоко клониране 
   \item имплементиране на clone()
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Клониране - диаграма}
-  \transdissolve
+  
   \includegraphics[width=160px,height=160px]{images/cloning.png}
 \end{frame}
 
 \begin{frame}{Плитко копиране - диаграма}
-  \transdissolve
+  
   \includegraphics[width=320px,height=160px]{images/shallow-copy.png}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Плитко клониране - пример}
-  \transdissolve
+  
 \begin{lstlisting}
 class Employee implements Cloneable {
   // raise visibility level to public, change return type
@@ -210,7 +210,7 @@ class Employee implements Cloneable {
 
 \begin{frame}[fragile]
   \frametitle{Дълбоко клониране - пример}
-  \transdissolve
+  
 \begin{lstlisting}
 class Employee implements Cloneable
 {
@@ -229,17 +229,17 @@ class Employee implements Cloneable
 
 \subsection{Обработка на събития}
 \begin{frame}{Обработка на събития}
-  \transdissolve
+  
   \begin{itemize}
-  \item Събитие \pause
+  \item Събитие 
     \begin{itemize}
-      \item натиснат бутон \pause
-      \item изтекъл таймер \pause
+      \item натиснат бутон 
+      \item изтекъл таймер 
     \end{itemize}
   \item Callback
     \begin{itemize}
       \item код, който се изпълнява в резултат от настъпването на
-        дадено събитие \pause
+        дадено събитие 
     \end{itemize}
   \item Реализация на callback механизъм с интерфейси
   \end{itemize}
@@ -247,7 +247,7 @@ class Employee implements Cloneable
 
 \begin{frame}[fragile]
   \frametitle{Пример}
-  \transdissolve
+  
 \begin{lstlisting}[basicstyle=\tiny]
 public class TimerTest {
   public static void main(String[] args) {
@@ -274,35 +274,35 @@ class TimePrinter implements ActionListener {
 \section{Вътрешни класове}
 \subsection{Какво са вътрешните класове?}
 \begin{frame}{Вътрешни класове}
-  \transdissolve
+  
   \begin{itemize}
-  \item Влагане да дефиницията на един клас в друг \pause
-  \item Реализирани са на ниво компилатор \pause
-  \item Позволяват достъп до членовете на класа, в който са вложени \pause
-  \item Видове \pause
+  \item Влагане да дефиницията на един клас в друг 
+  \item Реализирани са на ниво компилатор 
+  \item Позволяват достъп до членовете на класа, в който са вложени 
+  \item Видове 
     \begin{itemize}
-      \item стандартни \pause
-      \item локални  \pause
-      \item анонимни \pause
-      \item статични \pause
+      \item стандартни 
+      \item локални  
+      \item анонимни 
+      \item статични 
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 \subsection{Стандартни вътрешни класове}
 \begin{frame}{Стандартни вътрешни класове}
-  \transdissolve
+  
   \begin{itemize}
-  \item Дефинирани са в друг клас на нивото на полетата и методите му \pause
-  \item Имат достъп до полетата и методите на външния клас \pause
-  \item Имат скрита референция към външния клас \pause
+  \item Дефинирани са в друг клас на нивото на полетата и методите му 
+  \item Имат достъп до полетата и методите на външния клас 
+  \item Имат скрита референция към външния клас 
   \item Всяка инстанция от външния клас носи дефиницията на вътрешния
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
-  \transdissolve
+  
 \begin{lstlisting}[basicstyle=\tiny]
 class TalkingClock {
   private int interval;
@@ -333,13 +333,13 @@ class TalkingClock {
 
 
 \begin{frame}{Вътрешен клас}
-  \transdissolve
+  
   \includegraphics[width=320px,height=160px]{images/inner-class.png}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Магията на компилатора}
-  \transdissolve
+  
 \begin{itemize}
   \item Вътрешните класове са феномен на компилатора
   \item Имената на генерираните класове имат формат OuterClass\$InnerClass.class
@@ -358,12 +358,12 @@ public class TalkingClock$TimePrinter {
 
 \subsection{Локални вътрешни класове}
 \begin{frame}{Локални вътрешни класове}
-  \transdissolve
+  
   \begin{itemize}
-  \item Дефинирани са в тялото на метод на външния клас \pause
-  \item Имат достъп до локалните променливи в метода \pause
+  \item Дефинирани са в тялото на метод на външния клас 
+  \item Имат достъп до локалните променливи в метода 
     \begin{itemize}
-      \item но само до тези маркирани като final \pause
+      \item но само до тези маркирани като final 
     \end{itemize}
   \item Не са видими извън метода, в който са дефинирани
   \end{itemize}
@@ -371,7 +371,7 @@ public class TalkingClock$TimePrinter {
 
 \begin{frame}[fragile]
   \frametitle{Пример}
-  \transdissolve
+  
 \begin{lstlisting}[basicstyle=\small]
 public void start() {
   class TimePrinter implements ActionListener {
@@ -391,20 +391,20 @@ public void start() {
 
 \subsection{Анонимни вътрешни класове}
 \begin{frame}{Анонимни вътрешни класове}
-  \transdissolve
+  
   \begin{itemize}
-  \item Разновидност на локалните класове \pause
+  \item Разновидност на локалните класове 
   \item Създава се обект от клас дефиниран след оператора за
-    присвояване \pause
+    присвояване 
   \item Обикновено анонимните класове имплементират някой интерфейс
-    \pause
+    
   \item Не могат да дефинират собствени конструктори
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
-  \transdissolve
+  
 \begin{lstlisting}[basicstyle=\small]
 public void start(int interval, final boolean beep) {
   ActionListener listener = new ActionListener() {
@@ -423,17 +423,17 @@ public void start(int interval, final boolean beep) {
 
 \subsection{Статични вътрешни класове}
 \begin{frame}{Статични вътрешни класове}
-  \transdissolve
+  
   \begin{itemize}
   \item Еквивалентни на стандартните, но без референция към външния
-    клас  \pause
+    клас  
   \item Служат като допълнително пространство на имената
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
-  \transdissolve
+  
 \begin{lstlisting}
 class Outer {
   ...
@@ -447,7 +447,7 @@ class Outer {
 
 \section*{Заключение}
 \begin{frame}{Заключение}
-  \transdissolve
+  
   % Keep the summary *very short*.
   \begin{itemize}
   \item
@@ -470,14 +470,14 @@ class Outer {
 \end{frame}
 
 \begin{frame}{Въпроси}
-  \transdissolve
+  
   \begin{center}
     \LARGEТук е момента да зададете вашите въпроси! :-)
   \end{center}
 \end{frame}
 
 \begin{frame}{Край}
-  \transdissolve
+  
   \begin{center}
     \LARGEБлагодаря Ви за вниманието!
   \end{center}
