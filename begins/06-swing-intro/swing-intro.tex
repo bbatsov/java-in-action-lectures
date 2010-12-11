@@ -60,6 +60,7 @@
 \end{frame}
 
 \begin{frame}{Съдържание}
+  \transdissolve
   \tableofcontents[pausesections]
 \end{frame}
 
@@ -272,18 +273,23 @@ panel.add(new JButton("2"));
 
 \begin{frame}{Обработка на събития}
   \transdissolve
-  \begin{block}{Слушател за събитие(Action Listener)}
-    Инстанция на клас, който реализира Listener интерфейс.
-  \end{block}
-  \begin{block}{Източник на събитие(Event Source)}
-    Обект(компонент), към който могат да бъдат прикачани слушатели, на
-    които да бъдат предавани събития
-  \end{block}
-  \begin{block}{Събития в Swing}
-    Събитията обикновено възникват в резултат от взаимодействието
-    между приложението и потребителят - натискане на бутон, загуба на
-    фокус, минимизира на прозорец и т.н.
-  \end{block}
+  \begin{itemize}
+    \item Слушател за събитие(Action Listener)
+    \begin{itemize}
+    \item Инстанция на клас, който реализира Listener интерфейс.
+    \end{itemize}
+    \item Източник на събитие(Event Source)
+      \begin{itemize}
+      \item Обект(компонент), към който могат да бъдат прикачани слушатели, на
+        които да бъдат предавани събития        
+      \end{itemize}
+    \item Събития в Swing
+      \begin{itemize}
+      \item обикновено възникват в резултат от взаимодействието
+        между приложението и потребителят
+      \item натискане на бутон, загуба на фокус, минимизиране на прозорец и т.н.
+      \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Връзка между източник и слушател}
