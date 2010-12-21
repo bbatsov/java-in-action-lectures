@@ -65,22 +65,203 @@
 
 \section{Jar файлове}
 
-\subsection{Интрументът jar}
-
-\begin{frame}{Frame title}
+\begin{frame}{Различни типове приложения}
+  \transdissolve
   \begin{itemize}
-  \item
-    item one
-  \item
-    item two
+  \item Десктоп приложения
+  \item Приложения, които се изпълняват в браузъра
+  \item Уеб приложения(server side)
+  \item Enterprise приложения
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Различни типове Java архиви}
+  \transdissolve
+  \begin{itemize}
+  \item Десктоп приложения
+    \begin{itemize}
+      \item jar - java archive
+    \end{itemize}
+  \item Приложения, които се изпълняват в браузъра
+    \begin{itemize}
+      \item jar
+    \end{itemize}
+  \item Уеб приложения(server side)
+    \begin{itemize}
+      \item war - web archive
+      \item нуждаят се от допълнителна програма(web container), в
+        контекста на която биват изпълнявани
+    \end{itemize}
+  \item Enterprise приложения
+    \begin{itemize}
+      \item ear - enterprise archive
+      \item нуждаят се от допълнителна програма(enterprise
+        container/application server), в контекста на която биват изпълнявани
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Какво представлява един jar файл?}
+  \transdissolve
+  \begin{itemize}
+  \item zip архив на компилираните класове
+  \item манифест
+  \item ресурси - картинки, файлове с преводи и т.н.
+  \item библиотека
+  \item изпълним файл(програма)
+    \begin{itemize}
+      \item java -jar somejar.jar
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Подобрена интеграция с операционните системи на Java приложенията}
+  \transdissolve
+  \begin{itemize}
+  \item Solaris
+  \item Windows
+    \begin{itemize}
+      \item launch4j
+      \item izpack
+    \end{itemize}
+  \item OSX
+  \item UNIX
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Инструментът jar}
+
+\begin{frame}{Инструментът jar}
+  \begin{itemize}
+  \item Конзолен инструмент за създаване на jar файлове
+  \item Моделиран е върху класическия UNIX инструмент tar
+  \item Обща употреба
+    \begin{itemize}
+    \item jar cvf JARFileName File1 File2 . . .
+    \item jar cvf CalculatorClasses.jar *.class icon.gif
+    \item jar options File1 File2 . . .
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \subsection{Манифест}
 
+\begin{frame}{Манифест}
+  \transdissolve
+  \begin{itemize}
+  \item Специален файл, който описва даден jar
+  \item Казва се MANIFEST.MF
+  \item Живее в META-INF поддиректорията на архива
+  \item Трябва да завършва с празен ред
+  \item Създаване на jar с манифест
+    \begin{itemize}
+    \item jar cfm MyArchive.jar manifest.mf com/mycompany/mypkg/*.class
+    \end{itemize}
+  \item Обновяване на манифест
+    \begin{itemize}
+    \item jar ufm MyArchive.jar manifest-additions.mf
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Изпълними jar файлове}
+  \transdissolve
+  \begin{itemize}
+  \item Създаване
+    \begin{itemize}
+    \item jar cvfe MyProgram.jar com.mycompany.mypkg.MainAppClass files to add
+    \end{itemize}
+  \item Изпълняване
+    \begin{itemize}
+    \item java -jar MyProgram.jar
+    \end{itemize}
+  \item Указване на изпълнимия клас през манифеста
+    \begin{itemize}
+    \item Main-Class: com.mycompany.mypkg.MainAppClass
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Запечатване на пакети}
+  \transdissolve
+\begin{lstlisting}
+Manifest-Version: 1.0
+
+Name: com/mycompany/util/
+Sealed: true
+Name: com/mycompany/misc/
+Sealed: false
+\end{lstlisting}
+\end{frame}
+
 \section{Java Web Start}
 
+\begin{frame}{Java Web Start}
+  \transdissolve
+  \begin{itemize}
+  \item технология за доставяне на приложения посредством браузър
+  \item приложенията се изпълняват извън браузъра
+  \item приложенията се изпълняват с много ограничени права, ако не са
+    цифрово подписани
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{JNLP}
+  \transdissolve
+\begin{lstlisting}[basicstyle=\tiny]
+<?xml version="1.0" encoding="utf-8"?>
+    <jnlp spec="1.0+" codebase="http://localhost:8080/calculator/" href="Calculator.jnlp">
+    <information>
+    <title>Calculator Application</title>
+    <vendor>Euler</vendor>
+    <description>A Calculator</description>
+    <offline-allowed/>
+    </information>
+    <resources>
+    <j2se version="1.5.0+"/>
+    <jar href="Calculator.jar"/>
+    </resources>
+    <application-desc/>
+</jnlp>
+\end{lstlisting}
+\end{frame}
+
 \section{Applets}
+
+\begin{frame}{Аплети}
+  \transdissolve
+  \begin{itemize}
+  \item Java приложения вградени в HTML уеб страници
+  \item Изпълняват се в самия браузър на потребителя
+  \item Необходимо е да имате инсталиран Java plug-in за да може да ги използвате
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Прост аплет}
+  \transdissolve
+\begin{lstlisting}[basicstyle=\tiny]
+public class NotHelloWorldApplet extends JApplet {
+  public void init() {
+    EventQueue.invokeLater(new Runnable() {
+      public void run() {
+        JLabel label = new JLabel("Not a Hello, World applet", SwingConstants.CENTER);
+        add(label);
+      }
+    });
+  }
+}
+\end{lstlisting}
+\begin{lstlisting}[basicstyle=\tiny]
+<applet code="NotHelloWorldApplet.class" width="300" height="300">
+</applet>
+\end{lstlisting}
+
+\end{frame}
+
 
 \section*{Заключение}
 
@@ -89,13 +270,12 @@
   % Keep the summary *very short*.
   \begin{itemize}
   \item
-    Java \alert{е много повече от език за програмиране}.
+    Jar файловете са стандартната единица за разпространение на Java код.
   \item
-    JVM \alert{е целевата среда за изпълнение} на Java приложенията, а
-    не физическата процесорна микроархитектура.
+    Java Web Start ви дава възможност да разпространяване лесно
+    десктоп приложения написани на Java посредством браузър.
   \item
-    За пълноценна работа с езикът и платформата Java човек трябва да
-    се запознае с доста инструменти.
+    Аплетите са прост начин да вграждате Java код в уеб страници.
   \end{itemize}
   
   % The following outlook is optional.
@@ -105,9 +285,7 @@
     Следващият път:
     \begin{itemize}
     \item
-      Основния положения в езикът Java
-    \item
-      Повече примери, по-малко общи приказки
+      Обработка на изключения,водене на журнал, очаквания и техники за дебъгване
     \end{itemize}
   \end{itemize}
 \end{frame}
