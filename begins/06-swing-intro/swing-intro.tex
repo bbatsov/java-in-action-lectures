@@ -60,14 +60,16 @@
 \end{frame}
 
 \begin{frame}{Съдържание}
+  \transdissolve
   \tableofcontents[pausesections]
 \end{frame}
 
 \section{История на GUI в Java}
 
-\subsection{Swing}
+\subsection{AWT}
 
 \begin{frame}{В началото бе AWT}
+  \transdissolve
   \begin{itemize}
   \item AWT - Abstract Widget Toolkit
   \item Част от Java 1.0
@@ -78,6 +80,7 @@
   \end{itemize}
 \end{frame}
 
+\subsection{Swing}
 \begin{frame}{Swing}
   \transdissolve
   \begin{itemize}
@@ -113,6 +116,7 @@
   \end{itemize}
 \end{frame}
 
+\subsection{SWT}
 \begin{frame}{SWT}
   \transdissolve
   \begin{itemize}
@@ -133,14 +137,13 @@
   \end{itemize}
 \end{frame}
 
-
-\begin{frame}{Диаграма}
+\begin{frame}{Структура на прозорец}
   \transdissolve
-  
+  \includegraphics[width=320px,height=160px]{images/jframe.png}  
 \end{frame}
 
 \section{Компонентна йерархия}
-
+\subsection{Frame}
 \begin{frame}{Frame}
   \transdissolve
   \begin{itemize}
@@ -172,10 +175,15 @@ public static void main(String[] args) {
 \end{lstlisting}
 \end{frame}
 
+\subsection{Връзка между AWT и Swing}
+\begin{frame}{Връзка между AWT и Swing - графика}
+  \transdissolve
+  \includegraphics[width=320px,height=160px]{images/AWTSwingClassHierarchy.png}  
+\end{frame}
 
 \begin{frame}{Йерархия - графика}
   \transdissolve
-  
+  \includegraphics[width=320px,height=160px]{images/components.png}  
 \end{frame}
 
 \begin{frame}{Йерархия}
@@ -192,10 +200,10 @@ public static void main(String[] args) {
 
 \begin{frame}{Графика - компоненти}
   \transdissolve
-  
+  \includegraphics[width=320px,height=160px]{images/all_components.png}
 \end{frame}
 \section{Позициониране на компоненти}
-
+\subsection{Управление на позиционирането}
 \begin{frame}{Позициониране на компоненти в Swing}
   \transdissolve
   \begin{itemize}
@@ -206,6 +214,7 @@ public static void main(String[] args) {
   \end{itemize}
 \end{frame}
 
+\subsection{Flow layout}
 \begin{frame}[fragile]
   \frametitle{Пример - flow layout}
   \transdissolve
@@ -219,22 +228,34 @@ panel.add(new JButton("Button1"));
 \end{lstlisting}
 \end{frame}
 
+\subsection{Border layout}
+\begin{frame}{Border layout}
+  \transdissolve
+  \includegraphics[width=160px,height=160px]{images/border_layout.png}
+\end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Пример - border layout}
   \transdissolve
 \begin{lstlisting}
-  
+JPanel panel = new JPanel();
+panel.add(yellowButton);
+panel.add(blueButton);
+panel.add(redButton);
+frame.add(panel, BorderLayout.SOUTH);  
 \end{lstlisting}
 \end{frame}
 
+\subsection{Grid layout}
 \begin{frame}[fragile]
   \frametitle{Пример - grid layout}
   \transdissolve
 \begin{lstlisting}
-  
+panel.setLayout(new GridLayout(5, 4));
+panel.add(new JButton("1"));
+panel.add(new JButton("2"));  
 \end{lstlisting}
 \end{frame}
-
 
 \section{Основни компоненти}
 
@@ -248,23 +269,27 @@ panel.add(new JButton("Button1"));
   \end{itemize}
 \end{frame}
 
-
 \section{Обработка на събития}
 
 \begin{frame}{Обработка на събития}
   \transdissolve
-  \begin{block}{Слушател за събитие(Action Listener)}
-    Инстанция на клас, който реализира Listener интерфейс.
-  \end{block}
-  \begin{block}{Източник на събитие(Event Source)}
-    Обект(компонент), към който могат да бъдат прикачани слушатели, на
-    които да бъдат предавани събития
-  \end{block}
-  \begin{block}{Събития в Swing}
-    Събитията обикновено възникват в резултат от взаимодействието
-    между приложението и потребителят - натискане на бутон, загуба на
-    фокус, минимизира на прозорец и т.н.
-  \end{block}
+  \begin{itemize}
+    \item Слушател за събитие(Action Listener)
+    \begin{itemize}
+    \item Инстанция на клас, който реализира Listener интерфейс.
+    \end{itemize}
+    \item Източник на събитие(Event Source)
+      \begin{itemize}
+      \item Обект(компонент), към който могат да бъдат прикачани слушатели, на
+        които да бъдат предавани събития        
+      \end{itemize}
+    \item Събития в Swing
+      \begin{itemize}
+      \item обикновено възникват в резултат от взаимодействието
+        между приложението и потребителят
+      \item натискане на бутон, загуба на фокус, минимизиране на прозорец и т.н.
+      \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Връзка между източник и слушател}
@@ -280,9 +305,14 @@ panel.add(new JButton("Button1"));
 \end{frame}
 
 
-\begin{frame}{Източник слушател диаграма}
+\begin{frame}{Източник слушател - диаграма}
   \transdissolve
-  
+  \includegraphics[width=320px,height=160px]{images/event_source.png}  
+\end{frame}
+
+\begin{frame}{Обработка на събития - диаграма}
+  \transdissolve
+  \includegraphics[width=320px,height=160px]{images/event_handling.png}  
 \end{frame}
 
 \begin{frame}[fragile]
@@ -317,7 +347,7 @@ frame.addWindowListener(new WindowListener() { // listener
 
 \begin{frame}{Йерархия на събитията в Swing}
   \transdissolve
-  
+  \includegraphics[width=320px,height=160px]{images/events.png}  
 \end{frame}
 
 \begin{frame}{Основни събития}

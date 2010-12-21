@@ -60,33 +60,32 @@
 \end{frame}
 
 \begin{frame}{Съдържание}
-  \tableofcontents[pausesections]
+  
+  \tableofcontents
 \end{frame}
 
 \section{Интерфейси}
 
+\subsection{Що е интерфейс?}
 \begin{frame}{Интерфейс}
+  
   \begin{itemize}
   \item
-    Наборът от методи, които един клас предлага
+    Наборът от методи, които един клас предлага 
   \item
     Езикова конструкция, която съдържа контракт(набор
-    от задължения)
+    от задължения) 
   \item Класовете могат да изпълнят контракта(да имплементират
-    интерфейса)
-  \item Обикновено съдържа само методи
+    интерфейса) 
+  \item Обикновено съдържа само методи 
   \item Методите са с ниво на достъп \textbf{public} и са \textbf{абстрактни}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Диаграма}
-  \transdissolve
-  
-\end{frame}
-
+\subsection{Дефиниция на интерфейс}
 \begin{frame}[fragile]
   \frametitle{Дефиниция на интерфейс}
-  \transdissolve
+  
 \begin{lstlisting}
 interface SomeInterface {
   Type field1; // bad style
@@ -98,50 +97,53 @@ interface SomeInterface {
 \end{lstlisting}
 \end{frame}
 
+\subsection{Имплементиране на интерфейс}
 \begin{frame}[fragile]
   \frametitle{Имплементиране на интерфейс}
-  \transdissolve
+  
 \begin{lstlisting}
-SomeClass implements SomeInterface {
+class SomeClass implements SomeInterface {
   ...  
   @Override
-  public Type method1() {...};
+  public Type method1() {...}
   @Override
   public Type method2() {...}
 }
 \end{lstlisting}
 \end{frame}
 
+\subsection{Особености на интерфейсите}
 \begin{frame}{Особености на интерфейсите}
-  \transdissolve
+  
   \begin{itemize}
-  \item Всички методи в тях са абстрактни
-  \item Един клас може да имплементира повече от един интерфейс
+  \item Всички методи в тях са абстрактни 
+  \item Един клас може да имплементира повече от един интерфейс 
   \item Интерфейсът \textbf{НЕ Е} клас - не може създавате обекти от
-    интерфейс
-  \item Могат да бъдат декларирани променливи от интерфейсен тип
-  \item Работят с instanceof оператора
-  \item Не е желателно да имат полета
+    интерфейс 
+  \item Могат да бъдат декларирани променливи от интерфейсен тип 
+  \item Работят с instanceof оператора 
+  \item Не е желателно да имат полета 
   \item Абстрактен клас може да имплементира интерфейс напълно или
     частично
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Особености на интефейсите}
-  \transdissolve
+\begin{frame}{Особености на интерфейсите}
+  
   \begin{itemize}
-  \item Не могат да съдържат instance полета
-  \item Не могат да съдържа статични методи
+  \item Не могат да съдържат instance полета 
+  \item Не могат да съдържа статични методи 
   \item Всички полета в един интерфейс са на практика константи(public
-    static final)
-  \item Един интерфейс може да разшири(наследи) друг
+    static final) 
+  \item Един интерфейс може да разшири(наследи) друг 
   \item Интерфейси без методи се използват като маркери(tags)
   \end{itemize}
 \end{frame}
 
+\subsection{Интерфейси от стандартната библиотека}
 \begin{frame}[fragile]
 \frametitle{Сравняване на обекти с интерфейса Comparable}
-\transdissolve
+
 \begin{lstlisting}
 public interface Comparable<T> {
   int compareTo(T other);
@@ -151,146 +153,301 @@ public interface Comparable<T> {
   \item Използва се за сравняване на обекти с естествена подредба
   \item Генеричен интерфейс от Java 5
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Comparable - пример}
-  \transdissolve
-\begin{lstlisting}
   
+\begin{lstlisting}
+class Employee implements Comparable<Employee> {
+  private double salary;
+
+  ...  
+
+  public int compareTo(Employee other) {
+    if (salary < other.salary) return -1;
+    if (salary > other.salary) return 1;
+    return 0;
+  }
+}  
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}{Клониране обекти}
-  \transdissolve
+  
   \begin{itemize}
-  \item метода clone() на класа Object
-  \item интерфейсът Cloneable() - интерфейс маркер
-  \item плитко клониране
-  \item дълбоко клониране
+  \item метода clone() на класа Object 
+  \item интерфейсът Cloneable() - интерфейс маркер 
+  \item плитко клониране 
+  \item дълбоко клониране 
   \item имплементиране на clone()
-  \item клониране на масиви
   \end{itemize}
 \end{frame}
 
-
 \begin{frame}{Клониране - диаграма}
-  \transdissolve
   
+  \includegraphics[width=160px,height=160px]{images/cloning.png}
 \end{frame}
 
+\begin{frame}{Плитко копиране - диаграма}
+  
+  \includegraphics[width=320px,height=160px]{images/shallow-copy.png}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Плитко клониране - пример}
+  
+\begin{lstlisting}
+class Employee implements Cloneable {
+  // raise visibility level to public, change return type
+  public Employee clone() throws CloneNotSupportedException {
+    return (Employee) super.clone();
+  }
+  . . .
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Дълбоко клониране - пример}
+  
+\begin{lstlisting}
+class Employee implements Cloneable
+{
+  . . .
+  public Employee clone() throws CloneNotSupportedException
+  {
+    // call Object.clone()
+    Employee cloned = (Employee) super.clone();
+    // clone mutable fields
+    cloned.hireDay = (Date) hireDay.clone()
+    return cloned;
+  }
+}  
+\end{lstlisting}
+\end{frame}
+
+\subsection{Обработка на събития}
 \begin{frame}{Обработка на събития}
-  \transdissolve
+  
   \begin{itemize}
-  \item Събитие - изтекъл таймер, натиснат бутон
+  \item Събитие 
+    \begin{itemize}
+      \item натиснат бутон 
+      \item изтекъл таймер 
+    \end{itemize}
   \item Callback
+    \begin{itemize}
+      \item код, който се изпълнява в резултат от настъпването на
+        дадено събитие 
+    \end{itemize}
   \item Реализация на callback механизъм с интерфейси
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
-  \transdissolve
-\begin{lstlisting}
   
+\begin{lstlisting}[basicstyle=\tiny]
+public class TimerTest {
+  public static void main(String[] args) {
+    ActionListener listener = new TimePrinter();
+    // construct a timer that calls the listener
+    // once every 10 seconds
+    Timer t = new Timer(10000, listener);
+    t.start();
+    JOptionPane.showMessageDialog(null, "Quit program?");
+    System.exit(0);
+  }
+}
+
+class TimePrinter implements ActionListener {
+  public void actionPerformed(ActionEvent event) {
+    Date now = new Date();
+    System.out.println("At the tone, the time is " + now);
+    Toolkit.getDefaultToolkit().beep();
+  }
+}
 \end{lstlisting}
 \end{frame}
 
 \section{Вътрешни класове}
-
+\subsection{Какво са вътрешните класове?}
 \begin{frame}{Вътрешни класове}
-  \transdissolve
+  
   \begin{itemize}
-  \item Влагане да дефиницията на един клас в друг
-  \item Реализирани са на ниво компилатор
-  \item Позволяват достъп до членовете на класа, в който са вложени
-  \item Видове
+  \item Влагане да дефиницията на един клас в друг 
+  \item Реализирани са на ниво компилатор 
+  \item Позволяват достъп до членовете на класа, в който са вложени 
+  \item Видове 
     \begin{itemize}
-      \item стандартни
-      \item локални 
-      \item анонимни
-      \item статични
+      \item стандартни 
+      \item локални  
+      \item анонимни 
+      \item статични 
     \end{itemize}
-
   \end{itemize}
 \end{frame}
 
+\subsection{Стандартни вътрешни класове}
 \begin{frame}{Стандартни вътрешни класове}
-  \transdissolve
+  
   \begin{itemize}
-  \item Дефинирани са в друг клас на нивото на полетата и методите му
-  \item Имат достъп до полетата и методите на външния клас
-  \item Имат скрита референция към външния клас
+  \item Дефинирани са в друг клас на нивото на полетата и методите му 
+  \item Имат достъп до полетата и методите на външния клас 
+  \item Имат скрита референция към външния клас 
   \item Всяка инстанция от външния клас носи дефиницията на вътрешния
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
-  \transdissolve
-\begin{lstlisting}
   
+\begin{lstlisting}[basicstyle=\tiny]
+class TalkingClock {
+  private int interval;
+  private boolean beep;
+
+  public TalkingClock(int interval, boolean beep) {
+    this.interval = interval;
+    this.beep = beep;
+  }
+  
+  public void start() {
+    ActionListener listener = new TimePrinter();
+    Timer t = new Timer(interval, listener);
+    t.start();
+  
+  }
+  // inner class
+  private class TimePrinter implements ActionListener {
+    public void actionPerformed(ActionEvent event) {
+      Date now = new Date();
+      System.out.println("At the tone, the time is " + now);
+      if (beep) Toolkit.getDefaultToolkit().beep();
+    }
+  }
+}
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{Локалния вътрешни класове}
-  \transdissolve
+
+\begin{frame}{Вътрешен клас}
+  
+  \includegraphics[width=320px,height=160px]{images/inner-class.png}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Магията на компилатора}
+  
+\begin{itemize}
+  \item Вътрешните класове са феномен на компилатора
+  \item Имената на генерираните класове имат формат OuterClass\$InnerClass.class
+  \item За виртуалната машина те са съвсем обикновени
+\end{itemize}
+
+\begin{lstlisting}
+public class TalkingClock$TimePrinter {
+  public TalkingClock$TimePrinter(TalkingClock);
+  public void actionPerformed(java.awt.event.ActionEvent);
+  final TalkingClock this$0;
+}
+\end{lstlisting}
+\end{frame}
+
+
+\subsection{Локални вътрешни класове}
+\begin{frame}{Локални вътрешни класове}
+  
   \begin{itemize}
-  \item Дефинирани са в тялото на метод на външния клас
-  \item Имат достъп до локалните променливи в метода
+  \item Дефинирани са в тялото на метод на външния клас 
+  \item Имат достъп до локалните променливи в метода 
+    \begin{itemize}
+      \item но само до тези маркирани като final 
+    \end{itemize}
   \item Не са видими извън метода, в който са дефинирани
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
-  \transdissolve
-\begin{lstlisting}
   
+\begin{lstlisting}[basicstyle=\small]
+public void start() {
+  class TimePrinter implements ActionListener {
+    public void actionPerformed(ActionEvent event) {
+      Date now = new Date();
+      System.out.println("At the tone, the time is " + now);
+      if (beep) 
+        Toolkit.getDefaultToolkit().beep();
+    }
+  }
+  ActionListener listener = new TimePrinter();
+  Timer t = new Timer(interval, listener);
+  t.start();
+}  
 \end{lstlisting}
 \end{frame}
 
+\subsection{Анонимни вътрешни класове}
 \begin{frame}{Анонимни вътрешни класове}
-  \transdissolve
+  
   \begin{itemize}
-  \item Разновидност на локалните класове
+  \item Разновидност на локалните класове 
   \item Създава се обект от клас дефиниран след оператора за
-    присвояване
+    присвояване 
   \item Обикновено анонимните класове имплементират някой интерфейс
+    
+  \item Не могат да дефинират собствени конструктори
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
-  \transdissolve
-\begin{lstlisting}
   
+\begin{lstlisting}[basicstyle=\small]
+public void start(int interval, final boolean beep) {
+  ActionListener listener = new ActionListener() {
+    public void actionPerformed(ActionEvent event) {
+      Date now = new Date();
+      System.out.println("At the tone, the time is " + now);
+      if (beep) 
+        Toolkit.getDefaultToolkit().beep();
+    }
+  };
+  Timer t = new Timer(interval, listener);
+  t.start();
+} 
 \end{lstlisting}
 \end{frame}
 
+\subsection{Статични вътрешни класове}
 \begin{frame}{Статични вътрешни класове}
-  \transdissolve
+  
   \begin{itemize}
   \item Еквивалентни на стандартните, но без референция към външния
-    клас
+    клас  
   \item Служат като допълнително пространство на имената
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Пример}
-  \transdissolve
-\begin{lstlisting}
   
+\begin{lstlisting}
+class Outer {
+  ...
+
+  public static class Inner {
+    ...
+  }
+}  
 \end{lstlisting}
 \end{frame}
 
-
 \section*{Заключение}
-
 \begin{frame}{Заключение}
-  \transdissolve
+  
   % Keep the summary *very short*.
   \begin{itemize}
   \item
@@ -308,21 +465,19 @@ public interface Comparable<T> {
     \begin{itemize}
     \item
       Разработка на графични потребителски интерфейси със Swing
-    \item
-      Повече примери, по-малко общи приказки
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Въпроси}
-  \transdissolve
+  
   \begin{center}
     \LARGEТук е момента да зададете вашите въпроси! :-)
   \end{center}
 \end{frame}
 
 \begin{frame}{Край}
-  \transdissolve
+  
   \begin{center}
     \LARGEБлагодаря Ви за вниманието!
   \end{center}
