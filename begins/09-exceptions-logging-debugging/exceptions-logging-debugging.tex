@@ -60,6 +60,7 @@
 \end{frame}
 
 \begin{frame}{Съдържание}
+  \transdissolve
   \tableofcontents[pausesections]
 \end{frame}
 
@@ -68,39 +69,39 @@
 \subsection{Грешки}
 
 \begin{frame}{Грешки в приложенията}
+  \transdissolve
   \begin{itemize}
-  \item Програмни грешки
+  \item Програмни грешки \pause
     \begin{itemize}
-      \item възникват по вина на програмиста
+      \item възникват по вина на програмиста \pause
     \end{itemize}
-  \item Потребителски грешки
+  \item Потребителски грешки \pause
       \begin{itemize}
-        \item възникват по вина на потребителя
-        \item неподходящи входни данни
-        \item неправилна конфигурация
+        \item възникват по вина на потребителя \pause
+        \item неподходящи входни данни \pause
+        \item неправилна конфигурация \pause
       \end{itemize}
-  \item Системни грешки
+  \item Системни грешки \pause
   \begin{itemize}
-    \item липсва на оперативна памет
-    \item липса на файлови дескриптори
+    \item липсва на оперативна памет \pause
+    \item липса на файлови дескриптори \pause
   \end{itemize}
-
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Класически подход за следене за грешки}
   \transdissolve
   \begin{itemize}
-  \item Връщане на специални стойности
+  \item Връщане на специални стойности \pause
     \begin{itemize}
-      \item -1
-      \item null
+      \item -1 \pause
+      \item null \pause
     \end{itemize}
-  \item Проблеми на подхода
+  \item Проблеми на подхода \pause
     \begin{itemize}
-      \item върнатите стойности могат лесно да бъдат игнорирани
+      \item върнатите стойности могат лесно да бъдат игнорирани \pause
       \item връщането на null създава риск за възникване на
-        NullPointerException
+        NullPointerException \pause
       \item не винаги има подходящи специални стойности
     \end{itemize}
 
@@ -111,8 +112,8 @@
   \transdissolve
   \begin{itemize}
   \item Специален обект, който сигнализира за възникването на някакво
-    неочаквано събитие
-  \item Капсулира в себе си причина, съобщение за грешка, stack trace
+    неочаквано събитие \pause
+  \item Капсулира в себе си причина, съобщение за грешка, stack trace \pause
   \item Съществува цяла инфраструктура за обработка на изключения
   \end{itemize}
 \end{frame}
@@ -126,44 +127,45 @@
 \begin{frame}{Основни класове в йерархията}
   \transdissolve
   \begin{itemize}
-  \item Throwable
+  \item Throwable \pause
     \begin{itemize}
-    \item всички изключения го разширяват
+    \item всички изключения го разширяват \pause
     \end{itemize}
-  \item Error
+  \item Error \pause
     \begin{itemize}
-      \item базов клас за изключения свързани с виртуалната машина
-      \item не трябва да го разширявате
+      \item базов клас за изключения свързани с виртуалната машина \pause
+      \item не трябва да го разширявате \pause
     \end{itemize}
-  \item RuntimeException
+  \item RuntimeException \pause
     \begin{itemize}
-      \item базов клас за изключения свързани с програмни грешки
+      \item базов клас за изключения свързани с програмни грешки \pause
     \end{itemize}
-  \item Exception
+  \item Exception \pause
+    \begin{itemize}
     \item базов клас за всички останали изключения
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Видове изключения}
   \transdissolve
   \begin{itemize}
-  \item Проверени(checked)
+  \item Проверени(checked) \pause
     \begin{itemize}
-      \item обработката им се проверява автоматично от компилатора
-      \item обекти от подкласове на Exception
-      \item Често срещани проверени изключения
+      \item обработката им се проверява автоматично от компилатора \pause
+      \item обекти от подкласове на Exception \pause
+      \item Често срещани проверени изключения \pause
         \begin{itemize}
-          \item IOException
-          \item FileNotFoundException
+          \item IOException \pause
+          \item FileNotFoundException \pause
         \end{itemize}
-
     \end{itemize}
 
-  \item Непроверени(unchecked)
+  \item Непроверени(unchecked) \pause
     \begin{itemize}
-      \item възникват от програмни грешки
-      \item възникват от грешки във виртуалната машина
-      \item обекти от подклас на RuntimeException
+      \item възникват от програмни грешки \pause
+      \item възникват от грешки във виртуалната машина \pause
+      \item обекти от подклас на RuntimeException \pause
       \item Често срещани непроверени изключения
         \begin{itemize}
           \item NullPointerException
@@ -181,11 +183,11 @@
 \begin{frame}{Дефиниране на изключения}
   \transdissolve
   \begin{itemize}
-  \item Предпочитайте изключенията от стандартната библиотека
+  \item Предпочитайте изключенията от стандартната библиотека \pause
   \item Предпочитайте вече дефинирани изключения в рамките на
-    приложението ви
+    приложението ви \pause
   \item Използвайте за базови класове само Exception и
-    RuntimeException
+    RuntimeException \pause
   \item В никакъв случай не наследявайте директно Throwable или Error
   \end{itemize}
 \end{frame}
@@ -213,9 +215,9 @@ class MyException extends Exception {
   \begin{itemize}
   \item Изключенията се сигнализират с ключовата дума throw
     \begin{itemize}
-      \item \lstinline$throw new SomeException()$
+      \item \lstinline$throw new SomeException()$ \pause
     \end{itemize}
-  \item Изключенията се прихващата в try блок
+  \item Изключенията се прихващата в try блок \pause
   \item Изключенията могат да бъдат предадени към извикващия метод
     посредством throws директивата
   \end{itemize}
@@ -247,8 +249,8 @@ public void someMethod() throws SomeException {
   \transdissolve
   \begin{itemize}
   \item Има смисъл да се прихващат само изключения, за които може да
-    бъде направено нещо
-  \item Има смисъл да се пропагират само проверени изключения
+    бъде направено нещо \pause
+  \item Има смисъл да се пропагират(предават нагоре) само проверени изключения \pause
   \item Код във finally блок се изпълнява винаги 
   \end{itemize}
 \end{frame}
@@ -256,8 +258,8 @@ public void someMethod() throws SomeException {
 \begin{frame}{Stack trace}
   \transdissolve
   \begin{itemize}
-  \item Информация за реда на извиквания на методи
-  \item Съдържа се във всяко изключение
+  \item Информация за реда на извиквания на методи  \pause
+  \item Съдържа се във всяко изключение \pause
   \item Изключително полезен при дебъгване за определяне на мястото,
     на което е възникнал даден проблем
   \end{itemize}
@@ -266,8 +268,8 @@ public void someMethod() throws SomeException {
 \begin{frame}{Опаковане на изключения}
   \transdissolve
   \begin{itemize}
-  \item Едно изключение може да е причинено от друго
-  \item Причината(cause) се задава в конструктора на новото изключение
+  \item Едно изключение може да е причинено от друго \pause
+  \item Причината(cause) се задава в конструктора на новото изключение \pause
   \item Често се използва за опакова на проверени изключения в непроверени
   \end{itemize}
 \end{frame}
@@ -275,9 +277,9 @@ public void someMethod() throws SomeException {
 \begin{frame}{Добри практики}
   \transdissolve
   \begin{itemize}
-  \item Предпочитай стандартните изключения
-  \item Използвайте ги само, когато наистина се нуждаете от тях
-  \item Не ги потискайте
+  \item Предпочитай стандартните изключения \pause
+  \item Използвайте ги само, когато наистина се нуждаете от тях \pause
+  \item Не ги потискайте \pause
   \item Избягвайте прекалената употреба на проверени изключения
   \end{itemize}
 \end{frame}
@@ -288,8 +290,8 @@ public void someMethod() throws SomeException {
   \transdissolve
   \begin{itemize}
   \item Използват се за потвърждаване на коректността на стойности в
-    определени моменти от програмата
-  \item Извършват се с ключовата дума assert
+    определени моменти от програмата \pause
+  \item Извършват се с ключовата дума assert \pause
   \item Проверките се активират на ниво виртуална машина с флага -еа
   \end{itemize}
 \end{frame}
@@ -297,16 +299,15 @@ public void someMethod() throws SomeException {
 \begin{frame}{Работа с проверки}
   \transdissolve
   \begin{itemize}
-  \item При пропадане на проверка програмата завършва с AssertionError
-  \item Използват се само във фазата на разработка
+  \item При пропадане на проверка програмата завършва с AssertionError \pause
+  \item Използват се само във фазата на разработка \pause
   \item В режим на експлоатация(production deployment) се изключват на
-    ниво виртуална машина
+    ниво виртуална машина \pause
   \item Употреба
     \begin{itemize}
       \item \lstinline$assert condition$;
       \item \lstinline$assert condition : expression$;
     \end{itemize}
-
   \end{itemize}
 \end{frame}
 
@@ -314,7 +315,10 @@ public void someMethod() throws SomeException {
   \frametitle{Пример}
   \transdissolve
 \begin{lstlisting}
-  
+assert true;
+assert 5 > 4;
+assert someList.isEmpty();
+assert someList.size() > 10 : "Big trouble";
 \end{lstlisting}
 \end{frame}
 
@@ -325,16 +329,16 @@ public void someMethod() throws SomeException {
 \transdissolve
 \begin{itemize}
 \item Информативни съобщения, чрез които можем да анализираме работата
-  на дадено приложение
+  на дадено приложение \pause
 \item Категории журнални съобщения
 \begin{itemize}
   \item debug
   \item info
   \item warning
-  \item error
+  \item error \pause
 \end{itemize}
-\item Извеждане на конзола
-\item Съхранение във файл
+\item Извеждане на конзола \pause
+\item Съхранение във файл \pause
 \begin{itemize}
   \item ротация на журналните съобщения
 \end{itemize}
@@ -344,10 +348,10 @@ public void someMethod() throws SomeException {
 \begin{frame}{Журналния библиотеки в Java}
   \transdissolve
   \begin{itemize}
-  \item Java Logging
-  \item Log4J
-  \item Logback
-  \item SimpleLog
+  \item Java Logging \pause
+  \item Log4J \pause
+  \item Logback \pause
+  \item SimpleLog \pause
   \item Фасадни библиотеки
     \item Commons Logging
     \item SLF4J
@@ -358,7 +362,7 @@ public void someMethod() throws SomeException {
   \transdissolve
   \begin{itemize}
   \item Обикновено се конфигурират с конфигурационен файл или
-    програматично
+    програматично \pause
   \item Стандартни опции
     \begin{itemize}
       \item описателност(verbosity)
@@ -366,7 +370,6 @@ public void someMethod() throws SomeException {
       \item формат на съобщенията
       \item ротация/архивиране
     \end{itemize}
-
   \end{itemize}
 \end{frame}
 
@@ -374,11 +377,11 @@ public void someMethod() throws SomeException {
   \transdissolve
   \begin{itemize}
   \item Всеки клас, който прави нещо смислено трябва да има
-    Logger(private static final)
+    Logger(private static final) \pause
   \item Журналните съобщения не трябва да са криптични, а ясни и
-    описателни
+    описателни \pause
   \item Дръжте конфигурацията си в конфигурационни файлове, а не в
-    кода
+    кода \pause
   \item Предпочитайте фасадни библиотеки
   \end{itemize}
 \end{frame}
@@ -396,12 +399,12 @@ public void someMethod() throws SomeException {
 \begin{frame}{Дебъгване с дебъгер}
   \transdissolve
   \begin{itemize}
-  \item Най-мощната техника за търсене и отстраняване на проблеми
+  \item Най-мощната техника за търсене и отстраняване на проблеми \pause
   \item Дебъгерът ви дава възможност да:
     \begin{itemize}
-      \item спрете изпълнение на програмата в даден момент
-      \item прегледате стойностите на полета, локални променливи
-      \item да изпълнявате програмата твърдение по твърдение
+      \item спрете изпълнение на програмата в даден момент \pause
+      \item прегледате стойностите на полета, локални променливи \pause
+      \item да изпълнявате програмата твърдение по твърдение \pause
       \item да изпълнявате произволни твърдения в контекста на
         текущата програма 
     \end{itemize}
@@ -412,10 +415,10 @@ public void someMethod() throws SomeException {
 \begin{frame}{Работа с дебъгер}
   \transdissolve
   \begin{itemize}
-  \item Интегриран в повечето среди за разработка
+  \item Интегриран в повечето среди за разработка \pause
   \item Поставяне на точки на прекъсване(line break, method break,
-    etc)
-  \item Стартиране на приложението в debug режим
+    etc) \pause
+  \item Стартиране на приложението в debug режим \pause
   \item Програмата спира(прави пауза) на първата срещната точка за
     прекъсване
   \end{itemize}
@@ -425,9 +428,9 @@ public void someMethod() throws SomeException {
   \transdissolve
   \begin{itemize}
   \item Използвайте stack trace-a, за да определените местата за точки
-    на прекъсване
+    на прекъсване \pause
   \item Развийте навик да преглеждате състоянието на всички по-важни
-    стойности
+    стойности \pause
   \item Избягвайте употребата на method точки за прекъсване
   \end{itemize}
 \end{frame}
